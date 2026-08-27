@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { getPublicEnv } from "@/lib/env";
+import { Database } from "@/types/database.types";
 
 /**
  * Creates a server-side Supabase client instance compatible with Next.js Server Components, Actions, and Route Handlers.
@@ -10,9 +11,9 @@ export async function createServerSupabaseClient() {
   const cookieStore = await cookies();
   const env = getPublicEnv();
 
-  return createServerClient(
+  return createServerClient<Database>(
     env.NEXT_PUBLIC_SUPABASE_URL,
-    env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
     {
       cookies: {
         getAll() {

@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 interface BillsSectionProps {
   bills: BillItem[];
   currencySymbol: string;
-  onCreateBill: (bill: Omit<BillItem, "id" | "status">) => void;
+  onCreateBill: (bill: { name: string; amount: number; dueDate: string; category?: string; frequency?: string }) => void;
   onMarkPaid: (billId: string) => void;
 }
 
@@ -35,7 +35,7 @@ export const BillsSection: React.FC<BillsSectionProps> = ({
 
     onCreateBill({
       name: billName,
-      amount: amount,
+      amount: Math.round(amount * 100), // convert to minor units
       dueDate: dueDate || new Date().toISOString().split("T")[0],
       category: "Utilities & Internet",
       frequency: "Monthly"
@@ -75,6 +75,7 @@ export const BillsSection: React.FC<BillsSectionProps> = ({
       <div className="space-y-2">
         {bills.map((bill) => {
           const isPaid = bill.status === "paid";
+          const amountMajor = bill.amount / 100;
 
           return (
             <AppCard
@@ -97,12 +98,12 @@ export const BillsSection: React.FC<BillsSectionProps> = ({
                     <h4 className="text-xs font-bold text-foreground">{bill.name}</h4>
                     {!isPaid && (
                       <StatusBadge variant="warning">
-                        Due in 2 days
+                        Upcoming
                       </StatusBadge>
                     )}
                   </div>
                   <p className="text-[11px] text-muted-foreground mt-0.5">
-                    Due {bill.dueDate} • {bill.frequency}
+                    Due {bill.dueDate}
                   </p>
                 </div>
               </div>
@@ -110,7 +111,7 @@ export const BillsSection: React.FC<BillsSectionProps> = ({
               <div className="flex items-center space-x-3">
                 <span className="text-xs font-bold text-foreground">
                   {currencySymbol}
-                  {bill.amount.toLocaleString()}
+                  {amountMajor.toLocaleString()}
                 </span>
 
                 {!isPaid ? (

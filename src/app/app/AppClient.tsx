@@ -1,13 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import { SavingsGoal, BillItem } from "@/domain/types";
+import { SmartAlert } from "@/domain/types";
 const PERSONA_PROFILES = [
   { id: "salaried", name: "Salaried Employee", description: "" },
   { id: "freelancer", name: "Freelancer", description: "" }
 ];
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
-import { createTransactionAction } from "./actions";
+import {
+  createTransactionAction,
+  createSavingsGoalAction,
+  createBillAction,
+  markBillPaidAction,
+  setSpendingPlanLimitAction
+} from "./actions";
 import { logoutAction } from "@/lib/auth/actions";
 import { Header } from "@/components/layout/Header";
 import { Navbar, NavTab } from "@/components/layout/Navbar";
@@ -29,6 +35,13 @@ import { AppCard } from "@/components/shared/AppCard";
 import { Sparkles, Settings, Target, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { FinancialHealthCard } from "@/components/health/FinancialHealthCard";
+import { CalendarWorkspace } from "@/components/calendar/CalendarWorkspace";
+import { AlertsWorkspace } from "@/components/alerts/AlertsWorkspace";
+import {
+  markAlertReadAction,
+  markAllAlertsReadAction
+} from "./actions";
 
 interface AppClientProps {
   initialUser: {
@@ -48,12 +61,6 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
 
   // State
   const [user, setUser] = useState(initialUser);
-  const [goals, setGoals] = useState<SavingsGoal[]>([]);
-  const [bills, setBills] = useState<BillItem[]>([]);
-  const [spendingPlan, setSpendingPlan] = useState({
-    overallMonthlyLimit: 500000,
-    categoryBudgets: []
-  });
 
   // Navigation & Modal State
   const [activeTab, setActiveTab] = useState<NavTab>("home");
@@ -66,26 +73,83 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
   const [isOnboarding, setIsOnboarding] = useState(false);
   const [showDevDrawer, setShowDevDrawer] = useState(false);
 
-  const { moneyLeftBreakdown, upcomingBills, recentTransactions } = dashboardData;
+  // Calendar State
+  const [calendarYear, setCalendarYear] = useState(new Date().getFullYear());
+  const [calendarMonth, setCalendarMonth] = useState(new Date().getMonth() + 1);
+
+  const {
+    moneyLeftBreakdown,
+    upcomingBills,
+    recentTransactions,
+    savingsGoals = [],
+    billOccurrences = [],
+    spendingPlan,
+    currentPeriod,
+    financialHealth,
+    smartAlerts = [],
+    financialEvents = [],
+    spendingDays = [],
+    spendingInsights = {
+      totalSpent: 0,
+      activeSpendDaysCount: 0,
+      averageSpendPerActiveDay: 0,
+      highestSpendDay: null,
+      noSpendDaysCount: 0
+    }
+  } = dashboardData;
+
+  const [alertsList, setAlertsList] = useState<SmartAlert[]>(smartAlerts);
+  const unreadAlertsCount = alertsList.filter((a) => !a.readAt).length;
+
   const isEmptyState = !moneyLeftBreakdown.hasIncomeLogged && recentTransactions.length === 0;
+  const overallMonthlyLimit = spendingPlan ? spendingPlan.limitAmount / 100 : 500000;
+
+  const handleMarkAlertRead = async (alertId: string) => {
+    try {
+      await markAlertReadAction(alertId);
+      setAlertsList((prev) =>
+        prev.map((a) => (a.id === alertId ? { ...a, readAt: new Date().toISOString() } : a))
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleMarkAllAlertsRead = async () => {
+    try {
+      await markAllAlertsReadAction();
+      setAlertsList((prev) =>
+        prev.map((a) => ({ ...a, readAt: new Date().toISOString() }))
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleCalendarMonthChange = (year: number, month: number) => {
+    setCalendarYear(year);
+    setCalendarMonth(month);
+    startTransition(() => {
+      router.refresh();
+    });
+  };
 
   // Handlers
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSaveTransaction = async (newTx: any) => {
-    // Map from UI payload to Domain Payload
     const mappedType = newTx.classification || newTx.type; 
     let finalType = mappedType;
-    if (finalType === 'inflow') finalType = 'income'; // fallback if needed
-    if (finalType === 'outflow') finalType = 'expense'; // fallback if needed
+    if (finalType === 'inflow') finalType = 'income'; 
+    if (finalType === 'outflow') finalType = 'expense';
 
     try {
       await createTransactionAction({
         type: finalType,
-        amount: newTx.amount,
+        amount: Math.round(newTx.amount * 100), // convert major to minor units
         category: newTx.category,
         note: newTx.note,
         goalId: newTx.goalId,
-        occurredAt: new Date(newTx.date).toISOString() // simplistic conversion
+        occurredAt: new Date(newTx.date || Date.now()).toISOString()
       });
       
       startTransition(() => {
@@ -97,54 +161,89 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
     }
   };
 
-  const handleDeleteTransaction = async () => {
-    // We don't have a delete action yet, but when we do:
-    // await deleteTransactionAction(id);
-    // startTransition(() => router.refresh());
-    alert("Delete not wired in this phase brief");
+  const handleCreateGoal = async (goal: { name: string; targetAmount: number; targetDate?: string }) => {
+    try {
+      await createSavingsGoalAction({
+        name: goal.name,
+        targetAmount: goal.targetAmount,
+        targetDate: goal.targetDate,
+        status: "active"
+      });
+      startTransition(() => {
+        router.refresh();
+      });
+    } catch (e) {
+      console.error(e);
+      alert("Failed to create savings goal.");
+    }
   };
 
-  const handleCreateGoal = (goal: Omit<SavingsGoal, "id" | "savedAmount" | "status">) => {
-    const created: SavingsGoal = {
-      ...goal,
-      id: `goal-${Date.now()}`,
-      savedAmount: 0,
-      status: "active"
-    };
-    setGoals([...goals, created]);
+  const handleAddGoalContribution = async (goalId: string, amountMinorUnits: number) => {
+    try {
+      await createTransactionAction({
+        type: "goal_contribution",
+        amount: amountMinorUnits,
+        category: "Savings Goal Contribution",
+        goalId: goalId,
+        occurredAt: new Date().toISOString()
+      });
+      startTransition(() => {
+        router.refresh();
+      });
+    } catch (e) {
+      console.error(e);
+      alert("Failed to record goal contribution.");
+    }
   };
 
-  const handleAddGoalContribution = (goalId: string, amount: number) => {
-    setGoals(
-      goals.map((g) => (g.id === goalId ? { ...g, savedAmount: g.savedAmount + amount } : g))
-    );
-    handleSaveTransaction({
-      type: "outflow",
-      classification: "savings",
-      amount: amount,
-      category: "Savings Goal Contribution",
-      date: new Date().toISOString().split("T")[0],
-      note: "Goal progress contribution"
-    });
+  const handleCreateBill = async (bill: { name: string; amount: number; dueDate: string; category?: string; frequency?: string }) => {
+    try {
+      await createBillAction({
+        name: bill.name,
+        expectedAmount: bill.amount,
+        dueDate: bill.dueDate,
+        category: bill.category,
+        frequency: (bill.frequency as "weekly" | "biweekly" | "monthly" | "yearly" | "custom") || "monthly"
+      });
+      startTransition(() => {
+        router.refresh();
+      });
+    } catch (e) {
+      console.error(e);
+      alert("Failed to create bill.");
+    }
   };
 
-  const handleCreateBill = (bill: Omit<BillItem, "id" | "status">) => {
-    const created: BillItem = {
-      ...bill,
-      id: `bill-${Date.now()}`,
-      status: "unpaid"
-    };
-    setBills([...bills, created]);
+  const handleMarkBillPaid = async (billOccurrenceId: string) => {
+    try {
+      await markBillPaidAction(billOccurrenceId);
+      startTransition(() => {
+        router.refresh();
+      });
+    } catch (e) {
+      console.error(e);
+      alert("Failed to mark bill as paid.");
+    }
   };
 
-  const handleMarkBillPaid = async () => {
-    // For Phase 6.1, we leave bills local state until Phase 8, but we want it to affect money left if it's wired.
-    // Since Phase 8 is not done, we just alert for now.
-    alert("Bills are local prototype data. Mark Paid requires real bill occurrences.");
+  const handleUpdateOverallLimit = async (newLimitMajorUnits: number) => {
+    try {
+      await setSpendingPlanLimitAction({
+        periodStart: currentPeriod.start,
+        periodEnd: currentPeriod.end,
+        limitAmount: Math.round(newLimitMajorUnits * 100)
+      });
+      startTransition(() => {
+        router.refresh();
+      });
+    } catch (e) {
+      console.error(e);
+      alert("Failed to update spending plan limit.");
+    }
   };
 
   const currentPersona = PERSONA_PROFILES.find((p) => p.id === user.personaId) || PERSONA_PROFILES[0];
-  const topGoal = goals[0];
+  const topGoal = savingsGoals[0];
 
   if (isOnboarding) {
     return (
@@ -171,6 +270,7 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
         }}
         userName={user.name}
         userEmail={user.email}
+        unreadAlertsCount={unreadAlertsCount}
       />
 
       {/* Main Right-Side Content Wrapper (Offset by 256px / lg:pl-64 on desktop) */}
@@ -202,7 +302,7 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                   totalExpenses={moneyLeftBreakdown.expenses}
                   totalSavings={moneyLeftBreakdown.savings}
                   totalDebt={moneyLeftBreakdown.debt}
-                  spendingLimit={spendingPlan.overallMonthlyLimit}
+                  spendingLimit={overallMonthlyLimit}
                 />
 
                 {/* Quick Actions Bar */}
@@ -230,22 +330,27 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                 {/* Monthly Spending Target Progress */}
                 {!isEmptyState && (
                   <HomePlanCard
-                    overallLimit={spendingPlan.overallMonthlyLimit}
-                    totalSpent={moneyLeftBreakdown.expenses}
+                    overallLimit={overallMonthlyLimit}
+                    totalSpent={moneyLeftBreakdown.expenses / 100}
                     currencySymbol={user.currencySymbol}
                     onGoToPlan={() => setActiveTab("plan")}
                   />
                 )}
               </div>
 
-              {/* Right Supporting Panel Column ("Your month" Assistant Order: 1. Upcoming, 2. Goals, 3. Insight) */}
+              {/* Right Supporting Panel Column */}
               <div className="lg:col-span-4 space-y-6">
+                {/* Financial Health Indicator */}
+                {financialHealth && (
+                  <FinancialHealthCard health={financialHealth} currencySymbol={user.currencySymbol} />
+                )}
+
                 {/* 1. Upcoming Payment */}
                 {upcomingBills && upcomingBills.bills && upcomingBills.bills.length > 0 && !isEmptyState && (
                   <UpcomingBillCard
                     bill={upcomingBills.bills[0]}
                     currencySymbol={user.currencySymbol}
-                    onMarkPaid={handleMarkBillPaid}
+                    onMarkPaid={(billId) => handleMarkBillPaid(billId)}
                   />
                 )}
 
@@ -274,15 +379,15 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                           <div>
                             <h4 className="text-xs font-bold text-foreground">{topGoal.name}</h4>
                             <span className="text-[11px] text-muted-foreground">
-                              {user.currencySymbol}{topGoal.savedAmount.toLocaleString()} of {user.currencySymbol}{topGoal.targetAmount.toLocaleString()}
+                              {user.currencySymbol}{(topGoal.savedAmount / 100).toLocaleString()} of {user.currencySymbol}{(topGoal.targetAmount / 100).toLocaleString()}
                             </span>
                           </div>
                         </div>
                         <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                          {Math.round((topGoal.savedAmount / topGoal.targetAmount) * 100)}%
+                          {topGoal.targetAmount > 0 ? Math.round((topGoal.savedAmount / topGoal.targetAmount) * 100) : 0}%
                         </span>
                       </div>
-                      <Progress value={(topGoal.savedAmount / topGoal.targetAmount) * 100} />
+                      <Progress value={topGoal.targetAmount > 0 ? Math.min(100, (topGoal.savedAmount / topGoal.targetAmount) * 100) : 0} />
                     </AppCard>
                   </div>
                 )}
@@ -318,12 +423,11 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                 transactions={recentTransactions.map((t: any) => ({
                   ...t,
                   date: t.occurredAt.split('T')[0],
-                  // map backend type to frontend classification for component
                   classification: t.type === 'income' || t.type === 'expense' ? t.type : (t.type === 'goal_contribution' ? 'savings' : t.type),
                   type: (t.type === 'income' || t.type === 'transfer') ? 'inflow' : 'outflow'
                 }))}
                 currencySymbol={user.currencySymbol}
-                onDeleteTransaction={handleDeleteTransaction}
+                onDeleteTransaction={() => {}}
                 onEditTransaction={() => {}}
               />
             </div>
@@ -333,14 +437,20 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
           {activeTab === "plan" && (
             <div className="max-w-4xl mx-auto">
               <PlanWorkspace
-                overallLimit={spendingPlan.overallMonthlyLimit}
-                categoryBudgets={spendingPlan.categoryBudgets}
-                goals={goals}
-                bills={bills}
+                overallLimit={overallMonthlyLimit}
+                categoryBudgets={[]}
+                goals={savingsGoals}
+                bills={billOccurrences.map((o: { id: string; billId: string; name?: string; expectedAmount: number; dueDate: string; category?: string; status: string }) => ({
+                  id: o.id,
+                  billId: o.billId,
+                  name: o.name || "Bill Payment",
+                  amount: o.expectedAmount,
+                  dueDate: o.dueDate,
+                  category: o.category,
+                  status: o.status === 'paid' ? ('paid' as const) : ('unpaid' as const)
+                }))}
                 currencySymbol={user.currencySymbol}
-                onUpdateOverallLimit={(newLimit) =>
-                  setSpendingPlan({ ...spendingPlan, overallMonthlyLimit: newLimit })
-                }
+                onUpdateOverallLimit={handleUpdateOverallLimit}
                 onCreateGoal={handleCreateGoal}
                 onAddGoalContribution={handleAddGoalContribution}
                 onCreateBill={handleCreateBill}
@@ -349,7 +459,33 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
             </div>
           )}
 
-          {/* TAB 4: PROFILE & SETTINGS */}
+          {/* TAB 4: CALENDAR WORKSPACE */}
+          {activeTab === "calendar" && (
+            <div className="max-w-4xl mx-auto">
+              <CalendarWorkspace
+                financialEvents={financialEvents}
+                spendingDays={spendingDays}
+                spendingInsights={spendingInsights}
+                currencySymbol={user.currencySymbol}
+                year={calendarYear}
+                month={calendarMonth}
+                onMonthChange={handleCalendarMonthChange}
+              />
+            </div>
+          )}
+
+          {/* TAB 5: ALERTS WORKSPACE */}
+          {activeTab === "alerts" && (
+            <div className="max-w-3xl mx-auto">
+              <AlertsWorkspace
+                alerts={alertsList}
+                onMarkRead={handleMarkAlertRead}
+                onMarkAllRead={handleMarkAllAlertsRead}
+              />
+            </div>
+          )}
+
+          {/* TAB 6: PROFILE & SETTINGS */}
           {activeTab === "profile" && (
             <div className="max-w-3xl mx-auto space-y-6">
               <ProfileView
@@ -403,7 +539,7 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
         onClose={() => setIsQuickAddOpen(false)}
         onSaveTransaction={handleSaveTransaction}
         currencySymbol={user.currencySymbol}
-        goals={goals}
+        goals={savingsGoals}
       />
 
       {/* Monthly Money Check-In Modal */}

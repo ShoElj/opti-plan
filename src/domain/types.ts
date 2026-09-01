@@ -90,18 +90,47 @@ export type ConnectedAccountStatus =
   | "revoked"
   | "error";
 
-// Phase 8 Stub Types (To be replaced with real models in Phase 8)
 export interface SavingsGoal {
   id: string;
+  userId: string;
   name: string;
   targetAmount: MinorUnits;
   savedAmount: MinorUnits;
   targetDate?: string;
-  status: "active" | "completed";
+  status: "active" | "completed" | "archived";
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface TrackedBill {
+  id: string;
+  userId: string;
+  name: string;
+  expectedAmount: MinorUnits;
+  frequency: "weekly" | "biweekly" | "monthly" | "yearly" | "custom";
+  dueDayOfMonth?: number;
+  category: string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface BillOccurrence {
+  id: string;
+  billId: string;
+  userId: string;
+  dueDate: string;
+  expectedAmount: MinorUnits;
+  status: "unpaid" | "paid" | "skipped" | "overdue";
+  periodKey?: string;
+  name?: string;
+  category?: string;
+  createdAt: string;
 }
 
 export interface BillItem {
   id: string;
+  billId: string;
   name: string;
   amount: MinorUnits;
   dueDate: string;
@@ -109,3 +138,93 @@ export interface BillItem {
   frequency?: string;
   status: "unpaid" | "paid";
 }
+
+export interface SpendingPlan {
+  id: string;
+  userId: string;
+  periodStart: string;
+  periodEnd: string;
+  limitAmount: MinorUnits;
+  currencyCode: CurrencyCode;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Phase 6.3: Financial Awareness Domain Models
+export interface FinancialHealth {
+  status: "healthy" | "warning" | "attention";
+  moneyLeft: MinorUnits;
+  summary: string;
+  reasons: string[];
+  spending: {
+    spent: MinorUnits;
+    limit?: MinorUnits;
+    remaining?: MinorUnits;
+    status: "on_track" | "warning" | "over";
+  };
+  upcomingBills: {
+    total: MinorUnits;
+    count: number;
+  };
+  savings: {
+    goalsOnTrack: number;
+    goalsNeedingAttention: number;
+  };
+  debt: {
+    total: MinorUnits;
+  };
+}
+
+export interface FinancialCalendarEvent {
+  id: string;
+  date: string; // YYYY-MM-DD in user local timezone
+  type:
+    | "income"
+    | "expense"
+    | "savings"
+    | "goal_contribution"
+    | "debt"
+    | "bill"
+    | "bill_payment"
+    | "payday";
+  isProjected: boolean;
+  label: string;
+  amount?: MinorUnits;
+  category?: string;
+  transactionId?: string;
+  billOccurrenceId?: string;
+  goalId?: string;
+}
+
+export interface SpendingDay {
+  date: string; // YYYY-MM-DD in user local timezone
+  total: MinorUnits;
+  transactions: {
+    id: string;
+    amount: MinorUnits;
+    category: string;
+    note?: string;
+    occurredAt: string;
+  }[];
+}
+
+export interface SmartAlert {
+  id: string;
+  userId: string;
+  type:
+    | "bill_due"
+    | "spending_pace"
+    | "money_left"
+    | "goal_progress"
+    | "spending_plan";
+  severity: "info" | "warning" | "critical";
+  title: string;
+  message: string;
+  createdAt: string;
+  readAt?: string;
+  transactionId?: string;
+  billOccurrenceId?: string;
+  goalId?: string;
+}
+
+

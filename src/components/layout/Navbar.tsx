@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { Home, Activity, Target, User, Plus } from "lucide-react";
+import { Home, Activity, Target, User, Plus, Calendar as CalendarIcon, Bell } from "lucide-react";
 
-export type NavTab = "home" | "activity" | "plan" | "profile";
+export type NavTab = "home" | "plan" | "calendar" | "activity" | "alerts" | "profile";
 
 interface NavbarProps {
   activeTab: NavTab;
@@ -11,6 +11,7 @@ interface NavbarProps {
   onOpenQuickAdd: () => void;
   userName?: string;
   userEmail?: string;
+  unreadAlertsCount?: number;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -18,12 +19,15 @@ export const Navbar: React.FC<NavbarProps> = ({
   onTabChange,
   onOpenQuickAdd,
   userName = "Alex Johnson",
-  userEmail = "alex@opti-plan.app"
+  userEmail = "alex@opti-plan.app",
+  unreadAlertsCount = 0
 }) => {
   const navItems = [
     { id: "home" as NavTab, label: "Home", icon: Home },
-    { id: "activity" as NavTab, label: "Activity", icon: Activity },
     { id: "plan" as NavTab, label: "Plan", icon: Target },
+    { id: "calendar" as NavTab, label: "Calendar", icon: CalendarIcon },
+    { id: "activity" as NavTab, label: "Activity", icon: Activity },
+    { id: "alerts" as NavTab, label: "Alerts", icon: Bell, badge: unreadAlertsCount },
     { id: "profile" as NavTab, label: "Profile", icon: User }
   ];
 
@@ -117,14 +121,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => onTabChange(item.id)}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                     isActive
                       ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span>{item.label}</span>
+                  <div className="flex items-center space-x-3">
+                    <Icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </div>
+                  {item.badge !== undefined && item.badge > 0 && (
+                    <span className="px-2 py-0.5 rounded-full bg-rose-500 text-white font-extrabold text-[10px]">
+                      {item.badge}
+                    </span>
+                  )}
                 </button>
               );
             })}

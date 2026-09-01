@@ -1,9 +1,9 @@
-# Opti-Plan Phase 1 — UX Gate Summary
+# Opti-Plan Phase 1   UX Gate Summary
 
 **Date:** August 25, 2026  
 **Status:** PHASE 1 UX ADMINISTRATIVE CLOSURE COMPLETE  
 **Final Phase 1 UX Gate:** **PASS**  
-**Next Authorized Phase:** **Phase 2 — Technical Architecture**  
+**Next Authorized Phase:** **Phase 2   Technical Architecture**  
 
 ---
 
@@ -24,9 +24,9 @@ Phase 1C expanded beyond its original low-fidelity scope to deliver a production
 
 As a result, the following sub-phases have been fully satisfied inside Phase 1C and are officially recorded as **ABSORBED**:
 
-- **Phase 1D — Design System:** Absorbed into Phase 1C (standardized typography, surface hierarchy, radius scale, shadow tokens, color palettes, and motion language).
-- **Phase 1E — High-Fidelity UI:** Absorbed into Phase 1C (14 high-fidelity interactive prototype screens across Home, Activity, Plan, Profile, Quick Add, Check-In, Onboarding, Paywall).
-- **Phase 1F — Interactive Prototype + UX Audit:** Absorbed into Phase 1C (executable Next.js prototype, independent UI/UX audit, remediation pass, and final re-audit).
+- **Phase 1D   Design System:** Absorbed into Phase 1C (standardized typography, surface hierarchy, radius scale, shadow tokens, color palettes, and motion language).
+- **Phase 1E   High-Fidelity UI:** Absorbed into Phase 1C (14 high-fidelity interactive prototype screens across Home, Activity, Plan, Profile, Quick Add, Check-In, Onboarding, Paywall).
+- **Phase 1F   Interactive Prototype + UX Audit:** Absorbed into Phase 1C (executable Next.js prototype, independent UI/UX audit, remediation pass, and final re-audit).
 
 > **Policy:** Phase 1D, Phase 1E, and Phase 1F MUST NOT be repeated as separate implementation phases unless a future formal UX change request explicitly reopens them.
 
@@ -123,7 +123,7 @@ $$\text{FINAL PHASE 1 UX GATE: } \mathbf{PASS}$$
 
 ## 8. Next Authorized Phase
 
-**Phase 2 — Technical Architecture**
+**Phase 2   Technical Architecture**
 
 Authorized deliverables for Phase 2:
 - Technical Architecture Document (`docs/TECHNICAL_ARCHITECTURE.md`)

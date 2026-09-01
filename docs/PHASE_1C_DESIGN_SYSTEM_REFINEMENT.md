@@ -1,14 +1,14 @@
 # Opti-Plan Phase 1C Design System Refinement
 
 **Date:** August 25, 2026  
-**Status:** FINTECH DESIGN REFINEMENT PASS COMPLETE — VERIFIED  
-**Phase:** Phase 1C — Interactive UI Prototype  
+**Status:** FINTECH DESIGN REFINEMENT PASS COMPLETE   VERIFIED  
+**Phase:** Phase 1C   Interactive UI Prototype  
 
 ---
 
 ## 1. Executive Summary
 
-This document formalizes the standardized design token system, reusable component architecture, typography hierarchy, surface levels, radius scale, shadow rules, and motion framework established during **Opti-Plan Phase 1C.2 — Fintech Design Refinement Pass**.
+This document formalizes the standardized design token system, reusable component architecture, typography hierarchy, surface levels, radius scale, shadow rules, and motion framework established during **Opti-Plan Phase 1C.2   Fintech Design Refinement Pass**.
 
 The objective was to unify all screens (`Home`, `Activity`, `Plan`, `Profile`, `Quick Add`, `Check-In`) under a cohesive, production-quality consumer fintech design system while preserving all approved Phase 0, Phase 1A, and Phase 1B product guardrails and financial calculation logic:
 
@@ -32,13 +32,13 @@ All screens consume standardized shared components located under `src/components
 
 ## 3. Surface Hierarchy System (`AppCard`)
 
-1. **Surface Level 1 — Hero:**
+1. **Surface Level 1   Hero:**
    - **Used For:** Money Left hero card.
    - **Characteristics:** `rounded-[28px]`, rich deep emerald gradient (`from-emerald-600 via-emerald-700 to-teal-800`), generous spacing (`p-6 sm:p-7`), strong visual emphasis.
-2. **Surface Level 2 — Supporting Card:**
+2. **Surface Level 2   Supporting Card:**
    - **Used For:** Monthly spending plan, savings targets, upcoming payments, profile section blocks.
    - **Characteristics:** `rounded-2xl`, soft translucent surface (`bg-card/50 backdrop-blur-sm border border-border/30 p-5`), restrained drop shadow (`shadow-sm shadow-black/5`).
-3. **Surface Level 3 — List / Inline Surface:**
+3. **Surface Level 3   List / Inline Surface:**
    - **Used For:** Individual activity timeline rows, inline settings controls.
    - **Characteristics:** `rounded-xl`, minimal visual chrome, light background (`bg-card/30 border border-border/20 p-3.5`).
 

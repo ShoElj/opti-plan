@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Opti-Plan — Universal Money Planner",
+  title: "Opti-Plan   Universal Money Planner",
   description: "Subscription-based personal money planning web app & PWA.",
 };
 

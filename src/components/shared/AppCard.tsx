@@ -25,13 +25,13 @@ export const AppCard: React.FC<AppCardProps> = ({
   ...props
 }) => {
   const levelStyles: Record<SurfaceLevel, string> = {
-    // Level 1 — Hero: Strong visual emphasis, rounded-[28px], generous spacing, rich gradient/surface
+    // Level 1   Hero: Strong visual emphasis, rounded-[28px], generous spacing, rich gradient/surface
     1: "rounded-[28px] bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 text-white p-6 sm:p-7 shadow-lg shadow-emerald-700/15 border border-emerald-500/20 overflow-hidden",
 
-    // Level 2 — Supporting Card: Soft neutral translucent surface, rounded-2xl, restrained shadow
+    // Level 2   Supporting Card: Soft neutral translucent surface, rounded-2xl, restrained shadow
     2: "rounded-2xl bg-card/50 backdrop-blur-sm border border-border/30 p-5 shadow-sm shadow-black/5 hover:border-emerald-500/20 transition-all",
 
-    // Level 3 — List / Inline Surface: Minimal visual chrome, rounded-xl, light background
+    // Level 3   List / Inline Surface: Minimal visual chrome, rounded-xl, light background
     3: "rounded-xl bg-card/30 border border-border/20 p-3.5 hover:bg-card/60 transition-colors"
   };
 

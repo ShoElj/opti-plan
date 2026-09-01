@@ -1,4 +1,4 @@
-AGENTS.md — Opti-Plan Engineering & Audit Rules
+AGENTS.md   Opti-Plan Engineering & Audit Rules
 
 0. Purpose
 
@@ -424,7 +424,7 @@ production-breaking runtime failures.
 
 8. Required phase order
 
-Phase 0 — Product Definition
+Phase 0   Product Definition
 
 Create and approve:
 
@@ -440,7 +440,7 @@ product guardrails
 
 success criteria
 
-Phase 1 — UX Architecture
+Phase 1   UX Architecture
 
 Create and approve:
 
@@ -458,7 +458,7 @@ loading/empty/error states
 
 behavioral engagement placement
 
-Phase 2 — Technical Architecture
+Phase 2   Technical Architecture
 
 Create and approve:
 
@@ -476,7 +476,7 @@ testing architecture
 
 environment strategy
 
-Phase 3 — Engineering Foundation
+Phase 3   Engineering Foundation
 
 Set up:
 
@@ -500,7 +500,7 @@ CI
 
 environment validation
 
-Phase 4 — Database & RLS
+Phase 4   Database & RLS
 
 Implement:
 
@@ -514,7 +514,7 @@ RLS
 
 isolation tests
 
-Phase 5 — Authentication
+Phase 5   Authentication
 
 Implement:
 
@@ -534,7 +534,7 @@ protected routes
 
 account controls
 
-Phase 6 — Core Money Engine
+Phase 6   Core Money Engine
 
 Implement:
 
@@ -550,7 +550,7 @@ month boundaries
 
 financial invariants
 
-Phase 7 — Dashboard
+Phase 7   Dashboard
 
 Implement:
 
@@ -568,7 +568,7 @@ simple category summary
 
 useful upcoming information
 
-Phase 8 — Planning / Goals / Bills
+Phase 8   Planning / Goals / Bills
 
 Implement:
 
@@ -582,7 +582,7 @@ bills
 
 subscriptions tracking
 
-Phase 9 — Paid Subscription
+Phase 9   Paid Subscription
 
 Implement:
 
@@ -600,7 +600,7 @@ expiry
 
 paid-feature authorization
 
-Phase 10 — Behavioral Engagement
+Phase 10   Behavioral Engagement
 
 Implement:
 
@@ -616,7 +616,7 @@ analytics
 
 ethical controls
 
-Phase 11 — PWA & Offline
+Phase 11   PWA & Offline
 
 Implement:
 
@@ -634,35 +634,35 @@ duplicate prevention
 
 conflict behavior
 
-Phase 12 — Accessibility
+Phase 12   Accessibility
 
 Audit and correct accessibility.
 
-Phase 13 — Security
+Phase 13   Security
 
 Perform focused application-security review.
 
-Phase 14 — Performance & Reliability
+Phase 14   Performance & Reliability
 
 Verify real-world performance and graceful failure.
 
-Phase 15 — Full E2E Release Gate
+Phase 15   Full E2E Release Gate
 
 Run critical customer journeys.
 
-Phase 16 — Independent Professional Audit
+Phase 16   Independent Professional Audit
 
 Perform separate audit pass.
 
-Phase 17 — Beta / UAT
+Phase 17   Beta / UAT
 
 Validate with target users.
 
-Phase 18 — Production Release
+Phase 18   Production Release
 
 Complete release checklist and production smoke testing.
 
-Phase 19 — Post-launch Audit
+Phase 19   Post-launch Audit
 
 Review:
 
@@ -798,7 +798,7 @@ excessive card movement.
 
 Respect reduced-motion preferences.
 
-## UI Skills — External Design Engineering Guidance
+## UI Skills   External Design Engineering Guidance
 
 ### Purpose
 For tasks involving:
@@ -1572,7 +1572,7 @@ offline synchronization.
 
 Minimum final critical flows:
 
-Flow A — New user
+Flow A   New user
 
 Sign up
 -> onboarding
@@ -1583,25 +1583,25 @@ Sign up
 -> login
 -> data persists
 
-Flow B — Planning
+Flow B   Planning
 
 Create monthly plan
 -> add spending
 -> plan progress updates correctly
 
-Flow C — Goal
+Flow C   Goal
 
 Create goal
 -> record savings
 -> goal progress updates
 
-Flow D — Bills
+Flow D   Bills
 
 Create bill
 -> upcoming bill displayed
 -> paid behavior verified
 
-Flow E — Subscription
+Flow E   Subscription
 
 Free user
 -> attempts paid feature
@@ -1609,13 +1609,13 @@ Free user
 -> verified subscription
 -> feature unlocks
 
-Flow F — Authorization
+Flow F   Authorization
 
 User A
 -> attempts User B record
 -> denied
 
-Flow G — Offline
+Flow G   Offline
 
 Go offline
 -> add expense
@@ -1624,7 +1624,7 @@ Go offline
 -> sync
 -> exactly one server record
 
-Flow H — Behavioral engagement
+Flow H   Behavioral engagement
 
 Create qualifying real-data state
 -> correct reward/FOMO appears
@@ -1815,13 +1815,13 @@ Status:
 
 Severity:
 
-Critical — immediate release blocker
+Critical   immediate release blocker
 
-High — major issue blocking phase progression
+High   major issue blocking phase progression
 
-Medium — important issue, potentially PASS WITH ACTIONS where allowed
+Medium   important issue, potentially PASS WITH ACTIONS where allowed
 
-Low — minor quality issue
+Low   minor quality issue
 
 31. Evidence requirements
 
@@ -1863,7 +1863,7 @@ A production build does not prove a payment workflow.
 
 At the end of a phase:
 
-PHASE [N] — [NAME]
+PHASE [N]   [NAME]
 
 Implementation Status:
 COMPLETE / PARTIAL / BLOCKED
@@ -1934,7 +1934,7 @@ The implementation agent must not declare the gate PASS.
 
 Use:
 
-PHASE [N] AUDIT — [NAME]
+PHASE [N] AUDIT   [NAME]
 
 Functional:
 PASS / PASS WITH ACTIONS / FAIL
@@ -1984,7 +1984,7 @@ Evidence Reviewed:
 FINAL GATE:
 PASS / PASS WITH ACTIONS / FAIL
 
-34. Definition of done — feature
+34. Definition of done   feature
 
 A feature is not done until applicable items are true:
 
@@ -2026,7 +2026,7 @@ documentation updated;
 
 audit evidence available.
 
-35. Definition of done — phase
+35. Definition of done   phase
 
 A phase is complete only when:
 
@@ -2204,8 +2204,8 @@ simple on the surface, reliable underneath, delightful when useful, and professi
 
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+This version has breaking changes   APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+This block is written and re-added by `next dev`   verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->

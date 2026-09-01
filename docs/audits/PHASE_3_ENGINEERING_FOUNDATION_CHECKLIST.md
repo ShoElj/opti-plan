@@ -1,7 +1,7 @@
-# Opti-Plan Phase 3 — Implementation Evidence & Checklist
+# Opti-Plan Phase 3   Implementation Evidence & Checklist
 
 **Date:** August 25, 2026  
-**Phase:** Phase 3 — Engineering Foundation  
+**Phase:** Phase 3   Engineering Foundation  
 **Status:** IMPLEMENTATION EVIDENCE COMPLETE  
 
 ---

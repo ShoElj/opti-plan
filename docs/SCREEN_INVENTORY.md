@@ -1,7 +1,7 @@
 # Opti-Plan Master Screen Inventory
 
 **Version:** 1.0  
-**Phase:** Phase 1A — UX Information Architecture  
+**Phase:** Phase 1A   UX Information Architecture  
 **Status:** Approved Screen Inventory Blueprint  
 **Governance:** Governed by `AGENTS.md`, `docs/Opti-Plan_UI_UX_Design_Specification.md`, and Approved Phase 0 Documents
 
@@ -23,7 +23,7 @@ To preserve mobile-first simplicity, Opti-Plan uses **modal bottom-sheets and di
 
 The 30 defined inventory entries are explicitly rationalized and categorized into three operational UI categories:
 
-### Routable Application Routes — 8
+### Routable Application Routes   8
 These represent full top-level routable pages with dedicated URL paths in the application:
 1. `SCR-PUB-01`: Landing Page (`/`)
 2. `SCR-AUTH-01`: Sign Up (`/signup`)
@@ -34,7 +34,7 @@ These represent full top-level routable pages with dedicated URL paths in the ap
 7. `SCR-ACT-01`: Activity Timeline (`/app/activity`)
 8. `SCR-PRF-01`: Profile Dashboard (`/app/profile`)
 
-### Modal / Sheet Experiences — 12
+### Modal / Sheet Experiences   12
 These represent lightweight overlay drawers, bottom-sheets, and dialogs rendered over active routes without navigating away:
 1. `SCR-ONB-01`: Onboarding Welcome & Profile Selection Sheet
 2. `SCR-ONB-02`: Onboarding Currency & Setup Sheet
@@ -49,7 +49,7 @@ These represent lightweight overlay drawers, bottom-sheets, and dialogs rendered
 11. `SCR-PRF-02`: Settings & Preferences Modal
 12. `SCR-PRF-03`: Delete Account Confirmation Dialog
 
-### Component / System States — 10
+### Component / System States   10
 These represent UI component-level feedback states, status banners, and empty data conditions rendered inline within routes/sheets:
 1. `SCR-AUTH-05`: Verification Notice Component (`/verify`)
 2. `SCR-SYS-01`: PWA Install Prompt Banner Component
@@ -199,7 +199,7 @@ These represent UI component-level feedback states, status banners, and empty da
 ### ONBOARDING AREA
 
 #### Screen ID: SCR-ONB-01
-- **Screen Name**: Onboarding — Welcome & Profile Selection
+- **Screen Name**: Onboarding   Welcome & Profile Selection
 - **Area**: Onboarding
 - **Purpose**: Select 1 of 8 universal user profiles to personalize category and onboarding suggestions.
 - **Primary User**: First-time authenticated user
@@ -219,7 +219,7 @@ These represent UI component-level feedback states, status banners, and empty da
 - **MVP Status**: IN-SCOPE (V1)
 
 #### Screen ID: SCR-ONB-02
-- **Screen Name**: Onboarding — Currency Selection & Plan Setup
+- **Screen Name**: Onboarding   Currency Selection & Plan Setup
 - **Area**: Onboarding
 - **Purpose**: Select default currency code and optional initial monthly income target.
 - **Primary User**: First-time authenticated user
@@ -243,7 +243,7 @@ These represent UI component-level feedback states, status banners, and empty da
 ### HOME AREA
 
 #### Screen ID: SCR-HOM-01
-- **Screen Name**: Home — Dashboard View (Populated & Empty)
+- **Screen Name**: Home   Dashboard View (Populated & Empty)
 - **Area**: Home
 - **Purpose**: Primary financial dashboard displaying Money Left hero, summary cards, spending plan progress, upcoming bills, and top categories.
 - **Primary User**: Authenticated User

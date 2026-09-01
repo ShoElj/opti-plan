@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Target, PiggyBank, Clock, Edit2 } from "lucide-react";
-import { SavingsGoal, BillItem } from "@/prototype/mockData";
+import { SavingsGoal, BillItem } from "@/domain/types";
 import { GoalsSection } from "./GoalsSection";
 import { BillsSection } from "./BillsSection";
 import { AppCard } from "@/components/shared/AppCard";

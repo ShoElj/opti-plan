@@ -1,37 +1,22 @@
-import { TransactionType, TransactionClassification } from "@/domain/types";
+import { TransactionType } from "@/domain/types";
 
-/**
- * Opti-Plan Transaction Type / Classification Invariant Guard
- * Enforces allowed pairings derived from Phase 2 architecture decision ADR-02 and FIND-2-01:
- *
- * Allowed Pairings:
- * - inflow + income
- * - inflow + transfer
- * - outflow + expense
- * - outflow + savings
- * - outflow + debt
- * - outflow + transfer
- *
- * Prohibited Pairings:
- * - inflow + expense
- * - inflow + savings
- * - inflow + debt
- * - outflow + income
- */
+export type FlowDirection = "inflow" | "outflow";
+
 export function isValidTransactionInvariant(
-  type: TransactionType,
-  classification: TransactionClassification
+  flowDirection: FlowDirection,
+  type: TransactionType
 ): boolean {
-  if (type === "inflow") {
-    return classification === "income" || classification === "transfer";
+  if (flowDirection === "inflow") {
+    return type === "income" || type === "transfer";
   }
 
-  if (type === "outflow") {
+  if (flowDirection === "outflow") {
     return (
-      classification === "expense" ||
-      classification === "savings" ||
-      classification === "debt" ||
-      classification === "transfer"
+      type === "expense" ||
+      type === "savings" ||
+      type === "goal_contribution" ||
+      type === "debt" ||
+      type === "transfer"
     );
   }
 
@@ -39,12 +24,21 @@ export function isValidTransactionInvariant(
 }
 
 export function validateTransactionInvariant(
-  type: TransactionType,
-  classification: TransactionClassification
+  flowDirection: FlowDirection,
+  type: TransactionType
 ): void {
-  if (!isValidTransactionInvariant(type, classification)) {
+  if (!isValidTransactionInvariant(flowDirection, type)) {
     throw new Error(
-      `Invalid transaction pairing: type '${type}' cannot be paired with classification '${classification}'`
+      `Invalid transaction pairing: flow_direction '${flowDirection}' cannot be paired with type '${type}'`
     );
+  }
+}
+
+export function validateGoalInvariant(type: TransactionType, goalId?: string | null): void {
+  if (type === "goal_contribution" && !goalId) {
+    throw new Error("Goal Contribution must be linked to a valid goal ID");
+  }
+  if (type === "savings" && goalId) {
+    throw new Error("General Savings cannot be linked to a goal ID");
   }
 }

@@ -1,7 +1,7 @@
 # Opti-Plan Product Guardrails & Ethical Specification
 
 **Version:** 1.0  
-**Phase:** Phase 0 — Product Definition  
+**Phase:** Phase 0   Product Definition  
 **Status:** Approved Guardrails Blueprint  
 **Governance:** Governed by `AGENTS.md` and `docs/Opti-Plan_UI_UX_Design_Specification.md`
 
@@ -51,7 +51,7 @@ When insufficient transaction or plan data exists for a user screen or widget:
 
 ## 4. Non-Shaming UX & Copy Guidelines
 
-Opti-Plan is designed to empower, clarify, and encourage—never to judge or shame.
+Opti-Plan is designed to empower, clarify, and encourage never to judge or shame.
 
 ### 4.1 Approved Language Standards
 - **Neutral Financial Terms**: Use "Money In", "Money Out", "Spending Plan", "Plan Remaining", "Category Total".

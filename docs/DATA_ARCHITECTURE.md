@@ -2,7 +2,7 @@
 
 **Date:** August 25, 2026  
 **Status:** PHASE 2 DATA ARCHITECTURE SPECIFICATION (REMEDIATED)  
-**Phase:** Phase 2 — Technical Architecture  
+**Phase:** Phase 2   Technical Architecture  
 
 ---
 
@@ -239,7 +239,7 @@ CREATE INDEX idx_bill_payment_links_date ON public.bill_payment_links(user_id, p
 ### Mandatory Phase 6/7 UX Requirement:
 When a user changes their active display currency in Profile (e.g. from NGN to USD) and historical transactions exist in a different currency:
 - **Home Dashboard Notice Banner:** The dashboard MUST render an explicit informational banner:
-  > *"Displaying USD totals — 12 historical entries in NGN are available in Activity."*
+  > *"Displaying USD totals   12 historical entries in NGN are available in Activity."*
 - **Prevent Perceived Data Loss:** The user is clearly informed that past records were NOT deleted or converted.
 - **Activity Timeline Transparency:** All historical transactions remain fully visible in the Activity timeline, displaying their original currency symbols (`₦50,000 NGN`).
 

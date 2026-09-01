@@ -1,10 +1,10 @@
-# Phase 3 — Engineering Foundation Audit
+# Phase 3   Engineering Foundation Audit
 
 **Product:** Opti-Plan  
-**Phase:** Phase 3 — Engineering Foundation  
+**Phase:** Phase 3   Engineering Foundation  
 **Date:** August 25, 2026  
 **Auditor:** Independent AI Systems Auditor (Antigravity Team)  
-**Status:** AUDIT COMPLETE — PASS WITH ACTIONS  
+**Status:** AUDIT COMPLETE   PASS WITH ACTIONS  
 
 ---
 
@@ -118,13 +118,13 @@ The independent audit reviewed the following code and documentation artifacts:
 - **Medium Issues:** 1
 - **Low Issues:** 1
 
-### FIND-3-01 (Low — Dependency Hygiene)
+### FIND-3-01 (Low   Dependency Hygiene)
 - **Area:** Package Management (`package.json`)
 - **Observed:** Transitive dev-packages (`dequal`, `expect-type`, `obug`, `pathe`, `tinypool`, `vite`) are listed as direct devDependencies.
 - **Risk:** Minor package.json clutter; zero impact on production runtime or build.
 - **Recommendation:** Clean up redundant devDependencies in `package.json` during Phase 4.
 
-### FIND-3-02 (Medium — Node Modules Patching)
+### FIND-3-02 (Medium   Node Modules Patching)
 - **Area:** Dependency Reproducibility (`node_modules/dequal/lite/`)
 - **Observed:** File stubs were written inside `node_modules/dequal/lite/` to resolve a subpath import during testing.
 - **Risk:** Fresh `npm ci` on a new CI runner might overwrite manual `node_modules` stubs.
@@ -164,7 +164,7 @@ Phase 3 engineering foundation is fully operational, strictly typed, 100% covere
 
 # Phase 3 Remediation
 
-## FIND-3-01 — Dependency Hygiene
+## FIND-3-01   Dependency Hygiene
 
 Original Finding:
 Transitive dev-packages (`dequal`, `expect-type`, `obug`, `pathe`, `tinypool`, `vite`) were listed as direct devDependencies in `package.json`.
@@ -181,13 +181,13 @@ Removed Direct Dependencies:
 - `vite`
 
 Retained Direct Dependencies and Justification:
-- `vitest` — Primary test runner framework.
-- `@testing-library/react` — React element testing utilities.
-- `@testing-library/jest-dom` — Custom DOM matchers for testing.
-- `jsdom` — Virtual browser DOM environment.
-- `@tailwindcss/postcss` & `tailwindcss` — Style compile tools.
-- `eslint` & `eslint-config-next` — Linter framework.
-- `typescript` & `@types/*` — Types support.
+- `vitest`   Primary test runner framework.
+- `@testing-library/react`   React element testing utilities.
+- `@testing-library/jest-dom`   Custom DOM matchers for testing.
+- `jsdom`   Virtual browser DOM environment.
+- `@tailwindcss/postcss` & `tailwindcss`   Style compile tools.
+- `eslint` & `eslint-config-next`   Linter framework.
+- `typescript` & `@types/*`   Types support.
 
 npm ls:
 Completed successfully with exit code 0, verifying no extraneous, invalid, or unmet dependencies exist in the project root.
@@ -195,7 +195,7 @@ Completed successfully with exit code 0, verifying no extraneous, invalid, or un
 Status:
 RESOLVED
 
-## FIND-3-02 — Node Modules Patching
+## FIND-3-02   Node Modules Patching
 
 Original Finding:
 Manual file stubs (`index.js` and `index.mjs`) were written inside `node_modules/dequal/lite/` to work around Vitest subpath imports.
@@ -227,7 +227,7 @@ RESOLVED
 
 # Phase 3 Remediation Re-Audit
 
-## FIND-3-01 — Dependency Hygiene
+## FIND-3-01   Dependency Hygiene
 
 Result:
 PASS
@@ -238,7 +238,7 @@ Evidence:
 - `npm ls --depth=0` verified with Extraneous: 0, Invalid: 0, Unmet: 0.
 - Confirmed `package-lock.json` matches `package.json` and project contains no custom config shims.
 
-## FIND-3-02 — Reproducibility / node_modules Patching
+## FIND-3-02   Reproducibility / node_modules Patching
 
 Result:
 PASS

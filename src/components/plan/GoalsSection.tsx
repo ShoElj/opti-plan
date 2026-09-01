@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Plus, Target, Sparkles, X } from "lucide-react";
-import { SavingsGoal } from "@/prototype/mockData";
+import { SavingsGoal } from "@/domain/types";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { AppCard } from "@/components/shared/AppCard";
 import { StatusBadge } from "@/components/shared/StatusBadge";

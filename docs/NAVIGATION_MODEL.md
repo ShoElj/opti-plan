@@ -1,7 +1,7 @@
 # Opti-Plan Master Navigation Model & Simplicity Specification
 
 **Version:** 1.0  
-**Phase:** Phase 1A — UX Information Architecture  
+**Phase:** Phase 1A   UX Information Architecture  
 **Status:** Approved Navigation Model Blueprint  
 **Governance:** Governed by `AGENTS.md`, `docs/Opti-Plan_UI_UX_Design_Specification.md`, and Approved Phase 0 Documents
 
@@ -96,10 +96,10 @@ Quick Add is available globally across all application states.
 |---|---|---|
 | **Mobile Web & PWA** | Prominent floating (+) action button embedded in bottom nav bar | Bottom Center Navigation |
 | **Tablet** | Top-right header (+) button & bottom nav bar action | Top Header & Bottom Nav |
-| **Desktop Web & App** | Primary accent (+) "Quick Add" button at top of sidebar | Top Left Sidebar & Keyboard Shortcut `[WORKING ASSUMPTION — INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]` |
+| **Desktop Web & App** | Primary accent (+) "Quick Add" button at top of sidebar | Top Left Sidebar & Keyboard Shortcut `[WORKING ASSUMPTION   INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]` |
 
 ### 3.1 Keyboard Shortcut Assumption & Non-Dependence Invariant
-- **Shortcut Assumption**: `Cmd+K` / `Ctrl+K` `[WORKING ASSUMPTION — INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
+- **Shortcut Assumption**: `Cmd+K` / `Ctrl+K` `[WORKING ASSUMPTION   INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
 - **Convention Conflict Note**: `Cmd+K` / `Ctrl+K` is commonly associated with global search or command palettes in modern web applications. Opti-Plan has not yet finalized whether `Cmd+K` / `Ctrl+K` will trigger Quick Add or global transaction search.
 - **Phase 1B Evaluation**: The exact keyboard shortcut binding will be evaluated during Phase 1B interaction design and usability testing.
 - **Primary Control Rule**: The visible Quick Add (+) button remains the primary interaction mechanism across all viewports.

@@ -112,21 +112,21 @@ Opti-Plan supports one universal financial model while adapting suggestions to d
 
 ### Profile examples
 
-**Salaried employee** — Suggested Money In: Salary, bonus, allowance, overtime, side income. UX emphasis: monthly plan, bills, and savings.
+**Salaried employee**   Suggested Money In: Salary, bonus, allowance, overtime, side income. UX emphasis: monthly plan, bills, and savings.
 
-**Freelancer / gig worker** — Suggested Money In: Client payment, project payment, retainer, commission. UX emphasis: irregular income and monthly runway.
+**Freelancer / gig worker**   Suggested Money In: Client payment, project payment, retainer, commission. UX emphasis: irregular income and monthly runway.
 
-**Self-employed** — Suggested Money In: Business draw, sales withdrawal, side income. UX emphasis: variable income and planned spending.
+**Self-employed**   Suggested Money In: Business draw, sales withdrawal, side income. UX emphasis: variable income and planned spending.
 
-**Business owner using personal finance** — Suggested Money In: Owner draw, salary, dividend. UX emphasis: clear separation from business bookkeeping.
+**Business owner using personal finance**   Suggested Money In: Owner draw, salary, dividend. UX emphasis: clear separation from business bookkeeping.
 
-**Student** — Suggested Money In: Allowance, scholarship, family support, part-time work. UX emphasis: simplicity, spending awareness, and goals.
+**Student**   Suggested Money In: Allowance, scholarship, family support, part-time work. UX emphasis: simplicity, spending awareness, and goals.
 
-**Couple / family** — Suggested Money In: Partner income, shared income, side income. UX emphasis: shared household categories and bills.
+**Couple / family**   Suggested Money In: Partner income, shared income, side income. UX emphasis: shared household categories and bills.
 
-**Retiree / pensioner** — Suggested Money In: Pension, rental income, investment income, family support. UX emphasis: bills, predictable cash flow, and simple planning.
+**Retiree / pensioner**   Suggested Money In: Pension, rental income, investment income, family support. UX emphasis: bills, predictable cash flow, and simple planning.
 
-**Multiple-income earner** — Suggested Money In: Salary, freelance, rent, business draw. UX emphasis: source clarity and a consolidated monthly view.
+**Multiple-income earner**   Suggested Money In: Salary, freelance, rent, business draw. UX emphasis: source clarity and a consolidated monthly view.
 
 ### Personalization rule
 
@@ -154,25 +154,25 @@ Use generous whitespace, strong typography, restrained color, large touch target
 
 Proposed foundation tokens:
 
-**Opti Teal 600** — Light `#0F766E`; dark accent `#2DD4BF`; primary actions and active states.
+**Opti Teal 600**   Light `#0F766E`; dark accent `#2DD4BF`; primary actions and active states.
 
-**Opti Teal 50** — Light `#F0FDFA`; dark equivalent is a deep teal-tinted surface; soft highlighted surfaces.
+**Opti Teal 50**   Light `#F0FDFA`; dark equivalent is a deep teal-tinted surface; soft highlighted surfaces.
 
-**Ink** — Light `#0F172A`; dark `#F8FAFC`; primary text.
+**Ink**   Light `#0F172A`; dark `#F8FAFC`; primary text.
 
-**Muted text** — Light `#64748B`; dark `#94A3B8`; secondary copy.
+**Muted text**   Light `#64748B`; dark `#94A3B8`; secondary copy.
 
-**Canvas** — Light `#F8FAFC`; dark `#090E14`; application background.
+**Canvas**   Light `#F8FAFC`; dark `#090E14`; application background.
 
-**Surface** — Light `#FFFFFF`; dark `#111821`; cards and sheets.
+**Surface**   Light `#FFFFFF`; dark `#111821`; cards and sheets.
 
-**Border** — Light `#E2E8F0`; dark `#263241`; subtle separation.
+**Border**   Light `#E2E8F0`; dark `#263241`; subtle separation.
 
-**Positive** — Light `#15803D`; dark `#4ADE80`; verified positive progress.
+**Positive**   Light `#15803D`; dark `#4ADE80`; verified positive progress.
 
-**Warning** — Light `#B45309`; dark `#FBBF24`; genuine approaching deadlines.
+**Warning**   Light `#B45309`; dark `#FBBF24`; genuine approaching deadlines.
 
-**Destructive** — Light `#B91C1C`; dark `#F87171`; delete/error states only.
+**Destructive**   Light `#B91C1C`; dark `#F87171`; delete/error states only.
 
 **Important:** green/teal should not automatically mean “good financial behavior.” It is primarily a brand color. Financial status should be communicated with text and icons as well as color.
 
@@ -378,7 +378,7 @@ Do not create separate top-level items for every tool unless user testing demons
 
 ## 10. Key screen wireframes
 
-### 10.1 Home — mobile
+### 10.1 Home   mobile
 
 ```text
 ┌──────────────────────────────┐
@@ -551,7 +551,7 @@ Headline:
 
 Supporting copy:
 
-**Track what comes in, record what goes out, plan your month, and see what you have left — without complicated budgeting software.**
+**Track what comes in, record what goes out, plan your month, and see what you have left   without complicated budgeting software.**
 
 Primary CTA: **Start planning**  
 Secondary CTA: **See how it works**
@@ -606,7 +606,7 @@ The user should never be unsure whether login succeeded, failed, or is still pro
 
 Reach first value quickly. Maximum recommended onboarding is 4-6 lightweight steps.
 
-### Step 1 — Welcome
+### Step 1   Welcome
 
 Copy direction:
 
@@ -614,7 +614,7 @@ Copy direction:
 
 Do not present a tutorial carousel.
 
-### Step 2 — Profile
+### Step 2   Profile
 
 Cards:
 
@@ -629,11 +629,11 @@ Cards:
 
 One selection.
 
-### Step 3 — Currency
+### Step 3   Currency
 
 Show likely currency first, searchable list if needed.
 
-### Step 4 — Spending limit
+### Step 4   Spending limit
 
 Optional.
 
@@ -646,11 +646,11 @@ Buttons:
 - Set a limit
 - Not now
 
-### Step 5 — Savings target
+### Step 5   Savings target
 
 Optional.
 
-### Step 6 — First Money In
+### Step 6   First Money In
 
 Offer:
 
@@ -715,7 +715,7 @@ Buttons:
 1. Amount
 2. Source
 3. Date
-4. Note — optional
+4. Note   optional
 
 ### Amount input
 
@@ -745,7 +745,7 @@ Avoid celebratory animation for every normal income entry; reserve richer feedba
 1. Amount
 2. Category
 3. Date
-4. Description/note — optional
+4. Description/note   optional
 
 ### Default category set
 
@@ -1284,7 +1284,7 @@ Do not make every deadline red.
 
 **3 days left in August. Finish your check-in before September begins.**
 
-**Internet is due tomorrow — ₦25,000.**
+**Internet is due tomorrow   ₦25,000.**
 
 **You're ₦8,500 away from this month's savings target.**
 
@@ -1497,7 +1497,7 @@ Installation should be offered after value, not immediately.
 
 ## 40. Major user flows
 
-### Flow A — New user to first value
+### Flow A   New user to first value
 
 ```text
 Landing
@@ -1514,7 +1514,7 @@ Landing
 
 **Success criterion:** user sees a useful Money Left result without needing explanation.
 
-### Flow B — Daily expense capture
+### Flow B   Daily expense capture
 
 ```text
 Open PWA
@@ -1529,7 +1529,7 @@ Open PWA
 
 Target: common transaction recording feels fast enough for daily use.
 
-### Flow C — Monthly planning
+### Flow C   Monthly planning
 
 ```text
 Plan
@@ -1539,7 +1539,7 @@ Plan
 -> progress visible
 ```
 
-### Flow D — Savings goal
+### Flow D   Savings goal
 
 ```text
 Plan
@@ -1552,7 +1552,7 @@ Plan
 -> milestone if crossed
 ```
 
-### Flow E — Bill urgency
+### Flow E   Bill urgency
 
 ```text
 Bill approaches due date
@@ -1562,7 +1562,7 @@ Bill approaches due date
 -> reminder clears
 ```
 
-### Flow F — Monthly Check-In
+### Flow F   Monthly Check-In
 
 ```text
 Month ending / new month begins
@@ -1572,7 +1572,7 @@ Month ending / new month begins
 -> Plan next month
 ```
 
-### Flow G — PWA installation
+### Flow G   PWA installation
 
 ```text
 User obtains value
@@ -1583,7 +1583,7 @@ User obtains value
 -> authenticated state handled correctly
 ```
 
-### Flow H — Offline expense
+### Flow H   Offline expense
 
 ```text
 Offline
@@ -1596,7 +1596,7 @@ Offline
 -> synced exactly once
 ```
 
-### Flow I — Upgrade
+### Flow I   Upgrade
 
 ```text
 Free user selects paid feature
@@ -1739,7 +1739,7 @@ Do not optimize engagement metrics at the expense of user clarity or financial w
 
 ## 46. UX audit protocol before development
 
-### Round 1 — Expert review
+### Round 1   Expert review
 
 Check:
 
@@ -1752,7 +1752,7 @@ Check:
 - behavioral ethics;
 - visual density.
 
-### Round 2 — Task-based usability
+### Round 2   Task-based usability
 
 Ask representative users to complete without instruction:
 
@@ -1765,11 +1765,11 @@ Ask representative users to complete without instruction:
 
 Observe behavior; do not coach unless the task is impossible.
 
-### Round 3 — Responsive review
+### Round 3   Responsive review
 
 Test all priority screens at mobile, tablet, and desktop sizes.
 
-### Round 4 — Interaction prototype review
+### Round 4   Interaction prototype review
 
 Test:
 
@@ -1796,15 +1796,15 @@ Test:
 
 ## 47. High-fidelity screen priority
 
-### Priority 0 — must be designed before core implementation
+### Priority 0   must be designed before core implementation
 
 1. Landing hero/product preview
 2. Login
 3. Sign up
 4. Onboarding profile
 5. Onboarding currency/plan
-6. Home — empty
-7. Home — populated
+6. Home   empty
+7. Home   populated
 8. Quick Add
 9. Money In
 10. Money Out
@@ -1820,7 +1820,7 @@ Test:
 20. Mobile bottom navigation
 21. Desktop sidebar
 
-### Priority 1 — design before corresponding feature phase
+### Priority 1   design before corresponding feature phase
 
 - Pricing details
 - Subscription management
@@ -1938,9 +1938,9 @@ This specification should be implemented with current standards and framework gu
 
 Baseline references:
 
-- **WCAG 2.2**, W3C — accessibility target and evaluation foundation.
-- **shadcn/ui current documentation** — component primitives and selected base architecture.
-- **web.dev Progressive Web Apps guidance** — installation, manifest, offline, and service-worker behavior.
+- **WCAG 2.2**, W3C   accessibility target and evaluation foundation.
+- **shadcn/ui current documentation**   component primitives and selected base architecture.
+- **web.dev Progressive Web Apps guidance**   installation, manifest, offline, and service-worker behavior.
 
 As of July 2026, shadcn/ui uses Base UI as the default for new projects while continuing to support alternatives. The architecture phase should lock the chosen base before component implementation.
 

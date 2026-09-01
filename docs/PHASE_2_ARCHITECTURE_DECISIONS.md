@@ -2,7 +2,7 @@
 
 **Date:** August 25, 2026  
 **Status:** PHASE 2 ARCHITECTURE DECISION RECORDS (REMEDIATED)  
-**Phase:** Phase 2 — Technical Architecture  
+**Phase:** Phase 2   Technical Architecture  
 
 ---
 
@@ -88,7 +88,7 @@ This document consolidates all formal Architecture Decision Records (ADRs) for O
 - **Context:** Changing display currency in Profile must never alter historical financial values or cause past entries to appear silently lost.
 - **Decision:** Historical transaction `currency_code` is permanently locked. Profile display currency updates default for *new* entries only. Home dashboard aggregates entries matching profile active display currency.
 - **Mandatory UX Banner (FIND-2-03):** If historical entries exist in a non-matching currency, Home dashboard MUST render an informational banner:
-  > *"Displaying USD totals — 12 historical entries in NGN are available in Activity."*
+  > *"Displaying USD totals   12 historical entries in NGN are available in Activity."*
 - **Implementation Phase:** Phase 4 (Database), Phase 6 (Engine), Phase 7 (Dashboard).
 
 ---

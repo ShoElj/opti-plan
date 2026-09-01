@@ -1,7 +1,7 @@
-# Phase 1A — UX Information Architecture Audit
+# Phase 1A   UX Information Architecture Audit
 
 **Product:** Opti-Plan Web App + Progressive Web App  
-**Phase:** Phase 1A — UX Information Architecture  
+**Phase:** Phase 1A   UX Information Architecture  
 **Auditor:** Independent Quality & Governance Auditor  
 **Date:** August 25, 2026  
 **Governance Standard:** `AGENTS.md` Section 9, 30, 33 & Approved Phase 0 Governance Documents
@@ -12,7 +12,7 @@
 
 **Gate Recommendation: PASS WITH ACTIONS**
 
-Phase 1A — UX Information Architecture successfully establishes a simple, calm, mobile-first information hierarchy for Opti-Plan across [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md), [`docs/SCREEN_INVENTORY.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SCREEN_INVENTORY.md), and [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md).
+Phase 1A   UX Information Architecture successfully establishes a simple, calm, mobile-first information hierarchy for Opti-Plan across [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md), [`docs/SCREEN_INVENTORY.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SCREEN_INVENTORY.md), and [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md).
 
 The architecture preserves the core 4-anchor mobile navigation model (`Home`, `Activity`, `Plan`, `Profile`) with a persistent `Quick Add` action, maintains visual dominance of financial truth (Money Left), limits navigation depth to a maximum of 2 levels, enforces controlled behavioral engagement placement, and validates zero scope drift across all 8 universal personas.
 
@@ -80,9 +80,9 @@ Two (2) Medium findings and one (1) Low finding were identified regarding screen
 - **Document(s):** [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md)
 - **Requirement:** Keyboard shortcuts on desktop must not conflict with universal browser or operating system UI conventions.
 - **Observed:** `NAVIGATION_MODEL.md` Section 3 proposed `Ctrl+K` / `Cmd+K` as the desktop shortcut for Quick Add. `Ctrl+K` / `Cmd+K` is a universal web standard for Search / Command Palettes (VS Code, Slack, GitHub, Linear).
-- **Expected:** Quick Add desktop shortcut should use a distinct action key (e.g. `C`, `N`, or `Shift+A`) or explicitly mark the shortcut assignment as `[INTERACTION DECISION — TO BE FINALIZED IN PHASE 1B]` to avoid search palette collision.
+- **Expected:** Quick Add desktop shortcut should use a distinct action key (e.g. `C`, `N`, or `Shift+A`) or explicitly mark the shortcut assignment as `[INTERACTION DECISION   TO BE FINALIZED IN PHASE 1B]` to avoid search palette collision.
 - **Risk:** User frustration when pressing `Cmd+K` expecting global search/command search and getting a transaction entry form instead.
-- **Recommended Correction:** Update `NAVIGATION_MODEL.md` Section 3 to mark `Cmd+K` shortcut as `[WORKING ASSUMPTION — INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
+- **Recommended Correction:** Update `NAVIGATION_MODEL.md` Section 3 to mark `Cmd+K` shortcut as `[WORKING ASSUMPTION   INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
 - **Verification Required:** Text inspection of updated `NAVIGATION_MODEL.md`.
 - **Status:** OPEN
 
@@ -251,7 +251,7 @@ Two (2) Medium findings and one (1) Low finding were identified regarding screen
 ## Required Corrections
 
 1. **RC-01A (Docs):** Update [`docs/SCREEN_INVENTORY.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SCREEN_INVENTORY.md) to include explicit Screen Inventory Rationalization separating Routable Routes (8), Modal Sheets (12), and Component States (10).
-2. **RC-02A (Docs):** Update [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md) Section 3 to annotate desktop `Cmd+K` shortcut as `[WORKING ASSUMPTION — INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
+2. **RC-02A (Docs):** Update [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md) Section 3 to annotate desktop `Cmd+K` shortcut as `[WORKING ASSUMPTION   INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
 3. **RC-03A (Docs):** Update [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md) Section 8 to explicitly confirm 1-tap skip capability on Onboarding Step 2.
 
 ---
@@ -267,7 +267,7 @@ Two (2) Medium findings and one (1) Low finding were identified regarding screen
 
 **FINAL GATE DECISION: PASS WITH ACTIONS**
 
-Phase 1A — UX Information Architecture is approved to proceed once the three minor documentation updates (RC-01A, RC-02A, RC-03A) are completed. No wireframes, user flow diagrams, code scaffolding, or Phase 1B work may begin until remediation sign-off is complete.
+Phase 1A   UX Information Architecture is approved to proceed once the three minor documentation updates (RC-01A, RC-02A, RC-03A) are completed. No wireframes, user flow diagrams, code scaffolding, or Phase 1B work may begin until remediation sign-off is complete.
 
 ---
 
@@ -275,21 +275,21 @@ Phase 1A — UX Information Architecture is approved to proceed once the three m
 
 ### Remediation P01A-AUDIT-01 (RC-01A)
 - **Finding:** P01A-AUDIT-01 (Screen inventory total count of 30 entries unrationalized across route types)
-- **Correction:** RC-01A — Added `## 1.1 Screen Inventory Rationalization` section to [`docs/SCREEN_INVENTORY.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SCREEN_INVENTORY.md) explicitly categorizing all 30 entries into Routable Application Routes (8), Modal/Sheet Experiences (12), and Component/System States (10), confirming system states are not separate navigation destinations.
+- **Correction:** RC-01A   Added `## 1.1 Screen Inventory Rationalization` section to [`docs/SCREEN_INVENTORY.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SCREEN_INVENTORY.md) explicitly categorizing all 30 entries into Routable Application Routes (8), Modal/Sheet Experiences (12), and Component/System States (10), confirming system states are not separate navigation destinations.
 - **File:** [`docs/SCREEN_INVENTORY.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SCREEN_INVENTORY.md)
 - **Evidence:** Verified exact text breakdown and reconciliation calculation in [`docs/SCREEN_INVENTORY.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SCREEN_INVENTORY.md).
 - **Status:** RESOLVED
 
 ### Remediation P01A-AUDIT-02 (RC-02A)
 - **Finding:** P01A-AUDIT-02 (Desktop Cmd+K / Ctrl+K keyboard shortcut collision with universal command palette convention)
-- **Correction:** RC-02A — Annotated desktop keyboard shortcut as `[WORKING ASSUMPTION — INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]` and added Section 3.1 establishing keyboard shortcut non-dependence invariants in [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md).
+- **Correction:** RC-02A   Annotated desktop keyboard shortcut as `[WORKING ASSUMPTION   INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]` and added Section 3.1 establishing keyboard shortcut non-dependence invariants in [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md).
 - **File:** [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md)
 - **Evidence:** Text inspection confirmed disclaimer and non-dependence rules in [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md).
 - **Status:** RESOLVED
 
 ### Remediation P01A-AUDIT-03 (RC-03A)
 - **Finding:** P01A-AUDIT-03 (Onboarding Step 2 skip capability documentation clarity)
-- **Correction:** RC-03A — Updated Section 8 of [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md) explicitly documenting the 1-tap skip path `Profile Type -> Currency -> Optional Plan Setup -> Skip -> Home` and confirming optional setup does not block Home entry.
+- **Correction:** RC-03A   Updated Section 8 of [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md) explicitly documenting the 1-tap skip path `Profile Type -> Currency -> Optional Plan Setup -> Skip -> Home` and confirming optional setup does not block Home entry.
 - **File:** [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md)
 - **Evidence:** Text inspection confirmed skip path and fast-track onboarding rules in [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md).
 - **Status:** RESOLVED
@@ -298,7 +298,7 @@ Phase 1A — UX Information Architecture is approved to proceed once the three m
 
 # Phase 1A Remediation Re-Audit
 
-## RC-01A — Screen Inventory Rationalization
+## RC-01A   Screen Inventory Rationalization
 
 Result:
 PASS
@@ -309,19 +309,19 @@ Evidence:
 - Inline component/system states (e.g. empty states, toast, PWA install banner, offline bar) are explicitly noted as non-standalone navigation destinations.
 - Zero new screens were added simply to satisfy categorization; inventory remains exactly 30 defined entries.
 
-## RC-02A — Desktop Quick Add Shortcut
+## RC-02A   Desktop Quick Add Shortcut
 
 Result:
 PASS
 
 Evidence:
-- Verified [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md) Section 3 table and Section 3.1 explicitly mark `Cmd+K` / `Ctrl+K` as `[WORKING ASSUMPTION — INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
+- Verified [`docs/NAVIGATION_MODEL.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/NAVIGATION_MODEL.md) Section 3 table and Section 3.1 explicitly mark `Cmd+K` / `Ctrl+K` as `[WORKING ASSUMPTION   INTERACTION DECISION TO BE FINALIZED IN PHASE 1B]`.
 - Confirmed that the visible Quick Add (+) button remains the primary interaction mechanism across all viewports.
 - Confirmed Non-Dependence Invariant: Quick Add never depends on a keyboard shortcut for access.
 - Confirmed no alternative keyboard shortcut was prematurely finalized.
 - Confirmed convention conflict note with command-palette/search standards is documented for Phase 1B evaluation.
 
-## RC-03A — Optional Onboarding Skip
+## RC-03A   Optional Onboarding Skip
 
 Result:
 PASS

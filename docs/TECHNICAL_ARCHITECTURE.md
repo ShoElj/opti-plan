@@ -2,7 +2,7 @@
 
 **Date:** August 25, 2026  
 **Status:** PHASE 2 TECHNICAL ARCHITECTURE SPECIFICATION (REMEDIATED)  
-**Phase:** Phase 2 — Technical Architecture  
+**Phase:** Phase 2   Technical Architecture  
 
 ---
 
@@ -48,7 +48,7 @@ This document specifies the production system architecture, technical stack, app
 3. **No Silent FX Conversion:** Opti-Plan V1 does NOT perform real-time FX conversion.
 4. **Dashboard Aggregation Rule:** Dashboard totals aggregate ONLY transactions that match the profile's active display currency (`currency_code = profile.currency_code`).
 5. **Mandatory Phase 6/7 UX Banner:** When a user changes their display currency in Profile and historical transactions exist in another currency, the Home dashboard MUST display an explicit informational notice banner:
-   > *"Displaying USD totals — 12 historical entries in NGN are available in Activity."*
+   > *"Displaying USD totals   12 historical entries in NGN are available in Activity."*
    This guarantees users never believe historical transactions were deleted or silently converted.
 
 ---

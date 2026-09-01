@@ -1,7 +1,7 @@
 # Opti-Plan Master User Flows Specification
 
 **Version:** 1.0  
-**Phase:** Phase 1B — User Flows  
+**Phase:** Phase 1B   User Flows  
 **Status:** Approved User Flows Blueprint  
 **Governance:** Governed by `AGENTS.md`, `docs/Opti-Plan_UI_UX_Design_Specification.md`, and Approved Phase 0 & Phase 1A Documents
 
@@ -24,7 +24,7 @@ Key principles enforced across all flows:
 
 ### AUTHENTICATION & ONBOARDING FLOWS
 
-#### FLOW 01 — New User Registration
+#### FLOW 01   New User Registration
 - **Flow ID**: FLOW-01
 - **Flow Name**: New User Registration
 - **User Goal**: Create a new Opti-Plan account and initiate onboarding.
@@ -53,7 +53,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Zero unnecessary fields (e.g. no phone number, credit card, or address required at signup).
 
-#### FLOW 02 — Returning User Login
+#### FLOW 02   Returning User Login
 - **Flow ID**: FLOW-02
 - **Flow Name**: Returning User Login
 - **User Goal**: Authenticate an existing account and access the Home dashboard.
@@ -81,7 +81,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Session recovery automatically restores session if valid token exists in storage.
 
-#### FLOW 03 — Fast-Track Onboarding
+#### FLOW 03   Fast-Track Onboarding
 - **Flow ID**: FLOW-03
 - **Flow Name**: Fast-Track Onboarding
 - **User Goal**: Set up persona profile and primary currency in under 60 seconds.
@@ -116,13 +116,13 @@ Key principles enforced across all flows:
 ### CORE MONEY FLOWS (QUICK ADD)
 
 *Interaction Assumptions Disclaimer:*
-- Quick Add defaulting to Money Out is annotated as: `[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]`.
-- Completing a common transaction in $\le 5$ seconds is annotated as: `[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`. This is a desired usability target, not a guaranteed product performance claim. Phase 1C wireframe testing should evaluate whether the flow actually feels fast; required financial clarity must not be sacrificed merely to hit a time target.
+- Quick Add defaulting to Money Out is annotated as: `[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]`.
+- Completing a common transaction in $\le 5$ seconds is annotated as: `[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`. This is a desired usability target, not a guaranteed product performance claim. Phase 1C wireframe testing should evaluate whether the flow actually feels fast; required financial clarity must not be sacrificed merely to hit a time target.
 
-#### FLOW 04 — Add Money In from Home (Quick Add)
+#### FLOW 04   Add Money In from Home (Quick Add)
 - **Flow ID**: FLOW-04
 - **Flow Name**: Add Money In from Home (Quick Add)
-- **User Goal**: Record an income/inflow transaction from Home (`[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`: Target $\le 5$ seconds completion).
+- **User Goal**: Record an income/inflow transaction from Home (`[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`: Target $\le 5$ seconds completion).
 - **Applicable Personas**: All 8 Universal Personas
 - **Starting State**: Home Dashboard (`SCR-HOM-01`)
 - **Entry Point**: Tap persistent Quick Add (+) FAB on bottom navigation bar
@@ -149,17 +149,17 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Amount field receives immediate first focus upon opening sheet.
 
-#### FLOW 05 — Add Money Out from Home (Quick Add)
+#### FLOW 05   Add Money Out from Home (Quick Add)
 - **Flow ID**: FLOW-05
 - **Flow Name**: Add Money Out from Home (Quick Add)
-- **User Goal**: Record an expense/outflow transaction from Home (`[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`: Target $\le 5$ seconds completion).
+- **User Goal**: Record an expense/outflow transaction from Home (`[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`: Target $\le 5$ seconds completion).
 - **Applicable Personas**: All 8 Universal Personas
 - **Starting State**: Home Dashboard (`SCR-HOM-01`)
 - **Entry Point**: Tap persistent Quick Add (+) FAB on bottom navigation bar
 - **Preconditions**: Authenticated user session
 - **Primary Path**:
   1. User taps (+) FAB on Home Dashboard.
-  2. Quick Add Modal Sheet (`SCR-QA-01`) slides up, defaulting to "Money Out" tab (`[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]`).
+  2. Quick Add Modal Sheet (`SCR-QA-01`) slides up, defaulting to "Money Out" tab (`[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]`).
   3. User enters expense amount (e.g. 4,500) via numeric keypad.
   4. User selects Category (e.g., *Food & Groceries*, *Transport*, *Utilities*).
   5. User selects Classification toggle (Default: *Normal Expense*; options: *Savings Contribution*, *Debt Repayment*).
@@ -179,7 +179,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Most-frequently used flow in the app; optimized for minimal touches. Defaulting to Money Out is a candidate interaction assumption to be tested in Phase 1C usability evaluation.
 
-#### FLOW 06 — Add Money In from another primary section
+#### FLOW 06   Add Money In from another primary section
 - **Flow ID**: FLOW-06
 - **Flow Name**: Add Money In from another primary section
 - **User Goal**: Log income while browsing Activity, Plan, or Profile without losing context.
@@ -203,7 +203,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Preserves complete navigation state of the underlying tab.
 
-#### FLOW 07 — Add Money Out from another primary section
+#### FLOW 07   Add Money Out from another primary section
 - **Flow ID**: FLOW-07
 - **Flow Name**: Add Money Out from another primary section
 - **User Goal**: Log an expense while browsing Activity, Plan, or Profile without losing context.
@@ -231,7 +231,7 @@ Key principles enforced across all flows:
 
 ### ACTIVITY FLOWS
 
-#### FLOW 08 — View transaction history
+#### FLOW 08   View transaction history
 - **Flow ID**: FLOW-08
 - **Flow Name**: View transaction history
 - **User Goal**: Review full timeline of logged inflows, outflows, savings, and debt repayments.
@@ -257,7 +257,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Month selector allows toggling to previous months.
 
-#### FLOW 09 — Search old transaction
+#### FLOW 09   Search old transaction
 - **Flow ID**: FLOW-09
 - **Flow Name**: Search old transaction
 - **User Goal**: Find a specific transaction by keyword or description.
@@ -284,7 +284,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Debounced client-side filtering for instantaneous response.
 
-#### FLOW 10 — Filter transactions
+#### FLOW 10   Filter transactions
 - **Flow ID**: FLOW-10
 - **Flow Name**: Filter transactions
 - **User Goal**: Filter Activity timeline by classification (Money In, Money Out, Savings, Debt) or Category.
@@ -312,7 +312,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Active filter pill displayed on top bar when filter is applied.
 
-#### FLOW 11 — View transaction detail
+#### FLOW 11   View transaction detail
 - **Flow ID**: FLOW-11
 - **Flow Name**: View transaction detail
 - **User Goal**: Inspect full details, note, date, classification, and sync status of a logged transaction.
@@ -339,7 +339,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Non-destructive view mode by default.
 
-#### FLOW 12 — Edit transaction
+#### FLOW 12   Edit transaction
 - **Flow ID**: FLOW-12
 - **Flow Name**: Edit transaction
 - **User Goal**: Modify amount, category, date, or note of an existing transaction and update financial totals.
@@ -367,7 +367,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Single source of financial truth ensures edit updates all dashboard metrics instantly.
 
-#### FLOW 13 — Delete transaction
+#### FLOW 13   Delete transaction
 - **Flow ID**: FLOW-13
 - **Flow Name**: Delete transaction
 - **User Goal**: Permanently remove a logged transaction and update financial metrics.
@@ -397,7 +397,7 @@ Key principles enforced across all flows:
 
 ### PLAN FLOWS (BUDGETS, GOALS, BILLS)
 
-#### FLOW 14 — Open Plan overview
+#### FLOW 14   Open Plan overview
 - **Flow ID**: FLOW-14
 - **Flow Name**: Open Plan overview
 - **User Goal**: Access the unified Plan workspace for spending plans, savings goals, and bills.
@@ -424,18 +424,18 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Consolidates 3 planning tools under 1 anchor without top-level navigation fragmentation.
 
-#### FLOW 15 — Set monthly spending limit
+#### FLOW 15   Set monthly spending limit
 - **Flow ID**: FLOW-15
 - **Flow Name**: Set monthly spending limit
 - **User Goal**: Configure spending plan targets for the current planning month.
-- **Scope Disclaimer**: `[OPTIONAL CAPABILITY — BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]` *(The approved baseline MVP requires a simple overall monthly spending plan. Category-level limits must not complicate Version 1 and remain an optional/future capability. Phase 1C wireframes will focus primarily on the simple overall monthly spending limit).*
+- **Scope Disclaimer**: `[OPTIONAL CAPABILITY   BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]` *(The approved baseline MVP requires a simple overall monthly spending plan. Category-level limits must not complicate Version 1 and remain an optional/future capability. Phase 1C wireframes will focus primarily on the simple overall monthly spending limit).*
 - **Applicable Personas**: All 8 Universal Personas
 - **Starting State**: Plan View -> Spending Plan Tab (`SCR-PLN-01`)
 - **Entry Point**: Tap "Edit Spending Plan" button on Plan View
 - **Preconditions**: Authenticated user session
 - **Primary Path**:
   1. User taps "Edit Spending Plan" on `SCR-PLN-01`.
-  2. Spending Plan Editor Sheet slides up displaying overall monthly spending plan input field and optional category breakdown inputs (`[OPTIONAL CAPABILITY — BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`).
+  2. Spending Plan Editor Sheet slides up displaying overall monthly spending plan input field and optional category breakdown inputs (`[OPTIONAL CAPABILITY   BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`).
   3. User enters target overall monthly spending limit (and optional category allocations).
   4. Total planned spending bar updates dynamically as limits are entered.
   5. User taps "Save Spending Plan".
@@ -453,7 +453,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Setting a plan is strictly optional. Focus remains on the simple overall monthly spending limit.
 
-#### FLOW 16 — Set monthly savings target
+#### FLOW 16   Set monthly savings target
 - **Flow ID**: FLOW-16
 - **Flow Name**: Set monthly savings target
 - **User Goal**: Define an overall monthly savings contribution target.
@@ -479,7 +479,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Setting an overall monthly target is optional.
 
-#### FLOW 17 — Create savings goal
+#### FLOW 17   Create savings goal
 - **Flow ID**: FLOW-17
 - **Flow Name**: Create savings goal
 - **User Goal**: Establish a specific target savings goal (e.g., *Emergency Fund*, *New Laptop*, *Rent*).
@@ -496,18 +496,18 @@ Key principles enforced across all flows:
   6. System validates inputs and creates goal record.
   7. Sheet closes; Savings Goals list updates displaying new goal card with 0% initial progress bar.
 - **Decision Points**:
-  - *Free tier user attempts 2nd active goal?* -> Interrupt with Paywall Sheet (`SCR-SUB-01`): `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]` *(Demonstrates contextual monetization behavior; exact Free vs Plus goal limits remain an open product decision subject to final sign-off).*
+  - *Free tier user attempts 2nd active goal?* -> Interrupt with Paywall Sheet (`SCR-SUB-01`): `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]` *(Demonstrates contextual monetization behavior; exact Free vs Plus goal limits remain an open product decision subject to final sign-off).*
 - **Success State**: New savings goal created and displayed in goals list.
 - **Error / Recovery Path**: Inline validation error if Goal Name or Target Amount empty.
 - **Offline Consideration**: Save goal record to IndexedDB offline queue.
-- **Subscription Consideration**: `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]` Free tier goal limits demonstrate contextual paywall trigger; exact limits to be finalized.
+- **Subscription Consideration**: `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]` Free tier goal limits demonstrate contextual paywall trigger; exact limits to be finalized.
 - **Behavioral Engagement Consideration**: Positive goal creation checkmark animation.
 - **Accessibility Consideration**: Clear form field labels; target date picker accessible via keyboard.
 - **Exit / Return Location**: Returns to `SCR-PLN-02`.
 - **Maximum Navigation Depth**: 2
 - **Notes**: Creation form requires only Name and Target Amount (date is optional).
 
-#### FLOW 18 — Add contribution to goal
+#### FLOW 18   Add contribution to goal
 - **Flow ID**: FLOW-18
 - **Flow Name**: Add contribution to goal
 - **User Goal**: Record a savings allocation toward a specific active goal.
@@ -523,7 +523,7 @@ Key principles enforced across all flows:
   5. User taps "Save Contribution".
   6. System logs outflow transaction classified as *Savings Contribution*, updates Goal saved balance, and recalculates Money Left (`Money Left = Income - Expenses - Savings - Debt`).
   7. Sheet closes; Goal card progress bar updates with celebration feedback.
-- **Data Model Disclaimer**: `[OPEN INTERACTION / DATA DECISION — REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]` *(Goal progress references single verified transaction ledger to avoid double counting).*
+- **Data Model Disclaimer**: `[OPEN INTERACTION / DATA DECISION   REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]` *(Goal progress references single verified transaction ledger to avoid double counting).*
 - **Decision Points**:
   - *Contribution completes goal target?* -> Triggers Goal Completion flow (Flow 19).
 - **Success State**: Savings contribution recorded; goal progress updated; single financial source of truth preserved.
@@ -536,7 +536,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Single financial formula ensures savings contributions update Saved card without double-counting as normal expenses.
 
-#### FLOW 19 — Goal completed
+#### FLOW 19   Goal completed
 - **Flow ID**: FLOW-19
 - **Flow Name**: Goal completed
 - **User Goal**: Receive real milestone recognition upon completing 100% of a savings goal target.
@@ -562,7 +562,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Real-data verification invariant ensures rewards trigger only on actual database completion.
 
-#### FLOW 20 — Edit/Delete goal
+#### FLOW 20   Edit/Delete goal
 - **Flow ID**: FLOW-20
 - **Flow Name**: Edit/Delete goal
 - **User Goal**: Modify goal parameters (name, target, target date) or delete an unwanted goal.
@@ -596,7 +596,7 @@ Key principles enforced across all flows:
 
 ### BILLS FLOWS
 
-#### FLOW 21 — Create bill
+#### FLOW 21   Create bill
 - **Flow ID**: FLOW-21
 - **Flow Name**: Create bill
 - **User Goal**: Track a recurring bill or payment due date (e.g., *Rent*, *Electricity*, *Internet*).
@@ -624,7 +624,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Requires minimal fields (Name, Amount, Due Date).
 
-#### FLOW 22 — View upcoming bill
+#### FLOW 22   View upcoming bill
 - **Flow ID**: FLOW-22
 - **Flow Name**: View upcoming bill
 - **User Goal**: Inspect upcoming bill details and due-date alerts from Home or Plan.
@@ -649,7 +649,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Home card displays single most urgent bill due date.
 
-#### FLOW 23 — Mark bill paid
+#### FLOW 23   Mark bill paid
 - **Flow ID**: FLOW-23
 - **Flow Name**: Mark bill paid
 - **User Goal**: Mark an upcoming bill as paid and log the corresponding Money Out expense.
@@ -664,7 +664,7 @@ Key principles enforced across all flows:
   4. System updates Bill status to "Paid for [Current Month]" and automatically logs a Money Out transaction (classified as Normal Expense under bill category).
   5. System recalculates Money Out, Money Left, and Spending Plan totals.
   6. Sheet closes; Bill card updates to "Paid" status with checkmark toast.
-- **Data Model Disclaimer**: `[OPEN DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]` *(Evaluated: Linking "Mark as Paid" directly to Money Out transaction generation to preserve financial calculation truth).*
+- **Data Model Disclaimer**: `[OPEN DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]` *(Evaluated: Linking "Mark as Paid" directly to Money Out transaction generation to preserve financial calculation truth).*
 - **Decision Points**:
   - *User cancels confirmation?* -> Dialog closes; bill remains unpaid.
 - **Success State**: Bill marked paid; Money Out expense automatically logged; financial metrics updated.
@@ -677,7 +677,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Eliminates double data entry by logging expense automatically upon marking paid.
 
-#### FLOW 24 — Edit/Delete bill
+#### FLOW 24   Edit/Delete bill
 - **Flow ID**: FLOW-24
 - **Flow Name**: Edit/Delete bill
 - **User Goal**: Modify bill details (name, amount, due date) or delete a recurring bill.
@@ -710,7 +710,7 @@ Key principles enforced across all flows:
 
 ### TRACKED SUBSCRIPTIONS FLOWS
 
-#### FLOW 25 — Add tracked subscription
+#### FLOW 25   Add tracked subscription
 - **Flow ID**: FLOW-25
 - **Flow Name**: Add tracked subscription
 - **User Goal**: Track external recurring user subscriptions (e.g. *Netflix*, *Spotify*, *Internet*) separate from Opti-Plan's app subscription.
@@ -741,7 +741,7 @@ Key principles enforced across all flows:
 
 ### MONTHLY CHECK-IN FLOWS
 
-#### FLOW 26 — Start Monthly Money Check-In
+#### FLOW 26   Start Monthly Money Check-In
 - **Flow ID**: FLOW-26
 - **Flow Name**: Start Monthly Money Check-In
 - **User Goal**: Initiate end-of-month review to review financial performance and prepare next month's cycle.
@@ -768,7 +768,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Takes under 90 seconds to complete.
 
-#### FLOW 27 — Complete monthly check-in
+#### FLOW 27   Complete monthly check-in
 - **Flow ID**: FLOW-27
 - **Flow Name**: Complete monthly check-in
 - **User Goal**: Finalize month review, trigger recap reveal, and initialize rollover for the new planning cycle.
@@ -799,18 +799,18 @@ Key principles enforced across all flows:
 
 ### SUBSCRIPTION / PAYWALL FLOWS
 
-#### FLOW 28 — Encounter paid feature
+#### FLOW 28   Encounter paid feature
 - **Flow ID**: FLOW-28
 - **Flow Name**: Encounter paid feature
 - **User Goal**: View transparent paywall details when attempting a premium paid feature on free tier.
 - **Applicable Personas**: All 8 Universal Personas (Free Tier)
 - **Starting State**: Free tier user attempting premium action (e.g. creating 2nd savings goal or custom category)
-- **Entry Point**: Tap "Create Goal" (when 1 active goal exists `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`) OR tap "Upgrade" on Profile
+- **Entry Point**: Tap "Create Goal" (when 1 active goal exists `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`) OR tap "Upgrade" on Profile
 - **Preconditions**: User on `free` subscription state
 - **Primary Path**:
-  1. Free user attempts premium action (e.g. create 2nd active goal `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`).
+  1. Free user attempts premium action (e.g. create 2nd active goal `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`).
   2. Upgrade / Paywall Sheet (`SCR-SUB-01`) slides up contextually over active view.
-  3. Sheet displays: Locked feature indicator ("Unlimited Savings Goals"), Opti-Plan Plus benefits list, Billing disclaimers `[WORKING ASSUMPTION — REQUIRES APPROVAL]`, and "Upgrade to Opti-Plan Plus" primary button.
+  3. Sheet displays: Locked feature indicator ("Unlimited Savings Goals"), Opti-Plan Plus benefits list, Billing disclaimers `[WORKING ASSUMPTION   REQUIRES APPROVAL]`, and "Upgrade to Opti-Plan Plus" primary button.
   4. User reviews features and pricing disclaimers.
 - **Decision Points**:
   - *User taps "Upgrade to Opti-Plan Plus"?* -> Advances to Paystack Checkout (Flow 29).
@@ -818,14 +818,14 @@ Key principles enforced across all flows:
 - **Success State**: Paywall clearly presented; user can upgrade or safely return.
 - **Error / Recovery Path**: Close sheet safely on dismissal.
 - **Offline Consideration**: Displays "Internet connection required to upgrade" banner if offline.
-- **Subscription Consideration**: Core conversion touchpoint; demonstrates contextual paywall trigger (`[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`).
+- **Subscription Consideration**: Core conversion touchpoint; demonstrates contextual paywall trigger (`[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`).
 - **Behavioral Engagement Consideration**: Zero deceptive countdown timers, fake social proof, or manufactured scarcity.
 - **Accessibility Consideration**: Dialog role `aria-modal="true"`; close button receiving accessible focus.
 - **Exit / Return Location**: Advances to Flow 29 OR returns safely to originating view.
 - **Maximum Navigation Depth**: 2
 - **Notes**: Paywall dismissal NEVER discards unsubmitted draft data on originating view. One free goal limit is an illustrative working monetization assumption, not a finalized restriction.
 
-#### FLOW 29 — Successful Opti-Plan subscription
+#### FLOW 29   Successful Opti-Plan subscription
 - **Flow ID**: FLOW-29
 - **Flow Name**: Successful Opti-Plan subscription
 - **User Goal**: Complete Paystack checkout and unlock Opti-Plan Plus premium features upon server verification.
@@ -856,7 +856,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Entitlement strictly server-controlled per `AGENTS.md` rules.
 
-#### FLOW 30 — Cancel Opti-Plan subscription
+#### FLOW 30   Cancel Opti-Plan subscription
 - **Flow ID**: FLOW-30
 - **Flow Name**: Cancel Opti-Plan subscription
 - **User Goal**: Cancel active Opti-Plan Plus paid subscription without dark-pattern friction in $\le 2$ clicks.
@@ -889,7 +889,7 @@ Key principles enforced across all flows:
 
 ### PROFILE & SETTINGS FLOWS
 
-#### FLOW 31 — Change profile information
+#### FLOW 31   Change profile information
 - **Flow ID**: FLOW-31
 - **Flow Name**: Change profile information
 - **User Goal**: Update display name or persona profile selection.
@@ -916,7 +916,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Changing persona updates suggestions ONLY; financial calculation engine remains 100% unified.
 
-#### FLOW 32 — Change currency
+#### FLOW 32   Change currency
 - **Flow ID**: FLOW-32
 - **Flow Name**: Change currency
 - **User Goal**: Modify default currency symbol/code for UI display.
@@ -931,7 +931,7 @@ Key principles enforced across all flows:
   4. User taps "Confirm Currency Change".
   5. System updates display currency preference in database/IndexedDB.
   6. Modal closes; all app screens render new currency symbol.
-- **Data Model Disclaimer**: `[OPEN PRODUCT / DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]` *(Changing display currency code updates UI symbol presentation; historical multi-currency conversion engines are not supported in V1).*
+- **Data Model Disclaimer**: `[OPEN PRODUCT / DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]` *(Changing display currency code updates UI symbol presentation; historical multi-currency conversion engines are not supported in V1).*
 - **Decision Points**:
   - *User cancels confirmation?* -> Currency selection reverted.
 - **Success State**: Display currency code updated across UI.
@@ -944,7 +944,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Does not perform silent currency conversion on stored raw minor units.
 
-#### FLOW 33 — Change appearance
+#### FLOW 33   Change appearance
 - **Flow ID**: FLOW-33
 - **Flow Name**: Change appearance
 - **User Goal**: Toggle visual theme between System Default, Dark Mode, and Light Mode.
@@ -968,7 +968,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Instant visual theme transition.
 
-#### FLOW 34 — Logout
+#### FLOW 34   Logout
 - **Flow ID**: FLOW-34
 - **Flow Name**: Logout
 - **User Goal**: Terminate current session and return to public unauthenticated state.
@@ -994,7 +994,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Prevents unauthorized access on shared devices.
 
-#### FLOW 35 — Delete account
+#### FLOW 35   Delete account
 - **Flow ID**: FLOW-35
 - **Flow Name**: Delete account
 - **User Goal**: Permanently wipe all personal data, transaction history, and account records.
@@ -1026,7 +1026,7 @@ Key principles enforced across all flows:
 
 ### PWA & OFFLINE FLOWS
 
-#### FLOW 36 — Install Opti-Plan PWA
+#### FLOW 36   Install Opti-Plan PWA
 - **Flow ID**: FLOW-36
 - **Flow Name**: Install Opti-Plan PWA
 - **User Goal**: Add Opti-Plan to mobile or desktop home screen for instant native-like access.
@@ -1053,7 +1053,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Does not block app usage if user declines installation.
 
-#### FLOW 37 — Add transaction offline
+#### FLOW 37   Add transaction offline
 - **Flow ID**: FLOW-37
 - **Flow Name**: Add transaction offline
 - **User Goal**: Record a Money In or Money Out transaction when device has no internet connection.
@@ -1079,7 +1079,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Guarantees zero transaction loss when logging money on the go without network.
 
-#### FLOW 38 — Reconnect and sync
+#### FLOW 38   Reconnect and sync
 - **Flow ID**: FLOW-38
 - **Flow Name**: Reconnect and sync
 - **User Goal**: Automatically synchronize local offline transactions to Supabase PostgreSQL upon network restoration.
@@ -1107,7 +1107,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 0 (Background system process)
 - **Notes**: Idempotency keys prevent duplicate transaction entries upon reconnect.
 
-#### FLOW 39 — Sync failure
+#### FLOW 39   Sync failure
 - **Flow ID**: FLOW-39
 - **Flow Name**: Sync failure
 - **User Goal**: Receive clear notification if offline sync encounters an error, with local data preservation and retry trigger.
@@ -1138,7 +1138,7 @@ Key principles enforced across all flows:
 
 ### BEHAVIORAL ENGAGEMENT FLOWS
 
-#### FLOW 40 — Money Win (Real-Data Insight)
+#### FLOW 40   Money Win (Real-Data Insight)
 - **Flow ID**: FLOW-40
 - **Flow Name**: Money Win (Real-Data Insight)
 - **User Goal**: Receive a personalized, data-backed observation celebrating healthy money management behavior.
@@ -1166,7 +1166,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Prohibits casino visuals, loot boxes, or fabricated savings claims.
 
-#### FLOW 41 — Savings milestone
+#### FLOW 41   Savings milestone
 - **Flow ID**: FLOW-41
 - **Flow Name**: Savings milestone
 - **User Goal**: Receive subtle visual feedback upon crossing 25%, 50%, or 75% of a savings goal target.
@@ -1192,14 +1192,14 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Real-data verification invariant ensures milestones trigger only on actual database math.
 
-#### FLOW 42 — Bill due urgency
+#### FLOW 42   Bill due urgency
 - **Flow ID**: FLOW-42
 - **Flow Name**: Bill due urgency
 - **User Goal**: Receive timely notification of an impending bill due date to prevent missed payments.
-- **Urgency Window Disclaimer**: `[WORKING UX ASSUMPTION — SUBJECT TO USER TESTING]` *(Truthful due-date urgency is approved, but the exact number of days before a bill becomes "due soon" is a working assumption to be evaluated in Phase 1C).*
+- **Urgency Window Disclaimer**: `[WORKING UX ASSUMPTION   SUBJECT TO USER TESTING]` *(Truthful due-date urgency is approved, but the exact number of days before a bill becomes "due soon" is a working assumption to be evaluated in Phase 1C).*
 - **Applicable Personas**: All 8 Universal Personas
 - **Starting State**: Home Dashboard (`SCR-HOM-01`) or Plan View
-- **Entry Point**: Automatic render of "Next Upcoming Bill" card on Home when due date is within due-soon window (`[WORKING UX ASSUMPTION — SUBJECT TO USER TESTING]`: default $\le 3$ days)
+- **Entry Point**: Automatic render of "Next Upcoming Bill" card on Home when due date is within due-soon window (`[WORKING UX ASSUMPTION   SUBJECT TO USER TESTING]`: default $\le 3$ days)
 - **Preconditions**: Verified unpaid bill exists with due date within due-soon threshold
 - **Primary Path**:
   1. System checks upcoming bill dates against current date.
@@ -1221,7 +1221,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 2
 - **Notes**: Helps users avoid late payment penalties through timely awareness. Urgency threshold is a working UX assumption.
 
-#### FLOW 43 — Month-end FOMO
+#### FLOW 43   Month-end FOMO
 - **Flow ID**: FLOW-43
 - **Flow Name**: Month-end FOMO
 - **User Goal**: Prompt user to complete their monthly check-in before the calendar month ends.
@@ -1251,7 +1251,7 @@ Key principles enforced across all flows:
 
 ### ERROR & RECOVERY FLOWS
 
-#### FLOW 44 — Transaction save error
+#### FLOW 44   Transaction save error
 - **Flow ID**: FLOW-44
 - **Flow Name**: Transaction save error
 - **User Goal**: Receive clear error feedback if a transaction save fails, with data preservation and retry capability.
@@ -1278,7 +1278,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Guarantees user does not have to re-type transaction entries after an error.
 
-#### FLOW 45 — Unauthorized / session expired
+#### FLOW 45   Unauthorized / session expired
 - **Flow ID**: FLOW-45
 - **Flow Name**: Unauthorized / session expired
 - **User Goal**: Safely recover session when auth token expires while preserving intended action destination.
@@ -1304,7 +1304,7 @@ Key principles enforced across all flows:
 - **Maximum Navigation Depth**: 1
 - **Notes**: Eliminates frustration by remembering where the user was heading.
 
-#### FLOW 46 — Generic server failure & recovery
+#### FLOW 46   Generic server failure & recovery
 - **Flow ID**: FLOW-46
 - **Flow Name**: Generic server failure & recovery
 - **User Goal**: Gracefully recover when a major unexpected server error occurs.

@@ -2,7 +2,7 @@
 
 **Date:** August 25, 2026  
 **Status:** PHASE 2 PAYMENTS ARCHITECTURE SPECIFICATION (BANK SYNC AMENDED)  
-**Phase:** Phase 2 — Technical Architecture  
+**Phase:** Phase 2   Technical Architecture  
 
 ---
 
@@ -67,7 +67,7 @@ To allow product tier limits (e.g. Bank Sync connectivity, number of active savi
 | Feature Key | Free Tier Limit | Plus Tier Limit | Implementation Rule |
 | :--- | :--- | :--- | :--- |
 | `MAX_ACTIVE_SAVINGS_GOALS` | Configurable (e.g. 2 goals) | Unlimited ($\infty$) | Verified in Domain Layer (`src/domain/entitlement.ts`) |
-| `BANK_SYNC_ENABLED` | **`[WORKING MONETIZATION OPTION — REQUIRES PRODUCT APPROVAL]`** <br> (e.g. 1 Account Free vs Unlimited Accounts Plus) | Full Bank Sync Access | Enforced via Feature Key Check |
+| `BANK_SYNC_ENABLED` | **`[WORKING MONETIZATION OPTION   REQUIRES PRODUCT APPROVAL]`** <br> (e.g. 1 Account Free vs Unlimited Accounts Plus) | Full Bank Sync Access | Enforced via Feature Key Check |
 | `UNLIMITED_CHECKIN_HISTORY` | Last 1 Check-In | Unlimited History | Enforced in DB Repository |
 | `MULTI_CURRENCY_PREFERENCES` | Single Primary Currency | Multi-Currency Display | Enforced in UI Layer |
 | `ADVANCED_REWARD_INSIGHTS` | Basic Insights | Full Discovery Cards | Verified in Domain Layer |

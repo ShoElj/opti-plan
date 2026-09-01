@@ -1,7 +1,7 @@
 # Opti-Plan UX Information Architecture Specification
 
 **Version:** 1.0  
-**Phase:** Phase 1A — UX Information Architecture  
+**Phase:** Phase 1A   UX Information Architecture  
 **Status:** Approved UX Architecture Blueprint  
 **Governance:** Governed by `AGENTS.md`, `docs/Opti-Plan_UI_UX_Design_Specification.md`, and Approved Phase 0 Documents
 

@@ -2,7 +2,7 @@
 
 **Date:** August 25, 2026  
 **Status:** PHASE 2 ARCHITECTURE AMENDMENT SPECIFICATION  
-**Phase:** Phase 2 — Technical Architecture  
+**Phase:** Phase 2   Technical Architecture  
 
 ---
 
@@ -53,7 +53,7 @@ To prevent tight coupling to a single vendor, Opti-Plan architects a provider-ag
 - `revokeConnection(connectionId: string): Promise<void>`
 - `handleWebhook(payload: Buffer, signature: string): Promise<WebhookResult>`
 
-> **Implementation Note:** `[REQUIRES OFFICIAL PROVIDER DOCUMENTATION VERIFICATION BEFORE BANK SYNC IMPLEMENTATION]` — Provider-specific API endpoints, OAuth redirect paths, encryption algorithms, and webhook signatures must be verified against official vendor documentation prior to Phase 9/11 implementation.
+> **Implementation Note:** `[REQUIRES OFFICIAL PROVIDER DOCUMENTATION VERIFICATION BEFORE BANK SYNC IMPLEMENTATION]`   Provider-specific API endpoints, OAuth redirect paths, encryption algorithms, and webhook signatures must be verified against official vendor documentation prior to Phase 9/11 implementation.
 
 ---
 

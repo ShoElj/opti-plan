@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Plus, Clock, CheckCircle2, X } from "lucide-react";
-import { BillItem } from "@/prototype/mockData";
+import { BillItem } from "@/domain/types";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { AppCard } from "@/components/shared/AppCard";
 import { StatusBadge } from "@/components/shared/StatusBadge";

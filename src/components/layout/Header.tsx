@@ -61,11 +61,10 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={onToggleOffline}
             title={isOffline ? "Simulating Offline Mode" : "Online Status"}
-            className={`p-2 rounded-xl transition-all touch-target flex items-center justify-center cursor-pointer ${
-              isOffline
+            className={`p-2 rounded-xl transition-all touch-target flex items-center justify-center cursor-pointer ${isOffline
                 ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30"
                 : "bg-muted/60 text-muted-foreground hover:text-foreground"
-            }`}
+              }`}
           >
             {isOffline ? <WifiOff className="w-4 h-4" /> : <Wifi className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
           </button>
@@ -85,7 +84,7 @@ export const Header: React.FC<HeaderProps> = ({
       {isOffline && (
         <div className="text-center text-[11px] font-medium py-1 px-4 bg-amber-500/15 text-amber-700 dark:text-amber-300 border-t border-amber-500/20 flex items-center justify-center space-x-2">
           <WifiOff className="w-3.5 h-3.5 text-amber-600" />
-          <span>Offline mode active — changes saved locally</span>
+          <span>Offline mode active   changes saved locally</span>
         </div>
       )}
     </header>

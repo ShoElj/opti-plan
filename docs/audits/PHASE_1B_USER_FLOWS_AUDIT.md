@@ -1,7 +1,7 @@
-# Phase 1B — User Flows Audit
+# Phase 1B   User Flows Audit
 
 **Product:** Opti-Plan Web App + Progressive Web App  
-**Phase:** Phase 1B — User Flows  
+**Phase:** Phase 1B   User Flows  
 **Auditor:** Independent Quality & Governance Auditor  
 **Date:** August 25, 2026  
 **Governance Standard:** `AGENTS.md` Section 9, 11-14, 30, 33 & Approved Governance Blueprint Documents
@@ -12,7 +12,7 @@
 
 **Gate Recommendation: PASS WITH ACTIONS**
 
-Phase 1B — User Flows has successfully produced all four (4) required user-flow specifications under `docs/`: [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md), [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md), [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md), and [`docs/UX_EDGE_CASES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_EDGE_CASES.md).
+Phase 1B   User Flows has successfully produced all four (4) required user-flow specifications under `docs/`: [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md), [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md), [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md), and [`docs/UX_EDGE_CASES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_EDGE_CASES.md).
 
 The user flows cover 46 complete user journeys across authentication, fast-track onboarding, money logging, activity timeline history, budgets/goals/bills planning, check-in, subscriptions, PWA/offline caching, behavioral engagement, and error recovery. The specifications preserve mobile-first simplicity, financial calculation truth, non-shaming presentation, and single-engine universal persona rules.
 
@@ -66,7 +66,7 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 - **Document(s):** [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) & [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md)
 - **Requirement:** Quick Add default tab (Money Out) and performance target ($\le 5$ seconds) must be explicitly annotated as working assumptions subject to usability testing.
 - **Observed:** `USER_FLOWS.md` stated Quick Add defaulting to Money Out and $\le 5$-second save times as definitive requirements without testing disclaimers.
-- **Expected:** Annotate Quick Add default tab as `[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]` and completion speed as `[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`.
+- **Expected:** Annotate Quick Add default tab as `[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]` and completion speed as `[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`.
 - **Risk:** Unvalidated speed claims or tab defaults could be mistaken for immutable engineering constraints before usability testing.
 - **Recommended Correction:** Add disclaimers to Quick Add specifications in `USER_FLOWS.md` and `INTERACTION_RULES.md`.
 - **Verification Required:** Text inspection of updated documents.
@@ -81,7 +81,7 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 - **Document(s):** [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) & [`docs/UX_INFORMATION_ARCHITECTURE.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/UX_INFORMATION_ARCHITECTURE.md)
 - **Requirement:** Category-level budget limit capabilities must not introduce unnecessary budgeting complexity or expand MVP scope beyond the baseline monthly spending plan.
 - **Observed:** Flow 15 describes setting category spending limits without an explicit disclaimer clarifying that category limits are optional enhancements to the overall monthly spending plan.
-- **Expected:** Annotate category-level limit inputs with `[OPTIONAL CAPABILITY — BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`.
+- **Expected:** Annotate category-level limit inputs with `[OPTIONAL CAPABILITY   BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`.
 - **Risk:** Developers might build overly complex budgeting engines that confuse users.
 - **Recommended Correction:** Add optional scope disclaimer to Flow 15 in `USER_FLOWS.md`.
 - **Verification Required:** Text inspection of updated `USER_FLOWS.md`.
@@ -96,7 +96,7 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 - **Document(s):** [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) & [`docs/SUBSCRIPTION_ASSUMPTIONS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/SUBSCRIPTION_ASSUMPTIONS.md)
 - **Requirement:** Specific free-tier feature limits (e.g. 1 active goal limit) must be explicitly labeled as monetization working assumptions requiring product sign-off.
 - **Observed:** Flow 28 states that creating a 2nd active savings goal triggers a paywall without explicit disclaimer formatting.
-- **Expected:** Label the 1-active-goal free-tier limit with `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`.
+- **Expected:** Label the 1-active-goal free-tier limit with `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`.
 - **Risk:** Monetization boundaries presented as fixed requirements before product sign-off.
 - **Recommended Correction:** Add disclaimer to Flow 28 in `USER_FLOWS.md`.
 - **Verification Required:** Text inspection of updated `USER_FLOWS.md`.
@@ -111,7 +111,7 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 - **Document(s):** [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md)
 - **Requirement:** Specific milestone percentage thresholds (25%, 50%, 75%, 100%) must be explicitly labeled as working engagement assumptions.
 - **Observed:** ENG-03 states 25/50/75/100 milestone triggers as definitive rules without disclaimers.
-- **Expected:** Label milestone thresholds as `[WORKING ENGAGEMENT ASSUMPTION — SUBJECT TO PHASE 1C UX TESTING]`.
+- **Expected:** Label milestone thresholds as `[WORKING ENGAGEMENT ASSUMPTION   SUBJECT TO PHASE 1C UX TESTING]`.
 - **Risk:** Over-frequent milestone celebration triggers creating visual noise.
 - **Recommended Correction:** Add disclaimer to ENG-03 in `BEHAVIORAL_ENGAGEMENT_FLOWS.md`.
 - **Verification Required:** Text inspection of updated document.
@@ -126,7 +126,7 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 - **Document(s):** [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) & [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md)
 - **Requirement:** Specific urgency trigger windows ($\le 3$ days) must be labeled as working UX assumptions.
 - **Observed:** ENG-07 and Flow 42 define the 3-day bill due window without disclaimer labels.
-- **Expected:** Label the 3-day urgency window as `[WORKING UX ASSUMPTION — SUBJECT TO USER TESTING]`.
+- **Expected:** Label the 3-day urgency window as `[WORKING UX ASSUMPTION   SUBJECT TO USER TESTING]`.
 - **Risk:** Inflexible urgency triggers.
 - **Recommended Correction:** Add disclaimer to ENG-07 and Flow 42.
 - **Verification Required:** Text inspection of updated documents.
@@ -155,7 +155,7 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 ## Financial Interaction Review
 
 - **Single Financial Formula:** All flows respect $\text{Money Left} = \text{Income} - \text{Expenses} - \text{Savings} - \text{Debt}$.
-- **Data Model Disclaimers:** Flow 18 (Goal contributions), Flow 23 (Bill payment linking), and Flow 32 (Currency changing) are explicitly annotated with `[OPEN INTERACTION / DATA DECISION — REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`.
+- **Data Model Disclaimers:** Flow 18 (Goal contributions), Flow 23 (Bill payment linking), and Flow 32 (Currency changing) are explicitly annotated with `[OPEN INTERACTION / DATA DECISION   REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`.
 - **Zero Double Counting:** Savings allocations and debt repayments are distinctly classified to prevent double-counting as normal expenses.
 
 ---
@@ -285,19 +285,19 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 
 ## Required Corrections
 
-1. **RC-01B (Docs):** Update [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) and [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md) to annotate Quick Add default tab as `[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]` and save speed as `[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`.
-2. **RC-02B (Docs):** Update [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 15 to annotate category-level budget limits as `[OPTIONAL CAPABILITY — BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`.
-3. **RC-03B (Docs):** Update [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 28 to annotate free-tier goal limit as `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`.
-4. **RC-04B (Docs):** Update [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-03 to annotate savings milestone thresholds as `[WORKING ENGAGEMENT ASSUMPTION — SUBJECT TO PHASE 1C UX TESTING]`.
-5. **RC-05B (Docs):** Update [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-07 & [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 42 to annotate the 3-day bill due-soon window as `[WORKING UX ASSUMPTION — SUBJECT TO USER TESTING]`.
+1. **RC-01B (Docs):** Update [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) and [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md) to annotate Quick Add default tab as `[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]` and save speed as `[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`.
+2. **RC-02B (Docs):** Update [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 15 to annotate category-level budget limits as `[OPTIONAL CAPABILITY   BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`.
+3. **RC-03B (Docs):** Update [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 28 to annotate free-tier goal limit as `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`.
+4. **RC-04B (Docs):** Update [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-03 to annotate savings milestone thresholds as `[WORKING ENGAGEMENT ASSUMPTION   SUBJECT TO PHASE 1C UX TESTING]`.
+5. **RC-05B (Docs):** Update [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-07 & [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 42 to annotate the 3-day bill due-soon window as `[WORKING UX ASSUMPTION   SUBJECT TO USER TESTING]`.
 
 ---
 
 ## Open Decisions for Phase 2
 
-- **Goal Contribution Transaction Ledger Model:** Flow 18 (`[OPEN INTERACTION / DATA DECISION — REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`).
-- **Bill Payment Expense Linkage Model:** Flow 23 (`[OPEN DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`).
-- **Currency Code Display Switching Model:** Flow 32 (`[OPEN PRODUCT / DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`).
+- **Goal Contribution Transaction Ledger Model:** Flow 18 (`[OPEN INTERACTION / DATA DECISION   REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`).
+- **Bill Payment Expense Linkage Model:** Flow 23 (`[OPEN DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`).
+- **Currency Code Display Switching Model:** Flow 32 (`[OPEN PRODUCT / DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`).
 - **Paystack Webhook Endpoint & Signature Verification:** Flow 29 (`[TECHNICAL ARCHITECTURE DEFERRED TO PHASE 2 & 9]`).
 - **IndexedDB Background Sync Deduplication Algorithm:** Flow 38 (`[TECHNICAL ARCHITECTURE DEFERRED TO PHASE 2 & 11]`).
 
@@ -307,16 +307,16 @@ Three (3) Medium findings and two (2) Low findings were identified regarding int
 
 **FINAL GATE DECISION: PASS WITH ACTIONS**
 
-Phase 1B — User Flows is approved to move forward once the five minor documentation qualification disclaimers (RC-01B through RC-05B) are applied. No wireframes, low/high-fidelity UI components, Next.js code, or Phase 1C work may begin until remediation sign-off is complete.
+Phase 1B   User Flows is approved to move forward once the five minor documentation qualification disclaimers (RC-01B through RC-05B) are applied. No wireframes, low/high-fidelity UI components, Next.js code, or Phase 1C work may begin until remediation sign-off is complete.
 
 ---
 
 # Phase 1B Remediation Verification
 
-## RC-01B — Quick Add Assumptions
+## RC-01B   Quick Add Assumptions
 
 Correction:
-Added explicit disclaimers `[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]` for Quick Add defaulting to Money Out and `[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]` for transaction completion speed ($\le 5$ seconds) in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) and [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md). Clarified that speed target is a desired usability benchmark, not a performance guarantee, and must not compromise financial clarity.
+Added explicit disclaimers `[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]` for Quick Add defaulting to Money Out and `[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]` for transaction completion speed ($\le 5$ seconds) in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) and [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md). Clarified that speed target is a desired usability benchmark, not a performance guarantee, and must not compromise financial clarity.
 
 Evidence:
 Verified disclaimers and explanatory notes in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Section Core Money Flows and [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md) Section 1.
@@ -324,10 +324,10 @@ Verified disclaimers and explanatory notes in [`docs/USER_FLOWS.md`](file:///c:/
 Status:
 RESOLVED
 
-## RC-02B — Category-Level Budget Limits
+## RC-02B   Category-Level Budget Limits
 
 Correction:
-Updated Flow 15 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) with `[OPTIONAL CAPABILITY — BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]` disclaimer. Clarified that the approved baseline MVP requires a simple overall monthly spending plan, category limits remain optional capabilities, and Phase 1C wireframes will focus primarily on the overall monthly spending limit.
+Updated Flow 15 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) with `[OPTIONAL CAPABILITY   BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]` disclaimer. Clarified that the approved baseline MVP requires a simple overall monthly spending plan, category limits remain optional capabilities, and Phase 1C wireframes will focus primarily on the overall monthly spending limit.
 
 Evidence:
 Text inspection of Flow 15 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md).
@@ -335,10 +335,10 @@ Text inspection of Flow 15 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDr
 Status:
 RESOLVED
 
-## RC-03B — Free-Tier Goal Limit
+## RC-03B   Free-Tier Goal Limit
 
 Correction:
-Annotated the 1-active-goal free-tier limit in Flow 17 and Flow 28 of [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) as `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`. Clarified that exact Free vs Plus limits remain an open product decision and wireframes must not visually imply the one-goal limit is final.
+Annotated the 1-active-goal free-tier limit in Flow 17 and Flow 28 of [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) as `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`. Clarified that exact Free vs Plus limits remain an open product decision and wireframes must not visually imply the one-goal limit is final.
 
 Evidence:
 Text inspection of Flow 17 and Flow 28 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md).
@@ -346,10 +346,10 @@ Text inspection of Flow 17 and Flow 28 in [`docs/USER_FLOWS.md`](file:///c:/User
 Status:
 RESOLVED
 
-## RC-04B — Savings Milestones
+## RC-04B   Savings Milestones
 
 Correction:
-Updated ENG-03 in [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) to annotate 25%, 50%, 75%, 100% threshold triggers as `[WORKING ENGAGEMENT ASSUMPTION — SUBJECT TO PHASE 1C UX TESTING]`. Clarified that milestone celebration principle is approved while exact percentages are subject to Phase 1C density testing.
+Updated ENG-03 in [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) to annotate 25%, 50%, 75%, 100% threshold triggers as `[WORKING ENGAGEMENT ASSUMPTION   SUBJECT TO PHASE 1C UX TESTING]`. Clarified that milestone celebration principle is approved while exact percentages are subject to Phase 1C density testing.
 
 Evidence:
 Text inspection of ENG-03 in [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md).
@@ -357,10 +357,10 @@ Text inspection of ENG-03 in [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/
 Status:
 RESOLVED
 
-## RC-05B — Bill Due-Soon Window
+## RC-05B   Bill Due-Soon Window
 
 Correction:
-Updated ENG-07 in [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) and Flow 42 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) to annotate the 3-day bill due-soon window as `[WORKING UX ASSUMPTION — SUBJECT TO USER TESTING]`. Clarified that truthful due-date urgency is approved while exact due-soon days remain subject to Phase 1C timing evaluation.
+Updated ENG-07 in [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) and Flow 42 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) to annotate the 3-day bill due-soon window as `[WORKING UX ASSUMPTION   SUBJECT TO USER TESTING]`. Clarified that truthful due-date urgency is approved while exact due-soon days remain subject to Phase 1C timing evaluation.
 
 Evidence:
 Text inspection of ENG-07 in [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) and Flow 42 in [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md).
@@ -372,52 +372,52 @@ RESOLVED
 
 # Phase 1B Remediation Re-Audit
 
-## RC-01B — Quick Add Assumptions
+## RC-01B   Quick Add Assumptions
 
 Result:
 PASS
 
 Evidence:
-- Verified [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Section Core Money Flows & Flow 05 and [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md) Section 1 explicitly annotate Quick Add defaulting to Money Out as `[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]`.
-- Verified transaction completion speed ($\le 5$ seconds) is explicitly annotated as `[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`.
+- Verified [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Section Core Money Flows & Flow 05 and [`docs/INTERACTION_RULES.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/INTERACTION_RULES.md) Section 1 explicitly annotate Quick Add defaulting to Money Out as `[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]`.
+- Verified transaction completion speed ($\le 5$ seconds) is explicitly annotated as `[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`.
 - Verified text explicitly clarifies that speed target is a desired usability benchmark, not a performance guarantee, and must not compromise financial clarity.
 
-## RC-02B — Category-Level Budget Limits
+## RC-02B   Category-Level Budget Limits
 
 Result:
 PASS
 
 Evidence:
-- Verified [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 15 explicitly labels category-level budget limits as `[OPTIONAL CAPABILITY — BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`.
+- Verified [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 15 explicitly labels category-level budget limits as `[OPTIONAL CAPABILITY   BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`.
 - Confirmed baseline MVP focus remains strictly on a simple overall monthly spending plan.
 - Confirmed category-level limit inputs are treated as optional capabilities without complicating Version 1 core scope.
 
-## RC-03B — Free-Tier Goal Limit
+## RC-03B   Free-Tier Goal Limit
 
 Result:
 PASS
 
 Evidence:
-- Verified [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 17 and Flow 28 explicitly label the 1-active-goal free-tier limit as `[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`.
+- Verified [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 17 and Flow 28 explicitly label the 1-active-goal free-tier limit as `[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`.
 - Confirmed no other unapproved Free vs Plus limits were silently introduced or finalized.
 - Confirmed paywall demonstration preserves contextual monetization behavior without presenting unapproved limits as fixed product decisions.
 
-## RC-04B — Savings Milestones
+## RC-04B   Savings Milestones
 
 Result:
 PASS
 
 Evidence:
-- Verified [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-03 explicitly labels the 25%, 50%, 75%, 100% milestone thresholds as `[WORKING ENGAGEMENT ASSUMPTION — SUBJECT TO PHASE 1C UX TESTING]`.
+- Verified [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-03 explicitly labels the 25%, 50%, 75%, 100% milestone thresholds as `[WORKING ENGAGEMENT ASSUMPTION   SUBJECT TO PHASE 1C UX TESTING]`.
 - Confirmed milestone celebrations remain 100% real-data-driven based on actual goal saved balance math.
 
-## RC-05B — Bill Due-Soon Window
+## RC-05B   Bill Due-Soon Window
 
 Result:
 PASS
 
 Evidence:
-- Verified [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-07 and [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 42 explicitly label the $\le 3$-day bill due-soon window as `[WORKING UX ASSUMPTION — SUBJECT TO USER TESTING]`.
+- Verified [`docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/BEHAVIORAL_ENGAGEMENT_FLOWS.md) ENG-07 and [`docs/USER_FLOWS.md`](file:///c:/Users/USER/OneDrive/Documents/elijah/opti-plan/docs/USER_FLOWS.md) Flow 42 explicitly label the $\le 3$-day bill due-soon window as `[WORKING UX ASSUMPTION   SUBJECT TO USER TESTING]`.
 - Confirmed urgency remains strictly derived from real bill calendar due dates without artificial countdown timers.
 
 ## Phase 2 Open Decisions Preserved
@@ -426,9 +426,9 @@ Result:
 PASS
 
 Evidence:
-- Goal contribution transaction ledger model: `[OPEN INTERACTION / DATA DECISION — REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`
-- Bill payment expense linkage model: `[OPEN DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`
-- Historical currency behavior: `[OPEN PRODUCT / DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`
+- Goal contribution transaction ledger model: `[OPEN INTERACTION / DATA DECISION   REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`
+- Bill payment expense linkage model: `[OPEN DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`
+- Historical currency behavior: `[OPEN PRODUCT / DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`
 - Paystack webhook architecture: `[TECHNICAL ARCHITECTURE DEFERRED TO PHASE 2 & 9]`
 - Offline sync/deduplication architecture: `[TECHNICAL ARCHITECTURE DEFERRED TO PHASE 2 & 11]`
 

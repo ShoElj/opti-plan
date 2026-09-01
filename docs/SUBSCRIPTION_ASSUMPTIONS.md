@@ -1,7 +1,7 @@
 # Opti-Plan Subscription & Monetization Architecture Assumptions
 
 **Version:** 1.0  
-**Phase:** Phase 0 — Product Definition  
+**Phase:** Phase 0   Product Definition  
 **Status:** Approved Subscription Assumptions  
 **Governance:** Governed by `AGENTS.md` and `docs/Opti-Plan_UI_UX_Design_Specification.md`
 
@@ -20,11 +20,11 @@ Opti-Plan is built as a **subscription-based Web App and PWA**.
 ## 2. Payment Gateway Integration & Pricing Assumptions (Paystack Initial)
 
 - **Primary Provider**: **Paystack** initially for primary target market coverage (supporting card, bank transfer, USSD, and mobile money channels).
-- **Billing Frequencies**: Monthly and Annual recurring subscription plans `[OPEN PRODUCT DECISION — exact pricing tiers to be finalized]`.
-- **Exact Pricing Amounts**: Monthly and Annual subscription price points `[OPEN PRODUCT DECISION — subject to market testing]`.
-- **Trial Strategy**: Optional explicit 14-day premium trial for new users `[WORKING ASSUMPTION — REQUIRES APPROVAL]`.
-- **Family / Multi-User Tier**: Potential household/family subscription tier `[OPEN PRODUCT DECISION — deferred to post-V1]`.
-- **Refund Policy & Grace Extensions**: Refund disclaimers and renewal policies `[OPEN PRODUCT DECISION — to be finalized prior to Phase 9]`.
+- **Billing Frequencies**: Monthly and Annual recurring subscription plans `[OPEN PRODUCT DECISION   exact pricing tiers to be finalized]`.
+- **Exact Pricing Amounts**: Monthly and Annual subscription price points `[OPEN PRODUCT DECISION   subject to market testing]`.
+- **Trial Strategy**: Optional explicit 14-day premium trial for new users `[WORKING ASSUMPTION   REQUIRES APPROVAL]`.
+- **Family / Multi-User Tier**: Potential household/family subscription tier `[OPEN PRODUCT DECISION   deferred to post-V1]`.
+- **Refund Policy & Grace Extensions**: Refund disclaimers and renewal policies `[OPEN PRODUCT DECISION   to be finalized prior to Phase 9]`.
 
 ---
 
@@ -41,9 +41,9 @@ Every user account in the database is associated with a single authoritative `su
 
 ### State Definitions
 - **`free`**: Default free tier user. Standard limits enforced.
-- **`trialing`**: User currently on an active, non-expired trial period `[WORKING ASSUMPTION — REQUIRES APPROVAL: 14-day default]`.
+- **`trialing`**: User currently on an active, non-expired trial period `[WORKING ASSUMPTION   REQUIRES APPROVAL: 14-day default]`.
 - **`active`**: Paid subscription confirmed, in good standing with recurring billing active.
-- **`grace`**: Renewal payment failed; temporary grace period `[WORKING ASSUMPTION — REQUIRES APPROVAL: 3-day default]` allowing user to update billing details without immediate access lock.
+- **`grace`**: Renewal payment failed; temporary grace period `[WORKING ASSUMPTION   REQUIRES APPROVAL: 3-day default]` allowing user to update billing details without immediate access lock.
 - **`past_due`**: Grace period expired without payment; paid features suspended pending billing resolution.
 - **`cancelled`**: User initiated cancellation; paid access remains valid until current paid period ends.
 - **`expired`**: Subscription period ended after cancellation; entitlement reverted to `free`.

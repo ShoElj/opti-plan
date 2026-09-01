@@ -1,7 +1,7 @@
 # Opti-Plan Master UX Edge Cases & Failure Recovery Matrix
 
 **Version:** 1.0  
-**Phase:** Phase 1B — User Flows  
+**Phase:** Phase 1B   User Flows  
 **Status:** Approved UX Edge Cases Blueprint  
 **Governance:** Governed by `AGENTS.md`, `docs/Opti-Plan_UI_UX_Design_Specification.md`, and Approved Phase 0 & Phase 1A Documents
 
@@ -75,7 +75,7 @@ Designing for edge cases before wireframing guarantees that Opti-Plan remains ca
 |---|---|---|---|
 | **EC-SB-01** | Paystack payment verification pending | Display status screen: "Verifying payment with Paystack...". Poll server status up to 10s. | If timeout occurs, inform user: "Payment received. Activating subscription shortly." |
 | **EC-SB-02** | Paystack payment popup cancelled/failed | Return user to Paywall sheet with notification: "Payment was not completed. Free plan remains active." | Allow retrying checkout or closing paywall safely. |
-| **EC-SB-03** | Renewal payment fails (`past_due`) | Server updates state to `grace` (3-day grace period disclaimed `[WORKING ASSUMPTION — REQUIRES APPROVAL]`). | Display top banner: "Renewal payment failed. Please update billing info to keep Plus access." |
+| **EC-SB-03** | Renewal payment fails (`past_due`) | Server updates state to `grace` (3-day grace period disclaimed `[WORKING ASSUMPTION   REQUIRES APPROVAL]`). | Display top banner: "Renewal payment failed. Please update billing info to keep Plus access." |
 | **EC-SB-04** | Paid subscription cancelled by user | State updates to `cancelled`; paid features remain 100% active until current period ends. | Settings screen displays: "Plus access valid until [Expiration Date]". |
 | **EC-SB-05** | Paystack webhook delayed | Entitlement check queries server DB; client polling verifies state once webhook completes. | Entitlement unlocked only upon signed server webhook payload confirmation. |
 
@@ -97,7 +97,7 @@ Designing for edge cases before wireframing guarantees that Opti-Plan remains ca
 
 | Scenario ID | Edge Case Scenario | System Behavior & UX Response | Error / Recovery Handling |
 |---|---|---|---|
-| **EC-CR-01** | User changes primary profile currency code | Display explicit confirmation disclaimer: "Change currency symbol? Existing transaction numbers will remain unchanged." | Updating currency updates UI display symbol ONLY (`[OPEN PRODUCT / DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`). |
+| **EC-CR-01** | User changes primary profile currency code | Display explicit confirmation disclaimer: "Change currency symbol? Existing transaction numbers will remain unchanged." | Updating currency updates UI display symbol ONLY (`[OPEN PRODUCT / DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`). |
 | **EC-CR-02** | Unrecognized currency code | Fallback to default currency symbol (e.g. `₦` or `$`) based on system region. | Render standard currency code string. |
 
 ---

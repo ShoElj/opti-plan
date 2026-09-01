@@ -1,7 +1,7 @@
 # Opti-Plan MVP Scope Specification
 
 **Version:** 1.0  
-**Phase:** Phase 0 — Product Definition  
+**Phase:** Phase 0   Product Definition  
 **Status:** Approved Scope Boundary  
 **Governance:** Governed by `AGENTS.md` and `docs/Opti-Plan_UI_UX_Design_Specification.md`
 

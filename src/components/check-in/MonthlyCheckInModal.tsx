@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, X, ChevronRight, CheckCircle2, TrendingUp, ShieldCheck } from "lucide-react";
+import { Sparkles, X, ChevronRight, ShieldCheck } from "lucide-react";
 
 interface MonthlyCheckInModalProps {
   isOpen: boolean;

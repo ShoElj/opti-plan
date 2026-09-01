@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, ChevronRight, Sparkles, ArrowRight } from "lucide-react";
-import { PERSONA_PROFILES } from "@/prototype/mockData";
+import { Check, ChevronRight, ArrowRight } from "lucide-react";
+import { PERSONA_PROFILES } from '@/lib/constants';
 
 interface OnboardingFlowProps {
   onComplete: (personaId: string, currencyCode: string, currencySymbol: string) => void;

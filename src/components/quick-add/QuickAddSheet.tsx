@@ -3,15 +3,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowDownLeft, ArrowUpRight, Check } from "lucide-react";
-import { Transaction } from "@/prototype/mockData";
 import { Button } from "@/components/ui/button";
 
 interface QuickAddSheetProps {
   isOpen: boolean;
   initialTab?: "outflow" | "inflow";
   onClose: () => void;
-  onSaveTransaction: (transaction: Omit<Transaction, "id" | "syncStatus">) => void;
+  onSaveTransaction: (transaction: {
+    type: "outflow" | "inflow";
+    classification: string;
+    amount: number;
+    category: string;
+    date: string;
+    note?: string;
+    goalId?: string;
+  }) => void;
   currencySymbol: string;
+  goals?: { id: string; name: string }[];
 }
 
 export const QuickAddSheet: React.FC<QuickAddSheetProps> = ({
@@ -19,7 +27,8 @@ export const QuickAddSheet: React.FC<QuickAddSheetProps> = ({
   initialTab = "outflow",
   onClose,
   onSaveTransaction,
-  currencySymbol
+  currencySymbol,
+  goals
 }) => {
   const [activeTab, setActiveTab] = useState<"outflow" | "inflow">(initialTab);
   const [amount, setAmount] = useState<string>("");
@@ -27,9 +36,10 @@ export const QuickAddSheet: React.FC<QuickAddSheetProps> = ({
   const [category, setCategory] = useState<string>(
     initialTab === "inflow" ? "Salary Inflow" : "Food & Groceries"
   );
-  const [classification, setClassification] = useState<"income" | "expense" | "savings" | "debt">(
+  const [classification, setClassification] = useState<"income" | "expense" | "savings" | "goal_contribution" | "debt">(
     initialTab === "inflow" ? "income" : "expense"
   );
+  const [goalId, setGoalId] = useState<string>("");
   const [note, setNote] = useState<string>("");
   const [showNoteField, setShowNoteField] = useState<boolean>(false);
   const amountInputRef = useRef<HTMLInputElement>(null);
@@ -52,6 +62,7 @@ export const QuickAddSheet: React.FC<QuickAddSheetProps> = ({
     setShowNoteField(false);
     setActiveTab("outflow");
     setClassification("expense");
+    setGoalId("");
     onClose();
   };
 
@@ -68,13 +79,19 @@ export const QuickAddSheet: React.FC<QuickAddSheetProps> = ({
     const selectedCategory = category || (activeTab === "inflow" ? "Salary Inflow" : "Food & Groceries");
     const finalClassification = activeTab === "inflow" ? "income" : classification;
 
+    if (finalClassification === "goal_contribution" && !goalId) {
+      alert("Please select a savings goal.");
+      return;
+    }
+
     onSaveTransaction({
       type: activeTab,
       classification: finalClassification,
       amount: numericAmount,
       category: selectedCategory,
       date: new Date().toISOString().split("T")[0],
-      note: note || undefined
+      note: note || undefined,
+      goalId: finalClassification === "goal_contribution" ? goalId : undefined
     });
 
     handleClose();
@@ -197,10 +214,10 @@ export const QuickAddSheet: React.FC<QuickAddSheetProps> = ({
                 <label className="block text-xs font-medium text-muted-foreground mb-1">
                   Allocation Type
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 gap-2 mb-3">
                   <button
                     type="button"
-                    onClick={() => setClassification("expense")}
+                    onClick={() => { setClassification("expense"); setGoalId(""); }}
                     className={`py-2 text-xs font-semibold rounded-xl border transition-all ${
                       classification === "expense"
                         ? "bg-emerald-500/10 border-emerald-500 text-emerald-600 dark:text-emerald-400"
@@ -211,27 +228,60 @@ export const QuickAddSheet: React.FC<QuickAddSheetProps> = ({
                   </button>
                   <button
                     type="button"
-                    onClick={() => setClassification("savings")}
+                    onClick={() => { setClassification("savings"); setGoalId(""); }}
                     className={`py-2 text-xs font-semibold rounded-xl border transition-all ${
                       classification === "savings"
                         ? "bg-blue-500/10 border-blue-500 text-blue-600 dark:text-blue-400"
                         : "border-input bg-background text-muted-foreground"
                     }`}
                   >
-                    Savings Goal
+                    General Savings
                   </button>
                   <button
                     type="button"
-                    onClick={() => setClassification("debt")}
+                    onClick={() => setClassification("goal_contribution")}
+                    className={`py-2 text-xs font-semibold rounded-xl border transition-all ${
+                      classification === "goal_contribution"
+                        ? "bg-indigo-500/10 border-indigo-500 text-indigo-600 dark:text-indigo-400"
+                        : "border-input bg-background text-muted-foreground"
+                    }`}
+                  >
+                    Goal Contribution
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setClassification("debt"); setGoalId(""); }}
                     className={`py-2 text-xs font-semibold rounded-xl border transition-all ${
                       classification === "debt"
                         ? "bg-purple-500/10 border-purple-500 text-purple-600 dark:text-purple-400"
                         : "border-input bg-background text-muted-foreground"
                     }`}
                   >
-                    Debt Repay
+                    Debt Repayment
                   </button>
                 </div>
+                
+                {/* Goal Selector */}
+                {classification === "goal_contribution" && (
+                  <div>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1">
+                      Select Goal
+                    </label>
+                    <select
+                      value={goalId}
+                      onChange={(e) => setGoalId(e.target.value)}
+                      required
+                      className="w-full px-3.5 py-2.5 bg-background border border-input rounded-xl text-xs font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    >
+                      <option value="" disabled>Select a savings goal...</option>
+                      {goals && goals.map((g) => (
+                        <option key={g.id} value={g.id}>
+                          {g.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
               </div>
             )}
 

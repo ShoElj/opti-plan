@@ -1,8 +1,8 @@
-# Opti-Plan Phase 3 — Engineering Foundation
+# Opti-Plan Phase 3   Engineering Foundation
 
 **Date:** August 25, 2026  
 **Status:** PHASE 3 ENGINEERING FOUNDATION SPECIFICATION & IMPLEMENTATION  
-**Phase:** Phase 3 — Engineering Foundation  
+**Phase:** Phase 3   Engineering Foundation  
 
 ---
 

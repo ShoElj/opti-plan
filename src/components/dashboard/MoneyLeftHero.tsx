@@ -50,7 +50,7 @@ export const MoneyLeftHero: React.FC<MoneyLeftHeroProps> = ({
         </div>
       </div>
 
-      {/* Surface Level 1 — Money Left Hero (rounded-[28px]) */}
+      {/* Surface Level 1   Money Left Hero (rounded-[28px]) */}
       <AppCard level={1} animate={true}>
         <div className="flex items-center justify-between mb-3 relative z-10">
           <div className="flex items-center space-x-2">
@@ -73,9 +73,8 @@ export const MoneyLeftHero: React.FC<MoneyLeftHeroProps> = ({
               {currencySymbol}
             </span>
             <span
-              className={`font-extrabold tracking-tight break-all overflow-wrap-anywhere ${
-                isNegative ? "text-amber-300" : "text-white"
-              } ${getResponsiveFontClass(formattedAmount.length)}`}
+              className={`font-extrabold tracking-tight break-all overflow-wrap-anywhere ${isNegative ? "text-amber-300" : "text-white"
+                } ${getResponsiveFontClass(formattedAmount.length)}`}
             >
               {formattedAmount}
             </span>

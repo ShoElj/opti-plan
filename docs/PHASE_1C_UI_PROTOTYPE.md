@@ -1,8 +1,8 @@
-# Opti-Plan Phase 1C — Interactive UI Prototype Documentation
+# Opti-Plan Phase 1C   Interactive UI Prototype Documentation
 
-**Phase Authorization:** Phase 1C — Interactive UI Prototype  
+**Phase Authorization:** Phase 1C   Interactive UI Prototype  
 **Date:** August 25, 2026  
-**Status:** IMPLEMENTED — READY FOR UI/UX AUDIT  
+**Status:** IMPLEMENTED   READY FOR UI/UX AUDIT  
 **Framework:** Next.js 16.3.2 (App Router, Turbopack, TypeScript strict mode, Tailwind CSS v4, Lucide Icons, Framer Motion)  
 **Local Dev Server:** `http://localhost:3000` (Daemon task running)
 
@@ -24,18 +24,18 @@ All prototype mock data is isolated under [`src/prototype/mockData.ts`](file:///
 ## 2. Priority Screen Coverage (14 Screens)
 
 1. **Onboarding (`/onboarding` & Interactive Modal)**: Skippable 3-step setup (`Profile Type -> Currency -> Optional Plan Setup -> Skip -> Home`). Fast-track skip button takes user directly to Home in 1 tap.
-2. **Home — Empty State**: Interactive toggle demonstrates empty state explaining the first useful action without looking broken.
-3. **Home — Populated**: Dominant **Money Left** hero card (₦170,000), 4 Summary cards (Money In ₦350,000, Money Out ₦135,000, Saved ₦30,000, Debt Paid ₦15,000), budget progress, top categories, upcoming bill alert, and single Money Win card.
-4. **Quick Add Sheet (`SCR-QA-01`)**: Persistent global FAB (+) opening modal sheet defaulting to Money Out (`[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]`) with Money In tab, numeric keypad focus (`[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`: Target $\le 5$s), category selector, classification buttons, and optional note input.
+2. **Home   Empty State**: Interactive toggle demonstrates empty state explaining the first useful action without looking broken.
+3. **Home   Populated**: Dominant **Money Left** hero card (₦170,000), 4 Summary cards (Money In ₦350,000, Money Out ₦135,000, Saved ₦30,000, Debt Paid ₦15,000), budget progress, top categories, upcoming bill alert, and single Money Win card.
+4. **Quick Add Sheet (`SCR-QA-01`)**: Persistent global FAB (+) opening modal sheet defaulting to Money Out (`[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]`) with Money In tab, numeric keypad focus (`[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`: Target $\le 5$s), category selector, classification buttons, and optional note input.
 5. **Money In Entry**: Amount entry, source selection, date, optional note.
 6. **Money Out Entry**: Amount entry, category selection, date, classification (Normal Expense, Savings Goal, Debt Repay), optional note.
 7. **Activity Timeline (`/app/activity`)**: Date-grouped history list, search input, filter modal sheet (All / Inflow / Outflow / Savings / Debt), transaction detail sheet, edit/delete actions.
 8. **Plan Workspace (`/app/plan`)**: One workspace with sub-tabs for Spending Plan, Savings Goals, and Bills Tracker. Emphasizes overall monthly spending limit baseline.
-9. **Goals Section**: Goal list, creation modal, detail modal, contribution modal, and 50% milestone badge (`[WORKING ENGAGEMENT ASSUMPTION — SUBJECT TO PHASE 1C UX TESTING]`).
-10. **Bills Section**: Upcoming bills list, due-soon alert badges (`[WORKING UX ASSUMPTION — SUBJECT TO USER TESTING]`: $\le 3$ days), create bill modal, and "Mark as Paid" action modal (`[OPEN DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`).
+9. **Goals Section**: Goal list, creation modal, detail modal, contribution modal, and 50% milestone badge (`[WORKING ENGAGEMENT ASSUMPTION   SUBJECT TO PHASE 1C UX TESTING]`).
+10. **Bills Section**: Upcoming bills list, due-soon alert badges (`[WORKING UX ASSUMPTION   SUBJECT TO USER TESTING]`: $\le 3$ days), create bill modal, and "Mark as Paid" action modal (`[OPEN DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`).
 11. **Monthly Money Check-In (`/app/check-in`)**: 4-step review stepper (Money In, Spending/Categories, Savings/Debt, Final Money Left recap & badge reveal).
-12. **Profile & Settings (`/app/profile`)**: User identity, persona profile selection, display currency dropdown (`[OPEN PRODUCT / DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`), theme mode toggle (Light/Dark), subscription area, privacy/delete account modal, sign out.
-13. **Contextual Paywall Sheet**: Opti-Plan Plus benefits list with pricing disclaimers (`[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`).
+12. **Profile & Settings (`/app/profile`)**: User identity, persona profile selection, display currency dropdown (`[OPEN PRODUCT / DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`), theme mode toggle (Light/Dark), subscription area, privacy/delete account modal, sign out.
+13. **Contextual Paywall Sheet**: Opti-Plan Plus benefits list with pricing disclaimers (`[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`).
 14. **System Feedback States**: Loading skeletons, empty states, offline status banner ("Offline - Saved locally").
 
 ---
@@ -60,9 +60,9 @@ All prototype mock data is isolated under [`src/prototype/mockData.ts`](file:///
 
 ## 5. Phase 2 Open Data Decisions Preserved
 
-1. **Goal Contribution Ledger Linkage**: Marked as `[OPEN INTERACTION / DATA DECISION — REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`.
-2. **Bill Payment Expense Linkage**: Marked as `[OPEN DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`.
-3. **Historical Currency Conversion**: Marked as `[OPEN PRODUCT / DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`.
+1. **Goal Contribution Ledger Linkage**: Marked as `[OPEN INTERACTION / DATA DECISION   REQUIRES PHASE 2 ARCHITECTURE CONFIRMATION]`.
+2. **Bill Payment Expense Linkage**: Marked as `[OPEN DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`.
+3. **Historical Currency Conversion**: Marked as `[OPEN PRODUCT / DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`.
 4. **Paystack Webhooks & Entitlement**: Deferred to Phase 2 & Phase 9.
 5. **IndexedDB Sync & Deduplication**: Deferred to Phase 2 & Phase 11.
 

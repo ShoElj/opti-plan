@@ -1,8 +1,8 @@
-# Opti-Plan Phase 4 — Database Schema & Row Level Security
+# Opti-Plan Phase 4   Database Schema & Row Level Security
 
 **Date:** August 26, 2026  
 **Status:** PHASE 4 IMPLEMENTATION SUMMARY  
-**Phase:** Phase 4 — Database Schema & Row Level Security  
+**Phase:** Phase 4   Database Schema & Row Level Security  
 
 ---
 

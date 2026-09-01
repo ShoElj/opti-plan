@@ -1,7 +1,7 @@
 # Phase 1C Visual Checkpoint
 
 **Date:** August 25, 2026  
-**Status:** CHECKPOINT COMPLETE — AUDIT READY  
+**Status:** CHECKPOINT COMPLETE   AUDIT READY  
 **Repository State:** Code locked for visual evaluation  
 
 ---
@@ -66,7 +66,7 @@ Custom Tailwind CSS v4 design system components were built using shadcn/ui desig
 
 - **Accessibility:** Accessible via 1 tap from central (+) FAB on mobile navbar and primary action button on desktop sidebar.
 - **Opening Animation:** Smooth bottom sheet modal slide-up fade-in (`framer-motion` backdrop blur).
-- **Tab Clarity:** Money Out (Expense) default tab clearly labeled with candidate evaluation disclaimer (`[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]`). Money In (Income) tab equally discoverable.
+- **Tab Clarity:** Money Out (Expense) default tab clearly labeled with candidate evaluation disclaimer (`[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]`). Money In (Income) tab equally discoverable.
 - **Amount Focus:** Numeric input field receives auto-focus upon modal open.
 - **Form Ergonomics:** Spaced comfortably with select inputs, 3-way classification toggles (Normal Expense, Savings Goal, Debt Repay), and progressive disclosure for optional notes.
 - **Dismissal & Save:** Clear top-right close icon (✕) and full-width bottom "Save Transaction" button.
@@ -92,14 +92,14 @@ Custom Tailwind CSS v4 design system components were built using shadcn/ui desig
 ## Plan Review
 
 - **Workspace Sub-tabs:** Clean sub-navigation between Spending Plan, Savings Goals, and Bills Tracker.
-- **Baseline MVP Focus:** Emphasizes overall monthly target limit (₦200,000). Category budget limits clearly marked as optional enhancements (`[OPTIONAL CAPABILITY — BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`).
+- **Baseline MVP Focus:** Emphasizes overall monthly target limit (₦200,000). Category budget limits clearly marked as optional enhancements (`[OPTIONAL CAPABILITY   BASELINE MVP FOCUS IS OVERALL MONTHLY PLAN]`).
 
 ---
 
 ## Goals Review
 
 - **Goal Cards:** Clear progress bar fill with target vs saved balance display.
-- **Milestone Badge:** 50% milestone celebration badge displayed (`[WORKING ENGAGEMENT ASSUMPTION — SUBJECT TO PHASE 1C UX TESTING]`).
+- **Milestone Badge:** 50% milestone celebration badge displayed (`[WORKING ENGAGEMENT ASSUMPTION   SUBJECT TO PHASE 1C UX TESTING]`).
 - **Goal Creation & Contribution:** Interactive modal forms with single transaction ledger disclaimers.
 
 ---
@@ -107,7 +107,7 @@ Custom Tailwind CSS v4 design system components were built using shadcn/ui desig
 ## Bills Review
 
 - **Upcoming Bills:** Highlights bill name, category, due date, and due-soon alert ("Due in 2 days").
-- **Mark as Paid Interaction:** Confirmation modal sheet explicitly preserves Phase 2 data decision disclaimer (`[OPEN DATA DECISION — REQUIRES PHASE 2 CONFIRMATION]`).
+- **Mark as Paid Interaction:** Confirmation modal sheet explicitly preserves Phase 2 data decision disclaimer (`[OPEN DATA DECISION   REQUIRES PHASE 2 CONFIRMATION]`).
 
 ---
 
@@ -129,7 +129,7 @@ Custom Tailwind CSS v4 design system components were built using shadcn/ui desig
 
 ## Paywall Review
 
-- **Contextual Paywall Sheet:** Triggered from Profile upgrade button. Displays Opti-Plan Plus benefits list and 14-day trial disclaimer (`[WORKING MONETIZATION ASSUMPTION — REQUIRES PRODUCT APPROVAL]`).
+- **Contextual Paywall Sheet:** Triggered from Profile upgrade button. Displays Opti-Plan Plus benefits list and 14-day trial disclaimer (`[WORKING MONETIZATION ASSUMPTION   REQUIRES PRODUCT APPROVAL]`).
 - **Safe Dismissal:** "Maybe Later" button returns user cleanly without losing draft state.
 
 ---
@@ -264,7 +264,7 @@ Custom Tailwind CSS v4 design system components were built using shadcn/ui desig
    - Transformed bill alert into a clean consumer card: `Upcoming bill` -> `Fiber Internet Subscription • Due in 2 days • ₦15,000`.
 
 5. **Money Win Refinement:**
-   - Presented as a sleek consumer insight: `Money Win — Your transport spending is 12% lower than your recent average.`. Strictly 1 on Home.
+   - Presented as a sleek consumer insight: `Money Win   Your transport spending is 12% lower than your recent average.`. Strictly 1 on Home.
 
 6. **Quick Add Cleanup:**
    - Removed all UX testing labels. Clean, fast input flow with amount focus and simplified classification controls.

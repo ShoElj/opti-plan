@@ -1,7 +1,7 @@
 # Opti-Plan Success Criteria & Phase Exit Gate Specification
 
 **Version:** 1.0  
-**Phase:** Phase 0 — Product Definition  
+**Phase:** Phase 0   Product Definition  
 **Status:** Approved Success Criteria Blueprint  
 **Governance:** Governed by `AGENTS.md` and `docs/Opti-Plan_UI_UX_Design_Specification.md`
 
@@ -28,21 +28,21 @@ Opti-Plan's core product success criteria are categorized into 5 distinct evalua
 - **Cancellation Friction Benchmark**: $100\%$ of user cancellation requests executed in $\le 2$ clicks without support tickets or dark pattern friction.
 
 ### 2.3 Initial Activation & Onboarding Metrics
-- **Onboarding Completion Rate**: $\ge 85\%$ of users who start signup complete profile selection and reach the dashboard `[Initial validation target — subject to revision after beta]`.
-- **Time to First Transaction**: $\ge 70\%$ of activated users record their first Money In or Money Out transaction within 2 minutes of completing onboarding `[Initial validation target — subject to revision after beta]`.
-- **PWA Installation Adoption**: $\ge 30\%$ of active mobile users install the Opti-Plan PWA shell `[Initial validation target — subject to revision after beta]`.
+- **Onboarding Completion Rate**: $\ge 85\%$ of users who start signup complete profile selection and reach the dashboard `[Initial validation target   subject to revision after beta]`.
+- **Time to First Transaction**: $\ge 70\%$ of activated users record their first Money In or Money Out transaction within 2 minutes of completing onboarding `[Initial validation target   subject to revision after beta]`.
+- **PWA Installation Adoption**: $\ge 30\%$ of active mobile users install the Opti-Plan PWA shell `[Initial validation target   subject to revision after beta]`.
 
 ### 2.4 Product Engagement & Retention Metrics
-- **Quick Add Adoption**: $\ge 65\%$ of all non-recurring transactions recorded via the persistent Quick Add bottom-sheet `[Initial validation target — subject to revision after beta]`.
-- **Transaction Logging Speed**: Average time to log a basic transaction via Quick Add $\le 5$ seconds on mobile `[Initial validation target — subject to revision after beta]`.
-- **Monthly Check-In Participation**: $\ge 50\%$ of active users complete their end-of-month Money Check-In reveal before the 5th day of the subsequent month `[Initial validation target — subject to revision after beta]`.
-- **Day 7 Retention**: $\ge 40\%$ of new signups return to log transactions or check Money Left within 7 days `[Initial validation target — subject to revision after beta]`.
-- **Day 30 Retention**: $\ge 25\%$ active monthly retention rate `[Initial validation target — subject to revision after beta]`.
-- **Behavioral Reward Engagement**: $\ge 60\%$ positive engagement rate with real-data Money Wins cards `[Initial validation target — subject to revision after beta]`.
+- **Quick Add Adoption**: $\ge 65\%$ of all non-recurring transactions recorded via the persistent Quick Add bottom-sheet `[Initial validation target   subject to revision after beta]`.
+- **Transaction Logging Speed**: Average time to log a basic transaction via Quick Add $\le 5$ seconds on mobile `[Initial validation target   subject to revision after beta]`.
+- **Monthly Check-In Participation**: $\ge 50\%$ of active users complete their end-of-month Money Check-In reveal before the 5th day of the subsequent month `[Initial validation target   subject to revision after beta]`.
+- **Day 7 Retention**: $\ge 40\%$ of new signups return to log transactions or check Money Left within 7 days `[Initial validation target   subject to revision after beta]`.
+- **Day 30 Retention**: $\ge 25\%$ active monthly retention rate `[Initial validation target   subject to revision after beta]`.
+- **Behavioral Reward Engagement**: $\ge 60\%$ positive engagement rate with real-data Money Wins cards `[Initial validation target   subject to revision after beta]`.
 
 ### 2.5 Business & Conversion Hypotheses
-- **Free-to-Paid Conversion**: $\ge 3\%$ conversion rate from free tier to paid Opti-Plan Plus subscription `[Initial validation target — subject to revision after beta]`.
-- **Subscription Retention (3-Month)**: $\ge 70\%$ paid subscription retention at Day 90 `[Initial validation target — subject to revision after beta]`.
+- **Free-to-Paid Conversion**: $\ge 3\%$ conversion rate from free tier to paid Opti-Plan Plus subscription `[Initial validation target   subject to revision after beta]`.
+- **Subscription Retention (3-Month)**: $\ge 70\%$ paid subscription retention at Day 90 `[Initial validation target   subject to revision after beta]`.
 
 ### 2.6 Technical Reliability Requirements
 - **Billing Dispute Rate**: $< 0.1\%$ of transactions resulting in billing disputes due to idempotent webhook architecture.
@@ -52,7 +52,7 @@ Opti-Plan's core product success criteria are categorized into 5 distinct evalua
 
 ## 3. Phase 0 Audit Exit Gate Checklist
 
-To achieve a **PASS** or **READY FOR AUDIT** decision for Phase 0 — Product Definition, all items in the following audit checklist MUST be satisfied:
+To achieve a **PASS** or **READY FOR AUDIT** decision for Phase 0   Product Definition, all items in the following audit checklist MUST be satisfied:
 
 | Requirement ID | Audit Item | Verification Status | Artifact Reference |
 |---|---|---|---|

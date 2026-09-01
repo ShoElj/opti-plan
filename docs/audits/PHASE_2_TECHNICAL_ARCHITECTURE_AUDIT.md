@@ -1,10 +1,10 @@
-# Phase 2 — Technical Architecture Audit
+# Phase 2   Technical Architecture Audit
 
 **Product:** Opti-Plan  
-**Phase:** Phase 2 — Technical Architecture  
+**Phase:** Phase 2   Technical Architecture  
 **Date:** August 25, 2026  
 **Auditor:** Independent AI Systems Auditor (Antigravity Team)  
-**Status:** AUDIT COMPLETE — PASS WITH ACTIONS  
+**Status:** AUDIT COMPLETE   PASS WITH ACTIONS  
 
 ---
 
@@ -127,7 +127,7 @@ The independent audit reviewed the following documentation and source artifacts:
 - **Area:** Data & UX Architecture (`DATA_ARCHITECTURE.md` & `TECHNICAL_ARCHITECTURE.md`)
 - **Requirement:** Prevent historical financial data from appearing to vanish when a user switches display currency in Profile.
 - **Observed:** Dashboard aggregates entries matching `profile.currency_code`. Switching display currency from NGN to USD filters out historical NGN entries from the USD Home total.
-- **Expected:** When transactions exist in a non-matching currency, Home dashboard must display an explicit informational banner: *"Displaying USD totals — 12 historical entries in NGN available in Activity"*.
+- **Expected:** When transactions exist in a non-matching currency, Home dashboard must display an explicit informational banner: *"Displaying USD totals   12 historical entries in NGN available in Activity"*.
 - **Risk:** User confusion thinking historical entries were lost upon changing currency.
 - **Recommended Correction:** Implement non-matching currency notice banner on Home dashboard in Phase 6 / Phase 7.
 - **Status:** Action Item for Phase 6 / Phase 7
@@ -355,22 +355,22 @@ Phase 2 technical architecture, financial data model, Supabase RLS security, pay
 
 # Phase 2 Remediation
 
-## FIND-2-01 — Transaction Type / Classification Constraint
+## FIND-2-01   Transaction Type / Classification Constraint
 - **Correction:** `DATA_ARCHITECTURE.md` and `PHASE_2_ARCHITECTURE_DECISIONS.md` updated with explicit valid combination rules (`inflow` + `income`/`transfer`, `outflow` + `expense`/`savings`/`debt`/`transfer`) and composite SQL check constraint `chk_tx_type_classification`. Transfers explicitly documented as net zero Money Left impact.
 - **Evidence:** `DATA_ARCHITECTURE.md` Section 3 & 4.1, `PHASE_2_ARCHITECTURE_DECISIONS.md` ADR-02.
 - **Status:** RESOLVED
 
-## FIND-2-02 — Bill Payment Recurrence Identity
+## FIND-2-02   Bill Payment Recurrence Identity
 - **Correction:** `DATA_ARCHITECTURE.md` and `PHASE_2_ARCHITECTURE_DECISIONS.md` updated with `bill_occurrences` table specification supporting weekly, biweekly, monthly, yearly, and custom frequencies. `bill_payment_links` updated to link `(bill_occurrence_id, transaction_id, user_id, payment_date)`. Performance indexes specified for `(user_id, due_date, status)` and `(user_id, payment_date)`.
 - **Evidence:** `DATA_ARCHITECTURE.md` Section 4.4, `PHASE_2_ARCHITECTURE_DECISIONS.md` ADR-04.
 - **Status:** RESOLVED
 
-## FIND-2-03 — Non-Matching Currency History
-- **Correction:** `DATA_ARCHITECTURE.md`, `TECHNICAL_ARCHITECTURE.md`, and `PHASE_2_ARCHITECTURE_DECISIONS.md` updated with mandatory Phase 6/7 UX requirement: Home dashboard MUST display an explicit notice banner (*"Displaying USD totals — 12 historical entries in NGN are available in Activity"*) when historical entries exist in a non-matching currency. V1 currency support explicitly re-confirmed as 2-decimal minor unit currencies only.
+## FIND-2-03   Non-Matching Currency History
+- **Correction:** `DATA_ARCHITECTURE.md`, `TECHNICAL_ARCHITECTURE.md`, and `PHASE_2_ARCHITECTURE_DECISIONS.md` updated with mandatory Phase 6/7 UX requirement: Home dashboard MUST display an explicit notice banner (*"Displaying USD totals   12 historical entries in NGN are available in Activity"*) when historical entries exist in a non-matching currency. V1 currency support explicitly re-confirmed as 2-decimal minor unit currencies only.
 - **Evidence:** `DATA_ARCHITECTURE.md` Section 5, `TECHNICAL_ARCHITECTURE.md` Section 3, `PHASE_2_ARCHITECTURE_DECISIONS.md` ADR-05.
 - **Status:** RESOLVED
 
-## FIND-2-04 — Cross-User Relational Ownership
+## FIND-2-04   Cross-User Relational Ownership
 - **Correction:** `SECURITY_RLS_ARCHITECTURE.md`, `DATA_ARCHITECTURE.md`, and `PHASE_2_ARCHITECTURE_DECISIONS.md` updated with composite `UNIQUE(id, user_id)` keys on parent tables (`transactions`, `savings_goals`, `tracked_recurring_expenses`, `bill_occurrences`, `connected_accounts`) and composite foreign keys `FOREIGN KEY (entity_id, user_id) REFERENCES parent_table(id, user_id)` on junction tables (`goal_contributions`, `bill_payment_links`). Guarantees database-level defense in depth.
 - **Evidence:** `SECURITY_RLS_ARCHITECTURE.md` Section 3, `DATA_ARCHITECTURE.md` Section 4.3 & 4.4, `PHASE_2_ARCHITECTURE_DECISIONS.md` ADR-03, ADR-04, ADR-07.
 - **Status:** RESOLVED
@@ -383,7 +383,7 @@ Phase 2 technical architecture, financial data model, Supabase RLS security, pay
 **Auditor:** Independent AI Systems Auditor (Antigravity Team)  
 **Scope:** Focused Architecture Re-Audit of FIND-2-01 through FIND-2-04 Remediation & Systems Regression Check
 
-## FIND-2-01 — Transaction Type / Classification
+## FIND-2-01   Transaction Type / Classification
 Result: PASS
 Evidence:
 - `DATA_ARCHITECTURE.md` (Sections 3 & 4.1), `PHASE_2_ARCHITECTURE_DECISIONS.md` (ADR-02), and `BANK_SYNC_ARCHITECTURE.md` (Section 8) explicitly restrict transaction combinations to:
@@ -398,7 +398,7 @@ Evidence:
   `CHECK ((type = 'inflow' AND classification IN ('income', 'transfer')) OR (type = 'outflow' AND classification IN ('expense', 'savings', 'debt', 'transfer')))`
 - Internal transfer treatment is consistent across all documents and has ZERO direct impact on Money In, Money Out, Saved, Debt Paid, or Money Left. Transfer fees are specified to be logged as independent canonical expense transactions.
 
-## FIND-2-02 — Bill Payment Recurrence
+## FIND-2-02   Bill Payment Recurrence
 Result: PASS
 Evidence:
 - `DATA_ARCHITECTURE.md` (Section 4.4) and `PHASE_2_ARCHITECTURE_DECISIONS.md` (ADR-04) explicitly establish the entity relationship chain:
@@ -409,7 +409,7 @@ Evidence:
 - Required indexes `idx_bill_occurrences_lookup` on `(user_id, due_date, status)` and `idx_bill_payment_links_date` on `(user_id, payment_date)` are documented.
 - Payment status is dynamically derived from `bill_payment_links`; deleting the canonical payment transaction cascades and correctly reverts occurrence status to `unpaid`.
 
-## FIND-2-03 — Currency History Protection
+## FIND-2-03   Currency History Protection
 Result: PASS
 Evidence:
 - `DATA_ARCHITECTURE.md` (Sections 2 & 5), `TECHNICAL_ARCHITECTURE.md` (Section 3), and `PHASE_2_ARCHITECTURE_DECISIONS.md` (ADR-05) explicitly mandate:
@@ -418,9 +418,9 @@ Evidence:
   - V1 prohibits silent FX conversions and does not silently sum mixed-currency totals.
   - Changing profile display currency affects default context for new entries only.
   - Historical records remain fully accessible in the Activity timeline displaying original currency codes.
-- Mandatory Phase 6/7 UX requirement is explicitly documented: Home dashboard MUST display an explicit notice banner (*"Displaying USD totals — 12 historical entries in NGN are available in Activity."*) whenever historical entries exist in a non-matching currency, ensuring users cannot believe older records were deleted.
+- Mandatory Phase 6/7 UX requirement is explicitly documented: Home dashboard MUST display an explicit notice banner (*"Displaying USD totals   12 historical entries in NGN are available in Activity."*) whenever historical entries exist in a non-matching currency, ensuring users cannot believe older records were deleted.
 
-## FIND-2-04 — Cross-User Relational Ownership
+## FIND-2-04   Cross-User Relational Ownership
 Result: PASS
 Evidence:
 - `SECURITY_RLS_ARCHITECTURE.md` (Sections 1 & 3), `DATA_ARCHITECTURE.md` (Section 4), and `PHASE_2_ARCHITECTURE_DECISIONS.md` (ADR-03, ADR-04, ADR-07) enforce defense-in-depth security combining Supabase RLS with database-level same-user composite relational integrity.

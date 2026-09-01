@@ -3,16 +3,22 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Filter, ArrowDownLeft, ArrowUpRight, PiggyBank, CreditCard, X, Trash2 } from "lucide-react";
-import { Transaction } from "@/prototype/mockData";
+import { Transaction } from "@/domain/types";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { AppCard } from "@/components/shared/AppCard";
 import { Button } from "@/components/ui/button";
 
+export type MappedTransaction = Omit<Transaction, "type"> & {
+  type: "inflow" | "outflow";
+  classification: string;
+  date: string;
+};
+
 interface ActivityTimelineProps {
-  transactions: Transaction[];
+  transactions: MappedTransaction[];
   currencySymbol: string;
   onDeleteTransaction: (id: string) => void;
-  onEditTransaction: (transaction: Transaction) => void;
+  onEditTransaction: (transaction: MappedTransaction) => void;
 }
 
 export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
@@ -22,12 +28,12 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
-  const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
+  const [selectedTransaction, setSelectedTransaction] = useState<MappedTransaction | null>(null);
   const [isFilterSheetOpen, setIsFilterSheetOpen] = useState(false);
 
   const filtered = transactions.filter((tx) => {
     const matchesSearch =
-      tx.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (tx.category && tx.category.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (tx.note && tx.note.toLowerCase().includes(searchQuery.toLowerCase()));
 
     const matchesFilter =

@@ -1,7 +1,7 @@
 # Opti-Plan Cross-Product Interaction Rules Specification
 
 **Version:** 1.0  
-**Phase:** Phase 1B — User Flows  
+**Phase:** Phase 1B   User Flows  
 **Status:** Approved Interaction Rules Blueprint  
 **Governance:** Governed by `AGENTS.md`, `docs/Opti-Plan_UI_UX_Design_Specification.md`, and Approved Phase 0 & Phase 1A Documents
 
@@ -9,17 +9,17 @@
 
 ## 1. Quick Add Interaction Rules
 
-Quick Add is Opti-Plan's core speed-optimized transaction capture interface (`[INITIAL UX TARGET — SUBJECT TO USABILITY TESTING]`: Target completion $\le 5$ seconds. *This is a desired usability target, not a guaranteed product performance claim. Phase 1C wireframe testing should evaluate whether the flow actually feels fast; required financial clarity must not be sacrificed merely to hit a time target*).
+Quick Add is Opti-Plan's core speed-optimized transaction capture interface (`[INITIAL UX TARGET   SUBJECT TO USABILITY TESTING]`: Target completion $\le 5$ seconds. *This is a desired usability target, not a guaranteed product performance claim. Phase 1C wireframe testing should evaluate whether the flow actually feels fast; required financial clarity must not be sacrificed merely to hit a time target*).
 
 - **Primary Control Requirement**: The visible (+) button on the mobile bottom navigation bar or desktop sidebar is ALWAYS the primary interaction trigger. Access MUST NEVER depend on keyboard shortcuts.
 - **Tab Chooser Behavior**:
-  - Opening Quick Add from Home or persistent nav defaults to the **Money Out** (Expense) tab (`[WORKING INTERACTION ASSUMPTION — TO BE TESTED IN PHASE 1C]`).
+  - Opening Quick Add from Home or persistent nav defaults to the **Money Out** (Expense) tab (`[WORKING INTERACTION ASSUMPTION   TO BE TESTED IN PHASE 1C]`).
   - Opening Quick Add from an explicit "Income" button defaults to the **Money In** tab.
   - Switching between tabs preserves any entered numeric amount while resetting category choices.
 - **Default Focus**: Opening Quick Add immediately focuses the numeric keypad on the Amount input field. The user can start typing digits instantly.
 - **Dismissal Behavior**: Tapping outside the sheet backdrop, sliding down on mobile, or pressing `Escape` closes the sheet. If fields have been modified, a brief inline confirmation prompt prevents accidental data loss.
 - **Keyboard Shortcut Disclaimers**:
-  - `Cmd+K` / `Ctrl+K` `[WORKING ASSUMPTION — INTERACTION DECISION TO BE FINALIZED IN PHASE 1B / TESTED IN PHASE 1C]`.
+  - `Cmd+K` / `Ctrl+K` `[WORKING ASSUMPTION   INTERACTION DECISION TO BE FINALIZED IN PHASE 1B / TESTED IN PHASE 1C]`.
   - Because `Cmd+K` / `Ctrl+K` is commonly associated with global command search palettes, its assignment is under active evaluation. The application MUST remain 100% functional without keyboard shortcuts.
 
 ---

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Moon, Sun, LogOut, Trash2, Crown, X } from "lucide-react";
-import { PERSONA_PROFILES } from "@/prototype/mockData";
+import { PERSONA_PROFILES } from '@/lib/constants';
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { AppCard } from "@/components/shared/AppCard";
 import { StatusBadge } from "@/components/shared/StatusBadge";

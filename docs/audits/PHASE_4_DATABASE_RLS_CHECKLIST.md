@@ -1,7 +1,7 @@
-# Opti-Plan Phase 4 — Database Schema & RLS Implementation Checklist
+# Opti-Plan Phase 4   Database Schema & RLS Implementation Checklist
 
 **Date:** August 26, 2026  
-**Phase:** Phase 4 — Database Schema & Row Level Security  
+**Phase:** Phase 4   Database Schema & Row Level Security  
 **Status:** IMPLEMENTATION CHECKLIST COMPLETE (PENDING LIVE DATABASE VERIFICATION)  
 
 ---

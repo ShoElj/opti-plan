@@ -1,7 +1,7 @@
 # Opti-Plan Product Requirements Document (PRD)
 
 **Version:** 1.0  
-**Phase:** Phase 0 — Product Definition  
+**Phase:** Phase 0   Product Definition  
 **Status:** Approved Product Blueprint  
 **Governance:** Governed by `AGENTS.md` and `docs/Opti-Plan_UI_UX_Design_Specification.md`
 

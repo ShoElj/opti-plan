@@ -1,4 +1,4 @@
-﻿export type Json =
+export type Json =
   | string
   | number
   | boolean
@@ -39,6 +39,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      pay_cycles: {
+        Row: {
+          id: string
+          user_id: string
+          anchor_day_of_month: number
+          effective_from: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          anchor_day_of_month: number
+          effective_from: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          anchor_day_of_month?: number
+          effective_from?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
       bank_connection_tokens: {
         Row: {
           connected_account_id: string

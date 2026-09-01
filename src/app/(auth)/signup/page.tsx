@@ -5,6 +5,7 @@ import { signupAction } from '@/lib/auth/actions';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { PERSONA_PROFILES } from '@/lib/constants';
+import { GoogleSignInButton } from '@/components/auth/GoogleSignInButton';
 
 export default function SignupPage() {
   const [error, setError] = useState<string | null>(null);
@@ -110,6 +111,17 @@ export default function SignupPage() {
           Log in
         </Link>
       </div>
+
+      <div className="relative my-6">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t" />
+        </div>
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="bg-card px-2 text-muted-foreground">Or</span>
+        </div>
+      </div>
+
+      <GoogleSignInButton />
     </div>
   );
 }

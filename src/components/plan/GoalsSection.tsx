@@ -12,7 +12,7 @@ import { Progress } from "@/components/ui/progress";
 interface GoalsSectionProps {
   goals: SavingsGoal[];
   currencySymbol: string;
-  onCreateGoal: (goal: Omit<SavingsGoal, "id" | "savedAmount" | "status">) => void;
+  onCreateGoal: (goal: { name: string; targetAmount: number; targetDate?: string }) => void;
   onAddContribution: (goalId: string, amount: number) => void;
 }
 
@@ -37,7 +37,7 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
 
     onCreateGoal({
       name: goalName,
-      targetAmount: amount,
+      targetAmount: Math.round(amount * 100), // convert to minor units
       targetDate: targetDate || undefined
     });
 
@@ -53,7 +53,7 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
     const amount = parseFloat(contributionAmount);
     if (isNaN(amount) || amount <= 0) return;
 
-    onAddContribution(selectedGoal.id, amount);
+    onAddContribution(selectedGoal.id, Math.round(amount * 100)); // convert to minor units
     setContributionAmount("");
     setSelectedGoal(null);
   };
@@ -79,7 +79,10 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
       {/* Goal Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {goals.map((goal) => {
-          const percent = Math.min(100, Math.round((goal.savedAmount / goal.targetAmount) * 100));
+          const targetMajor = goal.targetAmount / 100;
+          const savedMajor = goal.savedAmount / 100;
+          const percent = goal.targetAmount > 0 ? Math.round((goal.savedAmount / goal.targetAmount) * 100) : 0;
+          const visualProgress = Math.min(100, percent);
           const isMilestone = percent >= 50;
 
           return (
@@ -92,7 +95,7 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
                   <div>
                     <h4 className="text-xs font-bold text-foreground">{goal.name}</h4>
                     <p className="text-[11px] text-muted-foreground">
-                      Target: {currencySymbol}{goal.targetAmount.toLocaleString()}
+                      Target: {currencySymbol}{targetMajor.toLocaleString()}
                     </p>
                   </div>
                 </div>
@@ -111,13 +114,13 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
               <div>
                 <div className="flex justify-between text-[11px] font-medium mb-1">
                   <span className="text-muted-foreground">
-                    Saved: {currencySymbol}{goal.savedAmount.toLocaleString()}
+                    Saved: {currencySymbol}{savedMajor.toLocaleString()}
                   </span>
                   <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                    {percent}%
+                    {percent}% Saved
                   </span>
                 </div>
-                <Progress value={percent} />
+                <Progress value={visualProgress} />
               </div>
 
               {/* Milestone Celebration */}
@@ -125,7 +128,7 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
                 <div className="flex items-center space-x-1.5 text-[11px]">
                   <StatusBadge variant="success">
                     <Sparkles className="w-3 h-3 mr-1" />
-                    <span>Halfway there! 50% Saved</span>
+                    <span>{percent >= 100 ? "Goal achieved!" : "Halfway there! 50%+ Saved"}</span>
                   </StatusBadge>
                 </div>
               )}

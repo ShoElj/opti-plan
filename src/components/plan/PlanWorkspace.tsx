@@ -17,9 +17,9 @@ interface PlanWorkspaceProps {
   bills: BillItem[];
   currencySymbol: string;
   onUpdateOverallLimit: (newLimit: number) => void;
-  onCreateGoal: (goal: Omit<SavingsGoal, "id" | "savedAmount" | "status">) => void;
+  onCreateGoal: (goal: { name: string; targetAmount: number; targetDate?: string }) => void;
   onAddGoalContribution: (goalId: string, amount: number) => void;
-  onCreateBill: (bill: Omit<BillItem, "id" | "status">) => void;
+  onCreateBill: (bill: { name: string; amount: number; dueDate: string; category?: string; frequency?: string }) => void;
   onMarkBillPaid: (billId: string) => void;
 }
 

@@ -433,6 +433,42 @@ export type Database = {
         }
         Relationships: []
       }
+      smart_alerts: {
+        Row: {
+          created_at: string
+          entity_id: string | null
+          id: string
+          message: string
+          read_at: string | null
+          severity: string
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          entity_id?: string | null
+          id?: string
+          message: string
+          read_at?: string | null
+          severity: string
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          entity_id?: string | null
+          id?: string
+          message?: string
+          read_at?: string | null
+          severity?: string
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       savings_goals: {
         Row: {
           created_at: string
@@ -514,6 +550,7 @@ export type Database = {
       transactions: {
         Row: {
           amount: number
+          amount_minor_units: number
           category: string
           classification: string
           classification_status: string
@@ -522,9 +559,12 @@ export type Database = {
           created_at: string
           currency_code: string
           external_transaction_reference: string | null
+          flow_direction: string
+          goal_id: string | null
           id: string
           imported_at: string | null
           note: string | null
+          occurred_at: string
           provider_reference: string | null
           source_type: string
           transaction_date: string
@@ -534,18 +574,22 @@ export type Database = {
           version: number
         }
         Insert: {
-          amount: number
+          amount?: number
+          amount_minor_units: number
           category: string
-          classification: string
+          classification?: string
           classification_status?: string
           client_mutation_id?: string | null
           connected_account_id?: string | null
           created_at?: string
           currency_code?: string
           external_transaction_reference?: string | null
+          flow_direction: string
+          goal_id?: string | null
           id?: string
           imported_at?: string | null
           note?: string | null
+          occurred_at?: string
           provider_reference?: string | null
           source_type?: string
           transaction_date?: string
@@ -556,6 +600,7 @@ export type Database = {
         }
         Update: {
           amount?: number
+          amount_minor_units?: number
           category?: string
           classification?: string
           classification_status?: string
@@ -564,9 +609,12 @@ export type Database = {
           created_at?: string
           currency_code?: string
           external_transaction_reference?: string | null
+          flow_direction?: string
+          goal_id?: string | null
           id?: string
           imported_at?: string | null
           note?: string | null
+          occurred_at?: string
           provider_reference?: string | null
           source_type?: string
           transaction_date?: string

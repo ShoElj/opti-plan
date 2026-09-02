@@ -32,7 +32,7 @@ import { PaywallSheet } from "@/components/subscription/PaywallSheet";
 import { OnboardingFlow } from "@/components/onboarding/OnboardingFlow";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { AppCard } from "@/components/shared/AppCard";
-import { Sparkles, Settings, Target, ChevronRight } from "lucide-react";
+import { Sparkles, Settings, Target, ChevronRight, Calendar as CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { FinancialHealthCard } from "@/components/health/FinancialHealthCard";
@@ -68,7 +68,6 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
   const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isPaywallOpen, setIsPaywallOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isOffline, setIsOffline] = useState(false);
   const [isOnboarding, setIsOnboarding] = useState(false);
   const [showDevDrawer, setShowDevDrawer] = useState(false);
@@ -137,9 +136,9 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
   // Handlers
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSaveTransaction = async (newTx: any) => {
-    const mappedType = newTx.classification || newTx.type; 
+    const mappedType = newTx.classification || newTx.type;
     let finalType = mappedType;
-    if (finalType === 'inflow') finalType = 'income'; 
+    if (finalType === 'inflow') finalType = 'income';
     if (finalType === 'outflow') finalType = 'expense';
 
     try {
@@ -151,7 +150,7 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
         goalId: newTx.goalId,
         occurredAt: new Date(newTx.date || Date.now()).toISOString()
       });
-      
+
       startTransition(() => {
         router.refresh();
       });
@@ -247,11 +246,13 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
 
   if (isOnboarding) {
     return (
-      <div className={isDarkMode ? "dark" : ""}>
+      <div>
         <OnboardingFlow
-          onComplete={(personaId, currencyCode, currencySymbol) => {
-            setUser({ ...user, personaId, currencyCode, currencySymbol });
+          currencySymbol={user.currencySymbol}
+          onComplete={async () => {
             setIsOnboarding(false);
+            // Hard refresh the data so dashboard loads it
+            window.location.reload();
           }}
         />
       </div>
@@ -259,7 +260,7 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
   }
 
   return (
-    <div className={`min-h-screen bg-background text-foreground ${isDarkMode ? "dark" : ""}`}>
+    <div className="min-h-screen bg-background text-foreground">
       {/* Desktop Persistent Navigation Sidebar & Mobile/Tablet Bottom Bar */}
       <Navbar
         activeTab={activeTab}
@@ -281,8 +282,6 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
           personaName={currentPersona.name}
           isOffline={isOffline}
           onToggleOffline={() => setIsOffline(!isOffline)}
-          isDarkMode={isDarkMode}
-          onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
           onOpenCheckIn={() => setIsCheckInOpen(true)}
         />
 
@@ -327,15 +326,6 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                   totalDebt={moneyLeftBreakdown.debt}
                 />
 
-                {/* Monthly Spending Target Progress */}
-                {!isEmptyState && (
-                  <HomePlanCard
-                    overallLimit={overallMonthlyLimit}
-                    totalSpent={moneyLeftBreakdown.expenses / 100}
-                    currencySymbol={user.currencySymbol}
-                    onGoToPlan={() => setActiveTab("plan")}
-                  />
-                )}
               </div>
 
               {/* Right Supporting Panel Column */}
@@ -346,54 +336,92 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                 )}
 
                 {/* 1. Upcoming Payment */}
-                {upcomingBills && upcomingBills.bills && upcomingBills.bills.length > 0 && !isEmptyState && (
-                  <UpcomingBillCard
-                    bill={upcomingBills.bills[0]}
-                    currencySymbol={user.currencySymbol}
-                    onMarkPaid={(billId) => handleMarkBillPaid(billId)}
-                  />
+                {!isEmptyState && (
+                  upcomingBills?.bills?.length > 0 ? (
+                    <UpcomingBillCard
+                      bill={upcomingBills.bills[0]}
+                      currencySymbol={user.currencySymbol}
+                      onMarkPaid={(billId) => handleMarkBillPaid(billId)}
+                    />
+                  ) : (
+                    <div className="space-y-2">
+                      <SectionHeader title="Upcoming bill" />
+                      <AppCard level={2} className="flex flex-col items-center justify-center p-5 text-center space-y-3">
+                        <div className="p-2.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                          <CalendarIcon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-foreground">No upcoming bills</p>
+                          <p className="text-xs text-muted-foreground mt-0.5 max-w-[200px] mx-auto">Track recurring payments so you never miss a due date.</p>
+                        </div>
+                        <Button variant="outline" size="sm" onClick={() => setActiveTab("plan")} className="text-xs mt-1">
+                          + Add a bill
+                        </Button>
+                      </AppCard>
+                    </div>
+                  )
                 )}
 
                 {/* 2. Savings Progress */}
-                {topGoal && !isEmptyState && (
-                  <div className="space-y-2">
-                    <SectionHeader
-                      title="Savings target"
-                      action={
-                        <button
-                          onClick={() => setActiveTab("plan")}
-                          className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center cursor-pointer"
-                        >
-                          <span>Goals</span>
-                          <ChevronRight className="w-3.5 h-3.5" />
-                        </button>
-                      }
-                    />
+                {!isEmptyState && (
+                  topGoal ? (
+                    <div className="space-y-2">
+                      <SectionHeader
+                        title="Savings target"
+                        action={
+                          <button
+                            onClick={() => setActiveTab("plan")}
+                            className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center cursor-pointer"
+                          >
+                            <span>Goals</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </button>
+                        }
+                      />
 
-                    <AppCard level={2} className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2.5">
-                          <div className="p-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0">
-                            <Target className="w-4 h-4" />
+                      <AppCard level={2} className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2.5">
+                            <div className="p-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0">
+                              <Target className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <h4 className="text-xs font-bold text-foreground">{topGoal.name}</h4>
+                              <span className="text-[11px] text-muted-foreground">
+                                {user.currencySymbol}{(topGoal.savedAmount / 100).toLocaleString()} of {user.currencySymbol}{(topGoal.targetAmount / 100).toLocaleString()}
+                              </span>
+                            </div>
                           </div>
-                          <div>
-                            <h4 className="text-xs font-bold text-foreground">{topGoal.name}</h4>
-                            <span className="text-[11px] text-muted-foreground">
-                              {user.currencySymbol}{(topGoal.savedAmount / 100).toLocaleString()} of {user.currencySymbol}{(topGoal.targetAmount / 100).toLocaleString()}
-                            </span>
-                          </div>
+                          <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                            {topGoal.targetAmount > 0 ? Math.round((topGoal.savedAmount / topGoal.targetAmount) * 100) : 0}%
+                          </span>
                         </div>
-                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                          {topGoal.targetAmount > 0 ? Math.round((topGoal.savedAmount / topGoal.targetAmount) * 100) : 0}%
-                        </span>
-                      </div>
-                      <Progress value={topGoal.targetAmount > 0 ? Math.min(100, (topGoal.savedAmount / topGoal.targetAmount) * 100) : 0} />
-                    </AppCard>
-                  </div>
+                        <Progress value={topGoal.targetAmount > 0 ? Math.min(100, (topGoal.savedAmount / topGoal.targetAmount) * 100) : 0} />
+                      </AppCard>
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      <SectionHeader title="Savings target" />
+                      <AppCard level={2} className="flex flex-col items-center justify-center p-5 text-center space-y-3">
+                        <div className="p-2.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                          <Target className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-foreground">No savings goals yet</p>
+                          <p className="text-xs text-muted-foreground mt-0.5 max-w-[200px] mx-auto">Set a target to start building your future.</p>
+                        </div>
+                        <Button variant="outline" size="sm" onClick={() => setActiveTab("plan")} className="text-xs mt-1">
+                          + Set a goal
+                        </Button>
+                      </AppCard>
+                    </div>
+                  )
                 )}
 
                 {/* 3. Helpful Insight (Money Win Card) */}
-                {!isEmptyState && <MoneyWinCard />}
+                {!isEmptyState && spendingInsights.insightMessage && (
+                  <MoneyWinCard insightMessage={spendingInsights.insightMessage} />
+                )}
 
                 {/* Empty State View */}
                 {isEmptyState && (
@@ -427,8 +455,8 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                   type: (t.type === 'income' || t.type === 'transfer') ? 'inflow' : 'outflow'
                 }))}
                 currencySymbol={user.currencySymbol}
-                onDeleteTransaction={() => {}}
-                onEditTransaction={() => {}}
+                onDeleteTransaction={() => { }}
+                onEditTransaction={() => { }}
               />
             </div>
           )}
@@ -494,8 +522,6 @@ export default function AppClient({ initialUser, dashboardData }: AppClientProps
                 personaId={user.personaId}
                 currencyCode={user.currencyCode}
                 subscriptionTier={user.subscriptionTier}
-                isDarkMode={isDarkMode}
-                onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
                 onChangePersona={(personaId) => setUser({ ...user, personaId })}
                 onChangeCurrency={(code) => {
                   const sym = code === "USD" ? "$" : code === "GBP" ? "£" : code === "EUR" ? "€" : "₦";

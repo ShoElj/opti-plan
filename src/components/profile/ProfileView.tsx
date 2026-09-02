@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { useTheme } from "next-themes";
+import React, { useState, useEffect } from "react";
 import { Moon, Sun, LogOut, Trash2, Crown, X } from "lucide-react";
 import { PERSONA_PROFILES } from '@/lib/constants';
 import { SectionHeader } from "@/components/shared/SectionHeader";
@@ -14,8 +15,6 @@ interface ProfileViewProps {
   personaId: string;
   currencyCode: string;
   subscriptionTier: "free" | "plus";
-  isDarkMode: boolean;
-  onToggleDarkMode: () => void;
   onChangePersona: (personaId: string) => void;
   onChangeCurrency: (code: string) => void;
   onOpenPaywall: () => void;
@@ -28,13 +27,21 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
   personaId,
   currencyCode,
   subscriptionTier,
-  isDarkMode,
-  onToggleDarkMode,
   onChangePersona,
   onChangeCurrency,
   onOpenPaywall,
   onSignOut
 }) => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  const isDark = theme === "dark";
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [deleteKeyword, setDeleteKeyword] = useState("");
 
@@ -135,44 +142,54 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
           {/* Theme Appearance */}
           <div className="flex items-center justify-between py-2 border-t border-border/20">
             <div className="flex items-center space-x-2">
-              {isDarkMode ? <Moon className="w-4 h-4 text-amber-400" /> : <Sun className="w-4 h-4 text-emerald-600" />}
+              {mounted && isDark ? <Moon className="w-4 h-4 text-amber-400" /> : <Sun className="w-4 h-4 text-emerald-600" />}
               <span className="text-xs font-semibold text-foreground">Theme</span>
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={onToggleDarkMode}
-              className="h-8 text-xs font-medium"
-            >
-              {isDarkMode ? "Dark Mode" : "Light Mode"}
-            </Button>
+            {mounted && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setTheme(isDark ? "light" : "dark")}
+                className="h-8 text-xs font-medium"
+              >
+                {isDark ? "Dark Mode" : "Light Mode"}
+              </Button>
+            )}
           </div>
         </AppCard>
       </div>
 
-      {/* 4. Account & Privacy */}
+      {/* 4. Account Settings */}
       <div className="space-y-2">
-        <SectionHeader title="Account & privacy" />
-        <AppCard level={2} className="space-y-3">
-          <div className="flex space-x-2 pt-1">
-            <Button
-              variant="outline"
-              className="flex-1 h-10 text-xs font-semibold"
-              onClick={onSignOut}
-            >
-              <LogOut className="w-4 h-4 mr-1.5" />
-              <span>Sign Out</span>
-            </Button>
+        <SectionHeader title="Account settings" />
+        <AppCard level={2}>
+          <Button
+            variant="outline"
+            className="w-full h-11 text-xs font-semibold flex items-center justify-center"
+            disabled={isLoggingOut}
+            onClick={() => {
+              setIsLoggingOut(true);
+              onSignOut();
+            }}
+          >
+            <LogOut className="w-4 h-4 mr-1.5" />
+            <span>{isLoggingOut ? "Signing out..." : "Sign Out"}</span>
+          </Button>
+        </AppCard>
+      </div>
 
-            <Button
-              variant="destructive"
-              className="flex-1 h-10 text-xs font-semibold"
-              onClick={() => setIsDeleteModalOpen(true)}
-            >
-              <Trash2 className="w-4 h-4 mr-1.5" />
-              <span>Delete account</span>
-            </Button>
-          </div>
+      {/* 5. Danger Zone */}
+      <div className="space-y-2 mt-8">
+        <SectionHeader title="Danger Zone" className="text-red-500" />
+        <AppCard level={2} className="border-red-500/20 bg-red-500/5">
+          <Button
+            variant="destructive"
+            className="w-full h-11 text-xs font-semibold flex items-center justify-center"
+            onClick={() => setIsDeleteModalOpen(true)}
+          >
+            <Trash2 className="w-4 h-4 mr-1.5" />
+            <span>Delete account</span>
+          </Button>
         </AppCard>
       </div>
 
@@ -208,13 +225,15 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
               <Button
                 variant="destructive"
                 className="flex-1"
-                disabled={deleteKeyword !== "DELETE"}
+                disabled={deleteKeyword !== "DELETE" || isLoggingOut}
                 onClick={() => {
-                  setIsDeleteModalOpen(false);
+                  setIsLoggingOut(true);
+                  // Optional: if we had a dedicated delete user action, we'd call it here.
+                  // For now, it just calls onSignOut as a stub.
                   onSignOut();
                 }}
               >
-                Confirm delete
+                {isLoggingOut ? "Signing out..." : "Confirm delete"}
               </Button>
               <Button
                 variant="outline"

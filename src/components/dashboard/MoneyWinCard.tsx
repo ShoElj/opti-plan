@@ -6,12 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface MoneyWinCardProps {
   onDismiss?: () => void;
+  insightMessage?: string;
 }
 
-export const MoneyWinCard: React.FC<MoneyWinCardProps> = ({ onDismiss }) => {
+export const MoneyWinCard: React.FC<MoneyWinCardProps> = ({ onDismiss, insightMessage }) => {
   const [dismissed, setDismissed] = useState(false);
 
-  if (dismissed) return null;
+  if (dismissed || !insightMessage) return null;
 
   return (
     <AnimatePresence>
@@ -32,7 +33,7 @@ export const MoneyWinCard: React.FC<MoneyWinCardProps> = ({ onDismiss }) => {
                 Money Win
               </span>
               <p className="text-xs font-medium text-foreground mt-0.5 leading-snug">
-                You spent 12% less on transport than your recent average.
+                {insightMessage}
               </p>
             </div>
           </div>

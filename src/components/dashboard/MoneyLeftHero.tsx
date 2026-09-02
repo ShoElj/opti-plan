@@ -3,6 +3,7 @@
 import React from "react";
 import { Wallet, Sparkles } from "lucide-react";
 import { AppCard } from "@/components/shared/AppCard";
+import { Progress } from "@/components/ui/progress";
 
 interface MoneyLeftHeroProps {
   userName: string;
@@ -69,7 +70,10 @@ export const MoneyLeftHero: React.FC<MoneyLeftHeroProps> = ({
         {/* Primary Monetary Number Display with Responsive Font Scaling */}
         <div className="my-1 relative z-10 overflow-hidden">
           <div className="flex items-baseline space-x-1 min-w-0 flex-wrap">
-            <span className="text-2xl sm:text-3xl font-semibold text-emerald-200 shrink-0">
+            <span 
+              className="text-2xl sm:text-3xl font-semibold text-emerald-200 shrink-0"
+              style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontFeatureSettings: 'normal' }}
+            >
               {currencySymbol}
             </span>
             <span
@@ -79,11 +83,17 @@ export const MoneyLeftHero: React.FC<MoneyLeftHeroProps> = ({
               {formattedAmount}
             </span>
           </div>
-          <div className="flex flex-wrap items-center justify-between mt-2 pt-2 border-t border-white/15 text-xs text-emerald-100/90 font-medium gap-1">
-            <span>{isNegative ? "Spending exceeds logged income" : "Available this month"}</span>
-            <span className="font-semibold text-white">
-              {currencySymbol}{planRemaining.toLocaleString()} remaining before plan limit
-            </span>
+          <div className="mt-4 pt-3 border-t border-white/15">
+            <div className="flex flex-wrap items-center justify-between text-xs text-emerald-100/90 font-medium gap-1 mb-2">
+              <span>{isNegative ? "Spending exceeds logged income" : "Monthly spending plan"}</span>
+              <span className="font-semibold text-white">
+                {currencySymbol}{planRemaining.toLocaleString()} remaining
+              </span>
+            </div>
+            <Progress 
+              value={Math.min(100, (totalExpenses / spendingLimit) * 100)} 
+              className="h-2 bg-black/20 [&>div]:bg-white" 
+            />
           </div>
         </div>
       </AppCard>

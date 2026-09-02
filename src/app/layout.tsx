@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Preloader } from "@/components/layout/Preloader";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Opti-Plan   Universal Money Planner",
-  description: "Subscription-based personal money planning web app & PWA.",
+  title: "Opti-Plan | Universal Money Planner",
+  description: "A smart personal finance tracker and budgeting app. Track spending and savings, manage bills, and always know your 'Money Left' to spend with confidence.",
 };
 
 export default function RootLayout({
@@ -13,10 +14,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-        <Preloader />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Preloader />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

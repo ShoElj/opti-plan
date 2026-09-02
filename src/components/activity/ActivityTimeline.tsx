@@ -137,69 +137,103 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
           <p className="text-xs font-semibold text-foreground">No transactions found</p>
         </AppCard>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-4">
           <SectionHeader title="Recent transactions" />
-          <AppCard level={2} className="p-0 overflow-hidden divide-y divide-border/20">
-            {filtered.map((tx) => {
-              const isInflow = tx.type === "inflow";
-              const isSavings = tx.classification === "savings";
-              const isDebt = tx.classification === "debt";
+          
+          {(() => {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const oneWeekAgo = new Date(today);
+            oneWeekAgo.setDate(today.getDate() - 7);
+            
+            const groups: { label: string; items: typeof filtered }[] = [
+              { label: "Today", items: [] },
+              { label: "This Week", items: [] },
+              { label: "Earlier", items: [] }
+            ];
+            
+            filtered.forEach(tx => {
+              const txDate = new Date(tx.date);
+              txDate.setHours(0, 0, 0, 0);
+              
+              if (txDate.getTime() === today.getTime()) {
+                groups[0].items.push(tx);
+              } else if (txDate > oneWeekAgo) {
+                groups[1].items.push(tx);
+              } else {
+                groups[2].items.push(tx);
+              }
+            });
+            
+            return groups.filter(g => g.items.length > 0).map((group, gIdx) => (
+              <div key={group.label} className="space-y-2">
+                <h4 className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider px-1">
+                  {group.label}
+                </h4>
+                <AppCard level={2} className="p-0 overflow-hidden divide-y divide-border/20">
+                  {group.items.map((tx) => {
+                    const isInflow = tx.type === "inflow";
+                    const isSavings = tx.classification === "savings";
+                    const isDebt = tx.classification === "debt";
 
-              return (
-                <motion.div
-                  key={tx.id}
-                  whileHover={{ backgroundColor: "rgba(255,255,255,0.03)" }}
-                  onClick={() => setSelectedTransaction(tx)}
-                  className="p-3.5 transition-colors cursor-pointer flex items-center justify-between"
-                >
-                  <div className="flex items-center space-x-3">
-                    <div
-                      className={`p-2 rounded-xl ${
-                        isInflow
-                          ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                          : isSavings
-                          ? "bg-blue-500/10 text-blue-600 dark:text-blue-400"
-                          : isDebt
-                          ? "bg-purple-500/10 text-purple-600 dark:text-purple-400"
-                          : "bg-slate-500/10 text-slate-600 dark:text-slate-400"
-                      }`}
-                    >
-                      {isInflow ? (
-                        <ArrowDownLeft className="w-4 h-4" />
-                      ) : isSavings ? (
-                        <PiggyBank className="w-4 h-4" />
-                      ) : isDebt ? (
-                        <CreditCard className="w-4 h-4" />
-                      ) : (
-                        <ArrowUpRight className="w-4 h-4" />
-                      )}
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-foreground">{tx.category}</h4>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">
-                        {tx.date} {tx.note ? `• ${tx.note}` : ""}
-                      </p>
-                    </div>
-                  </div>
+                    return (
+                      <motion.div
+                        key={tx.id}
+                        whileHover={{ backgroundColor: "rgba(255,255,255,0.03)" }}
+                        onClick={() => setSelectedTransaction(tx)}
+                        className="p-3.5 transition-colors cursor-pointer flex items-center justify-between"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div
+                            className={`p-2 rounded-xl ${
+                              isInflow
+                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                                : isSavings
+                                ? "bg-blue-500/10 text-blue-600 dark:text-blue-400"
+                                : isDebt
+                                ? "bg-purple-500/10 text-purple-600 dark:text-purple-400"
+                                : "bg-slate-500/10 text-slate-600 dark:text-slate-400"
+                            }`}
+                          >
+                            {isInflow ? (
+                              <ArrowDownLeft className="w-4 h-4" />
+                            ) : isSavings ? (
+                              <PiggyBank className="w-4 h-4" />
+                            ) : isDebt ? (
+                              <CreditCard className="w-4 h-4" />
+                            ) : (
+                              <ArrowUpRight className="w-4 h-4" />
+                            )}
+                          </div>
+                          <div>
+                            <h4 className="text-xs font-bold text-foreground">{tx.category}</h4>
+                            <p className="text-[11px] text-muted-foreground mt-0.5">
+                              {tx.date} {tx.note ? `• ${tx.note}` : ""}
+                            </p>
+                          </div>
+                        </div>
 
-                  <div className="text-right">
-                    <span
-                      className={`text-xs font-bold tracking-tight ${
-                        isInflow ? "text-emerald-600 dark:text-emerald-400" : "text-foreground"
-                      }`}
-                    >
-                      {isInflow ? "+" : "-"}
-                      {currencySymbol}
-                      {tx.amount.toLocaleString()}
-                    </span>
-                    <span className="text-[10px] text-muted-foreground block capitalize mt-0.5">
-                      {tx.classification}
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AppCard>
+                        <div className="text-right">
+                          <span
+                            className={`text-xs font-bold tracking-tight ${
+                              isInflow ? "text-emerald-600 dark:text-emerald-400" : "text-foreground"
+                            }`}
+                          >
+                            {isInflow ? "+" : "-"}
+                            {currencySymbol}
+                            {tx.amount.toLocaleString()}
+                          </span>
+                          <span className="text-[10px] text-muted-foreground block capitalize mt-0.5">
+                            {tx.classification}
+                          </span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </AppCard>
+              </div>
+            ));
+          })()}
         </div>
       )}
 

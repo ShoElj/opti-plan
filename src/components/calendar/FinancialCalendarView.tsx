@@ -100,8 +100,16 @@ export const FinancialCalendarView: React.FC<FinancialCalendarViewProps> = ({
       {/* Events List */}
       <div className="space-y-2">
         {selectedEvents.length === 0 ? (
-          <div className="p-8 text-center rounded-2xl bg-card border border-border/40 text-xs text-muted-foreground">
-            No financial events recorded for this period.
+          <div className="p-8 text-center rounded-2xl bg-card border border-border/40 space-y-3">
+            <div className="p-3 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 w-12 h-12 mx-auto flex items-center justify-center">
+              <CalendarIcon className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-foreground">No financial events</p>
+              <p className="text-xs text-muted-foreground mt-0.5 max-w-[250px] mx-auto">
+                Transactions will appear here automatically. You can also add recurring bills from the Plan tab to see them projected on your calendar.
+              </p>
+            </div>
           </div>
         ) : (
           selectedEvents.map((evt) => (

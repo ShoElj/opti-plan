@@ -73,8 +73,22 @@ export const BillsSection: React.FC<BillsSectionProps> = ({
 
       {/* Bills List */}
       <div className="space-y-2">
-        {bills.map((bill) => {
-          const isPaid = bill.status === "paid";
+        {bills.length === 0 ? (
+          <AppCard level={2} className="flex flex-col items-center justify-center p-8 text-center space-y-3">
+            <div className="p-3 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+              <Clock className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-foreground">No upcoming bills</p>
+              <p className="text-xs text-muted-foreground mt-0.5 max-w-[250px] mx-auto">Track recurring payments so you never miss a due date. Let Opti-Plan remind you.</p>
+            </div>
+            <Button variant="outline" size="sm" onClick={() => setIsCreateOpen(true)} className="text-xs mt-2">
+              <Plus className="w-4 h-4 mr-1" /> Add a bill
+            </Button>
+          </AppCard>
+        ) : (
+          bills.map((bill) => {
+            const isPaid = bill.status === "paid";
           const amountMajor = bill.amount / 100;
 
           return (
@@ -131,7 +145,8 @@ export const BillsSection: React.FC<BillsSectionProps> = ({
               </div>
             </AppCard>
           );
-        })}
+        })
+      )}
       </div>
 
       {/* Create Bill Modal */}

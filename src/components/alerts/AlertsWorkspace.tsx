@@ -102,9 +102,14 @@ export const AlertsWorkspace: React.FC<AlertsWorkspaceProps> = ({
       {/* Alert Items List */}
       <div className="space-y-2">
         {filteredAlerts.length === 0 ? (
-          <div className="p-8 text-center rounded-2xl bg-card border border-border/40 text-xs text-muted-foreground space-y-2">
-            <Bell className="w-6 h-6 text-muted-foreground mx-auto" />
-            <p>No alerts found for this filter.</p>
+          <div className="p-8 text-center rounded-2xl bg-card border border-border/40 space-y-3">
+            <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-2">
+              <Bell className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            </div>
+            <p className="text-sm font-bold text-foreground">All caught up!</p>
+            <p className="text-xs text-muted-foreground max-w-sm mx-auto">
+              Smart Alerts will appear here when you need to take action. Opti-Plan monitors your activity and will notify you about upcoming bills, exceeding plan limits, or critical cash flow warnings.
+            </p>
           </div>
         ) : (
           filteredAlerts.map((alert) => {

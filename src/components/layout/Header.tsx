@@ -4,13 +4,14 @@ import React from "react";
 import { Moon, Sun, Wifi, WifiOff, Sparkles } from "lucide-react";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
 interface HeaderProps {
   userName: string;
   personaName: string;
   isOffline: boolean;
   onToggleOffline: () => void;
-  isDarkMode: boolean;
-  onToggleDarkMode: () => void;
   onOpenCheckIn: () => void;
 }
 
@@ -19,10 +20,17 @@ export const Header: React.FC<HeaderProps> = ({
   personaName,
   isOffline,
   onToggleOffline,
-  isDarkMode,
-  onToggleDarkMode,
   onOpenCheckIn
 }) => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  const isDark = theme === "dark";
   return (
     <header className="sticky top-0 z-20 w-full bg-background/80 backdrop-blur-xl border-b border-border/30 transition-all">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -70,13 +78,15 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {/* Dark / Light Theme Toggle */}
-          <button
-            onClick={onToggleDarkMode}
-            title="Toggle Light/Dark Theme"
-            className="p-2 rounded-xl bg-muted/60 text-muted-foreground hover:text-foreground transition-all touch-target flex items-center justify-center cursor-pointer"
-          >
-            {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
-          </button>
+          {mounted && (
+            <button
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              title="Toggle Light/Dark Theme"
+              className="p-2 rounded-xl bg-muted/60 text-muted-foreground hover:text-foreground transition-all touch-target flex items-center justify-center cursor-pointer"
+            >
+              {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
+            </button>
+          )}
         </div>
       </div>
 

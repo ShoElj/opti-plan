@@ -77,7 +77,21 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
       />
 
       {/* Goal Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      {goals.length === 0 ? (
+        <AppCard level={2} className="flex flex-col items-center justify-center p-8 text-center space-y-3">
+          <div className="p-3 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400">
+            <Target className="w-6 h-6" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-foreground">No savings goals yet</p>
+            <p className="text-xs text-muted-foreground mt-0.5 max-w-[250px] mx-auto">Set a target to start building your future. Goals help you save with purpose.</p>
+          </div>
+          <Button variant="outline" size="sm" onClick={() => setIsCreateOpen(true)} className="text-xs mt-2">
+            <Plus className="w-4 h-4 mr-1" /> Set a goal
+          </Button>
+        </AppCard>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {goals.map((goal) => {
           const targetMajor = goal.targetAmount / 100;
           const savedMajor = goal.savedAmount / 100;
@@ -136,6 +150,7 @@ export const GoalsSection: React.FC<GoalsSectionProps> = ({
           );
         })}
       </div>
+      )}
 
       {/* Create Goal Modal */}
       {isCreateOpen && (

@@ -39,20 +39,41 @@ export const PaywallSheet: React.FC<PaywallSheetProps> = ({
           </button>
         </div>
 
-        {/* Benefits List */}
-        <div className="space-y-2.5">
-          <p className="text-xs font-semibold text-foreground">
-            Unlock complete personal money planning power:
-          </p>
+        {/* Tier Comparison */}
+        <div className="space-y-4">
+          <div className="grid grid-cols-5 text-[10px] font-bold text-muted-foreground border-b border-border/40 pb-2">
+            <div className="col-span-3">Features</div>
+            <div className="col-span-1 text-center">Free</div>
+            <div className="col-span-1 text-center text-emerald-500">Plus</div>
+          </div>
+          
           {[
-            "Unlimited Savings Targets & Goals",
-            "Custom Category Creation & Insights",
-            "Historical Monthly Check-In Archives",
-            "Cross-Device Cloud Backup & Sync"
-          ].map((b, idx) => (
-            <div key={idx} className="flex items-center space-x-2 text-xs text-foreground">
-              <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>{b}</span>
+            { name: "Monthly Spending Plan", free: true, plus: true },
+            { name: "Activity Timeline", free: true, plus: true },
+            { name: "Smart Alerts", free: true, plus: true },
+            { name: "Custom Categories", free: false, plus: true },
+            { name: "Unlimited Savings Goals", free: false, plus: true },
+            { name: "Cross-Device Sync", free: false, plus: true },
+            { name: "Historical Check-In Archive", free: false, plus: true },
+          ].map((feature, idx) => (
+            <div key={idx} className="grid grid-cols-5 items-center text-xs py-1 border-b border-border/10 last:border-0">
+              <div className="col-span-3 text-foreground font-medium pr-2">
+                {feature.name}
+              </div>
+              <div className="col-span-1 flex justify-center">
+                {feature.free ? (
+                  <CheckCircle className="w-3.5 h-3.5 text-muted-foreground/60" />
+                ) : (
+                  <X className="w-3.5 h-3.5 text-muted-foreground/30" />
+                )}
+              </div>
+              <div className="col-span-1 flex justify-center">
+                {feature.plus ? (
+                  <CheckCircle className="w-4 h-4 text-emerald-500" />
+                ) : (
+                  <X className="w-4 h-4 text-emerald-500/30" />
+                )}
+              </div>
             </div>
           ))}
         </div>
